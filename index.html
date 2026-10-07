@@ -309,9 +309,10 @@ body.is-scrolled .burger { background: var(--paper); border-color: var(--line-st
 @keyframes in-seal  { 0% { transform: scale(0) rotate(-45deg); } 65% { transform: scale(1.35) rotate(6deg); } 100% { transform: none; } }
 @keyframes in-em    { from { opacity: .3; filter: blur(5px); } to { opacity: 1; filter: none; } }
 
-/* Revelado al hacer scroll (solo si hay JS) */
-.js .reveal { opacity: 0; transform: translateY(24px); transition: opacity .9s var(--ease-out), transform .9s var(--ease-out); transition-delay: var(--rd, 0s); }
-.js .reveal.is-visible { opacity: 1; transform: none; }
+/* Revelado al hacer scroll: el contenido siempre es visible en reposo;
+   la animación arranca justo antes de que el bloque entre a la pantalla */
+.reveal.is-visible { animation: rise .9s var(--ease-out) var(--rd, 0s) both; }
+@keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
 
 /* =====================================================================
    SECCIONES CLARAS
@@ -401,7 +402,7 @@ body.is-scrolled .burger { background: var(--paper); border-color: var(--line-st
 .method { margin-top: clamp(56px, 7vw, 96px); position: relative; }
 .method-line { position: relative; height: 1px; background: var(--line-dark-strong); }
 .method-line .dot { position: absolute; top: 50%; width: 9px; height: 9px; border-radius: 50%; background: var(--seal); transform: translate(-50%, -50%); left: 0; transition: left 2.4s var(--ease-out); }
-.method.is-visible .method-line .dot { left: 100%; }
+.method.is-visible .method-line .dot, .method.is-done .method-line .dot { left: 100%; }
 .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
 .step { padding: 30px 28px 0 0; position: relative; }
 .step + .step { padding-left: 28px; border-left: 1px solid var(--line-dark); }
@@ -588,7 +589,6 @@ body.menu-open .mobile-cta { transform: translateY(140%); }
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
   .appear, .hero-media, .hero h1 em, .badge-seal { opacity: 1 !important; transform: none !important; clip-path: none !important; filter: none !important; }
-  .js .reveal { opacity: 1; transform: none; }
   .method .method-line .dot { left: 33.333%; }
 }
 </style>
@@ -1072,10 +1072,7 @@ body.menu-open .mobile-cta { transform: translateY(140%); }
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
   window.matchMedia('(min-width: 901px)').addEventListener('change', function (e) { if (e.matches) setMenu(false); });
 
-  if (!('IntersectionObserver' in window)) {
-    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-visible'); });
-    return;
-  }
+  if (!('IntersectionObserver' in window)) return;
 
   /* Header: oscuro sobre el hero, claro al bajar */
   var hero = document.getElementById('top');
@@ -1092,12 +1089,18 @@ body.menu-open .mobile-cta { transform: translateY(140%); }
   new IntersectionObserver(function (e) { atClosing = e[0].isIntersecting; updateMobile(); }, { threshold: 0.15 }).observe(closing);
 
   /* Revelado suave de secciones */
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (en) {
-      if (en.isIntersecting) { en.target.classList.add('is-visible'); io.unobserve(en.target); }
+  /* Solo animan los bloques que todavía están abajo de la pantalla al cargar */
+  if (!reduce) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('is-visible'); io.unobserve(en.target); }
+      });
+    }, { rootMargin: '0px 0px 12% 0px', threshold: 0 });
+    var vh = window.innerHeight;
+    document.querySelectorAll('.reveal').forEach(function (el) {
+      if (el.getBoundingClientRect().top > vh * 1.12) io.observe(el); else el.classList.add('is-done');
     });
-  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+  }
 })();
 </script>
 </body>
