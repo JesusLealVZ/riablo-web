@@ -1,0 +1,1104 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Riablo Studio · Estudio de diseño y tecnología en Querétaro</title>
+<meta name="description" content="Revisamos cómo te encuentran, cómo atiendes y cómo das seguimiento a tus clientes. Te decimos qué mejorar primero y lo hacemos funcionar. Diagnóstico sin costo.">
+<link rel="canonical" href="https://riablostudio.com/">
+<meta name="theme-color" content="#0E0E0E">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_MX">
+<meta property="og:site_name" content="Riablo Studio">
+<meta property="og:title" content="Riablo Studio · Diseño y tecnología con colmillo">
+<meta property="og:description" content="Sabes que algo tiene que cambiar. Nosotros sabemos qué. Diagnóstico sin costo para tu negocio.">
+<meta property="og:url" content="https://riablostudio.com/">
+<meta property="og:image" content="https://riablostudio.com/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Michroma&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/hero-poster.jpg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Riablo Studio",
+  "description": "Estudio de diseño y tecnología para pequeñas y medianas empresas.",
+  "url": "https://riablostudio.com/",
+  "logo": "https://riablostudio.com/assets/riablo-logo-positivo.png",
+  "image": "https://riablostudio.com/assets/og-image.png",
+  "telephone": "+52 55 8635 3618",
+  "email": "jj.lealv@gmail.com",
+  "address": { "@type": "PostalAddress", "addressLocality": "Querétaro", "addressRegion": "Qro.", "addressCountry": "MX" },
+  "areaServed": "Querétaro, México",
+  "sameAs": ["https://instagram.com/riablo.studio"]
+}
+</script>
+
+<style>
+/* Nunca un destello blanco antes de pintar el hero */
+html, body { background: #0E0E0E; color: #ffffff; }
+
+:root {
+  /* Paleta del manual: blanco domina, negro sostiene, rojo sella */
+  --seal: #F50808;
+  --ink: #0E0E0E;
+  --stone: #5C5C5C;
+  --mist: #F2F2F2;
+  --paper: #FFFFFF;
+
+  /* Derivados para contraste (todos AA o mejor) */
+  --on-dark: #FFFFFF;
+  --on-dark-2: #C4C4C4;   /* 11.1:1 sobre tinta */
+  --on-dark-3: #9C9C9C;   /* 7.0:1 sobre tinta  */
+  --line-dark: rgba(255,255,255,.16);
+  --line-dark-strong: rgba(255,255,255,.32);
+  --line: #E2E2E2;
+  --line-strong: rgba(14,14,14,.22);
+
+  --f-text: "Outfit", Arial, system-ui, sans-serif;
+  --f-impact: "Michroma", "Arial Black", Arial, sans-serif;
+  --f-accent: "Instrument Serif", Georgia, "Times New Roman", serif;
+
+  --gutter: clamp(20px, 5vw, 72px);
+  --max: 1320px;
+  --header-h: 76px;
+  --section-y: clamp(96px, 12vw, 168px);
+  --radius: 4px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 8px); -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--f-text);
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  position: relative;
+}
+img, video, svg { display: block; max-width: 100%; }
+img { height: auto; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; font-size: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+ul, ol { list-style: none; }
+.nowrap { white-space: nowrap; }
+strong { font-weight: 500; }
+
+:focus-visible { outline: 2px solid var(--seal); outline-offset: 3px; border-radius: 2px; }
+
+.skip {
+  position: absolute; left: 16px; top: -60px; z-index: 200;
+  background: var(--paper); color: var(--ink); padding: 10px 16px; border-radius: var(--radius); font-weight: 500;
+}
+.skip:focus { top: 12px; }
+
+.wrap { width: 100%; max-width: var(--max); margin-inline: auto; padding-inline: var(--gutter); }
+
+/* ---------- Grano: textura de papel/película sobre toda la página ---------- */
+.grain {
+  position: fixed; inset: -50%; z-index: 100; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: .05;
+  mix-blend-mode: multiply;
+}
+
+/* ---------- Tipografía de sistema ---------- */
+.label {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--f-text); font-weight: 500; font-size: 12px;
+  letter-spacing: .3em; text-transform: uppercase; line-height: 1.2;
+}
+.label::before { content: ""; width: 8px; height: 8px; background: var(--seal); flex: none; }
+.label--plain::before { display: none; }
+
+.h2 {
+  font-family: var(--f-impact); font-weight: 400;
+  font-size: clamp(25px, 2.55vw, 42px);
+  line-height: 1.16; letter-spacing: -0.01em;
+  margin-top: 22px; max-width: 18ch;
+  text-wrap: balance;
+}
+.h2 em, .hero h1 em {
+  font-family: var(--f-accent); font-style: italic; font-weight: 400;
+  font-size: 1.2em; letter-spacing: 0; line-height: 1;
+}
+.lead { font-size: clamp(17px, 1.3vw, 19px); line-height: 1.6; max-width: 54ch; margin-top: 22px; }
+
+/* ---------- Botones ---------- */
+.btn {
+  position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  height: 48px; padding: 0 22px; border-radius: var(--radius);
+  font-family: var(--f-text); font-size: 15px; font-weight: 500; letter-spacing: 0; line-height: 1;
+  white-space: nowrap; cursor: pointer; border: 1px solid transparent;
+  transition: background-color .3s ease, color .3s ease, border-color .3s ease, transform .3s var(--ease-out);
+}
+.btn svg { width: 18px; height: 18px; flex: none; }
+.btn .arrow { transition: transform .35s var(--ease-out); }
+.btn:hover .arrow { transform: translateX(4px); }
+.btn:active { transform: translateY(1px); }
+
+.btn--light { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+.btn--light:hover { background: var(--mist); border-color: var(--mist); }
+.btn--ghost-dark { background: rgba(14,14,14,.35); color: var(--on-dark); border-color: var(--line-dark-strong); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
+.btn--ghost-dark:hover { border-color: var(--on-dark); background: rgba(255,255,255,.06); }
+.btn--ink { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.btn--ink:hover { background: #2A2A2A; border-color: #2A2A2A; }
+.btn--ghost { background: transparent; color: var(--ink); border-color: var(--line-strong); }
+.btn--ghost:hover { border-color: var(--ink); }
+
+.text-link {
+  display: inline-flex; align-items: center; gap: 8px; font-weight: 500;
+  border-bottom: 1px solid currentColor; padding-bottom: 2px;
+}
+.text-link .arrow { width: 16px; height: 16px; transition: transform .35s var(--ease-out); }
+.text-link:hover .arrow { transform: translateX(4px); }
+
+/* =====================================================================
+   HEADER — rejilla de 3 columnas, oscuro sobre el hero y claro al bajar
+   ===================================================================== */
+.header {
+  position: fixed; inset: 0 0 auto 0; z-index: 50;
+  height: var(--header-h);
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px;
+  padding: 0 var(--gutter);
+  padding-top: env(safe-area-inset-top);
+  transition: background-color .4s ease, border-color .4s ease, color .4s ease;
+  border-bottom: 1px solid transparent;
+  color: var(--on-dark);
+}
+.logo { position: relative; justify-self: start; display: block; width: 132px; }
+.logo img { width: 132px; height: auto; transition: opacity .35s ease; }
+.logo .logo-pos { position: absolute; inset: 0; opacity: 0; }
+
+.nav { display: flex; align-items: center; gap: 6px; justify-self: center; }
+.nav a {
+  display: inline-flex; align-items: center; height: 38px; padding: 0 16px;
+  border: 1px solid var(--line-dark); border-radius: var(--radius);
+  background: rgba(14,14,14,.32); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  font-size: 14px; font-weight: 400; white-space: nowrap;
+  transition: background-color .3s ease, color .3s ease, border-color .3s ease;
+}
+.nav a:hover { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+.nav .nav-cta { display: none; }
+
+.header-cta { justify-self: end; height: 40px; padding: 0 16px; font-size: 14px; }
+
+.burger {
+  display: none; justify-self: end; width: 44px; height: 44px; border-radius: var(--radius);
+  border: 1px solid var(--line-dark-strong); background: rgba(14,14,14,.45);
+  place-items: center; position: relative; z-index: 80;
+}
+.burger span { display: block; width: 18px; height: 1.5px; background: currentColor; border-radius: 1px; transition: transform .25s ease, opacity .2s ease; }
+.burger span + span { margin-top: 5px; }
+.burger .bars { display: grid; }
+
+/* Estado claro: al salir del hero */
+body.is-scrolled .header {
+  background: var(--paper);
+  border-color: var(--line); color: var(--ink);
+}
+body.is-scrolled .logo .logo-neg { opacity: 0; }
+body.is-scrolled .logo .logo-pos { opacity: 1; }
+body.is-scrolled .nav a { background: transparent; border-color: var(--line); color: var(--ink); -webkit-backdrop-filter: none; backdrop-filter: none; }
+body.is-scrolled .nav a:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+body.is-scrolled .header-cta { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+body.is-scrolled .header-cta:hover { background: #2A2A2A; }
+body.is-scrolled .burger { background: var(--paper); border-color: var(--line-strong); }
+
+.menu-backdrop { display: none; }
+
+/* =====================================================================
+   HERO — una sola pantalla, video en blanco y negro, copy abajo a la izquierda
+   ===================================================================== */
+.hero {
+  position: relative; min-height: 100vh; min-height: 100svh;
+  display: grid; grid-template-rows: 1fr auto;
+  background: var(--ink); color: var(--on-dark); overflow: hidden; isolation: isolate;
+}
+.hero-media { position: absolute; inset: 0; z-index: -2; }
+.hero-media video, .hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 42%; }
+/* Velo solo donde vive el texto: el video queda al 100% arriba */
+.hero::after {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    linear-gradient(to top, rgba(14,14,14,.94) 0%, rgba(14,14,14,.78) 26%, rgba(14,14,14,.18) 58%, rgba(14,14,14,0) 72%),
+    linear-gradient(to right, rgba(14,14,14,.55) 0%, rgba(14,14,14,0) 55%),
+    linear-gradient(to bottom, rgba(14,14,14,.55) 0%, rgba(14,14,14,0) 18%);
+}
+
+.hero-body {
+  display: flex; align-items: flex-end;
+  padding: calc(var(--header-h) + 24px) var(--gutter) clamp(40px, 6vh, 72px);
+  width: 100%; max-width: var(--max); margin-inline: auto;
+}
+.hero-copy { max-width: 1000px; }
+.hero .lede, .hero-actions, .hero-note { max-width: 560px; }
+
+.badge {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 9px 14px; border: 1px solid var(--line-dark-strong); border-radius: var(--radius);
+  background: rgba(14,14,14,.4); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  font-size: 12px; font-weight: 500; letter-spacing: .3em; text-transform: uppercase; color: var(--on-dark);
+  margin-bottom: 26px;
+}
+.badge-seal { width: 8px; height: 8px; background: var(--seal); flex: none; }
+
+.hero h1 {
+  font-family: var(--f-impact); font-weight: 400;
+  font-size: clamp(27px, 3.05vw, 54px);
+  line-height: 1.14; letter-spacing: -0.01em;
+  display: flex; flex-direction: column;
+}
+.headline-line { display: block; overflow: hidden; padding: .04em 0 .12em; }
+.headline-line > span { display: block; }
+.hero h1 em { color: var(--on-dark-2); }
+
+.hero .lede { margin-top: 22px; max-width: 540px; font-size: clamp(16.5px, 1.25vw, 19px); line-height: 1.6; color: var(--on-dark-2); font-weight: 300; }
+
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+.hero-note { margin-top: 16px; font-size: 13.5px; color: var(--on-dark-3); letter-spacing: .01em; }
+
+/* Línea de horizonte + compromisos (reemplaza las cifras del prompt: aún no hay cifras reales) */
+.hero-foot { width: 100%; max-width: var(--max); margin-inline: auto; padding: 0 var(--gutter) max(28px, env(safe-area-inset-bottom)); }
+.horizon { position: relative; height: 1px; background: var(--line-dark); }
+.horizon::after { content: ""; position: absolute; left: 33.333%; top: 50%; width: 7px; height: 7px; background: var(--seal); border-radius: 50%; transform: translate(-50%, -50%); }
+.promises { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding-top: 22px; }
+.promise { display: flex; align-items: center; gap: 14px; font-size: 14.5px; color: var(--on-dark); }
+.promise svg { width: 20px; height: 20px; flex: none; color: var(--on-dark-2); }
+.promise span { color: var(--on-dark-2); }
+.promise b { font-weight: 500; color: var(--on-dark); }
+
+/* ---------- Entrada (lenguaje de movimiento del prompt) ---------- */
+.appear {
+  animation-duration: 1.05s; animation-fill-mode: both;
+  animation-timing-function: var(--ease-out);
+  animation-delay: var(--d, .08s);
+}
+.appear--scale { animation-name: in-scale; }
+.appear--soft  { animation-name: in-soft; }
+.appear--mask  { animation-name: in-mask; }
+.appear--pop   { animation-name: in-pop; }
+.appear--btn   { animation-name: in-btn; }
+.appear--side  { animation-name: in-side; }
+.appear--stat  { animation-name: in-stat; }
+.appear--media { animation-name: in-media; animation-duration: 1.8s; }
+.appear.is-in, .hero-media.is-in { animation: none; opacity: 1; transform: none; clip-path: none; filter: none; }
+.badge-seal { animation: in-seal .9s var(--ease-out) .3s both; }
+.hero h1 em { display: inline-block; animation: in-em 1.2s var(--ease-out) .78s both; }
+
+@keyframes in-scale { from { opacity: 0; transform: scale(.88); } to { opacity: 1; transform: none; } }
+@keyframes in-soft  { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes in-mask  { from { opacity: 0; transform: translateY(42%); } to { opacity: 1; transform: none; } }
+@keyframes in-pop   { 0% { opacity: 0; transform: scale(.9); } 70% { opacity: 1; transform: scale(1.03); } 100% { opacity: 1; transform: none; } }
+@keyframes in-btn   { from { opacity: 0; transform: translateY(18px) scale(.95); } to { opacity: 1; transform: none; } }
+@keyframes in-side  { from { opacity: 0; transform: translateX(22px); } to { opacity: 1; transform: none; } }
+@keyframes in-stat  { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+@keyframes in-media { from { opacity: 0; transform: scale(1.06); } to { opacity: 1; transform: none; } }
+@keyframes in-seal  { 0% { transform: scale(0) rotate(-45deg); } 65% { transform: scale(1.35) rotate(6deg); } 100% { transform: none; } }
+@keyframes in-em    { from { opacity: .3; filter: blur(5px); } to { opacity: 1; filter: none; } }
+
+/* Revelado al hacer scroll (solo si hay JS) */
+.js .reveal { opacity: 0; transform: translateY(24px); transition: opacity .9s var(--ease-out), transform .9s var(--ease-out); transition-delay: var(--rd, 0s); }
+.js .reveal.is-visible { opacity: 1; transform: none; }
+
+/* =====================================================================
+   SECCIONES CLARAS
+   ===================================================================== */
+.section { position: relative; padding-block: var(--section-y); background: var(--paper); color: var(--ink); }
+.section--mist { background: var(--mist); }
+.section--ink { background: var(--ink); color: var(--on-dark); }
+.section-head { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(28px, 5vw, 80px); align-items: end; }
+.section-head .lead { color: var(--stone); margin-top: 0; }
+.section--ink .section-head .lead { color: var(--on-dark-2); }
+
+/* 01 · Problemas */
+.pains { margin-top: clamp(48px, 6vw, 80px); display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line-strong); }
+.pain {
+  position: relative; padding: 34px 32px 30px 0; border-bottom: 1px solid var(--line);
+  display: flex; flex-direction: column; min-height: 230px;
+}
+.pain:not(:nth-child(3n+1)) { padding-left: 32px; border-left: 1px solid var(--line); }
+.pain-num { font-size: 13px; font-weight: 500; letter-spacing: .2em; color: var(--stone); }
+.pain h3 { margin-top: 18px; font-size: clamp(19px, 1.5vw, 22px); font-weight: 500; line-height: 1.3; letter-spacing: -0.01em; max-width: 24ch; }
+.pain p { margin-top: 10px; color: var(--stone); font-size: 16px; line-height: 1.55; }
+.pain-fix { margin-top: auto; padding-top: 22px; font-size: 13.5px; font-weight: 500; color: var(--ink); display: inline-flex; gap: 8px; align-items: center; }
+.pain-fix span { color: var(--stone); font-weight: 400; }
+.pain-fix svg { width: 15px; height: 15px; }
+.pain:hover .pain-fix svg { transform: translateX(3px); }
+.pain-fix svg { transition: transform .35s var(--ease-out); }
+
+.pains-cta { margin-top: 44px; display: flex; flex-wrap: wrap; align-items: center; gap: 18px 28px; }
+.pains-cta p { font-size: clamp(18px, 1.5vw, 21px); font-weight: 400; }
+
+/* 02 · Servicios */
+.services { margin-top: clamp(48px, 6vw, 80px); display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
+.service {
+  grid-column: span 6; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: clamp(28px, 3vw, 40px); display: flex; flex-direction: column; min-height: 300px;
+  transition: border-color .3s ease, transform .5s var(--ease-out);
+}
+.service:hover { border-color: var(--line-strong); }
+.service .label { font-size: 11.5px; color: var(--stone); }
+.service .label::before { display: none; }
+.service h3 { margin-top: 18px; font-size: clamp(22px, 1.9vw, 28px); font-weight: 500; line-height: 1.22; letter-spacing: -0.015em; max-width: 20ch; }
+.service p { margin-top: 12px; color: var(--stone); font-size: 16.5px; max-width: 46ch; }
+.tags { margin-top: auto; padding-top: 26px; display: flex; flex-wrap: wrap; gap: 8px; }
+.tags li { font-size: 12.5px; font-weight: 400; padding: 6px 10px; border: 1px solid var(--line); border-radius: 999px; color: var(--stone); background: var(--paper); }
+
+.service--feature {
+  grid-column: 1 / -1; background: var(--ink); color: var(--on-dark); border-color: var(--ink);
+  display: grid; grid-template-columns: 7fr 5fr; gap: clamp(28px, 5vw, 72px); align-items: start; min-height: 0;
+}
+.service--feature .label { color: var(--on-dark-2); }
+.service--feature .label::before { display: inline-block; }
+.service--feature h3 { font-family: var(--f-impact); font-weight: 400; font-size: clamp(24px, 2.2vw, 36px); line-height: 1.18; letter-spacing: -0.01em; max-width: 16ch; }
+.service--feature p { color: var(--on-dark-2); }
+.feature-price { font-family: var(--f-impact); font-size: clamp(20px, 1.6vw, 24px); margin-top: 26px; }
+.feature-price small { display: block; font-family: var(--f-text); font-size: 13.5px; color: var(--on-dark-3); margin-top: 6px; letter-spacing: 0; }
+.checklist { display: grid; gap: 0; border-top: 1px solid var(--line-dark); }
+.checklist li { display: flex; gap: 14px; align-items: flex-start; padding: 16px 0; border-bottom: 1px solid var(--line-dark); font-size: 16px; color: var(--on-dark); }
+.checklist svg { width: 18px; height: 18px; flex: none; margin-top: 3px; color: var(--on-dark-2); }
+.feature-actions { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+
+/* 03 · Paquetes */
+.plans { margin-top: clamp(48px, 6vw, 80px); display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: stretch; }
+.plan {
+  position: relative; border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(28px, 2.6vw, 36px);
+  display: flex; flex-direction: column; background: var(--paper);
+}
+.plan--pick { border: 1.5px solid var(--ink); }
+.plan-tag {
+  position: absolute; top: -12px; left: clamp(28px, 2.6vw, 36px);
+  background: var(--ink); color: var(--paper); font-size: 11px; font-weight: 500; letter-spacing: .24em; text-transform: uppercase; padding: 6px 10px; border-radius: 2px;
+}
+.plan-tag--light { background: var(--paper); color: var(--ink); border: 1px solid var(--ink); }
+.plan h3 { font-family: var(--f-impact); font-weight: 400; font-size: clamp(20px, 1.6vw, 24px); letter-spacing: 0; }
+.plan-for { margin-top: 10px; color: var(--stone); font-size: 16px; min-height: 3.1em; }
+.plan-price { margin-top: 22px; padding-block: 18px; border-block: 1px solid var(--line); }
+.plan-price strong { display: block; font-size: 22px; font-weight: 500; letter-spacing: -0.01em; }
+.plan-price span { display: block; margin-top: 4px; font-size: 14px; color: var(--stone); }
+.plan ul { margin-top: 20px; display: grid; gap: 12px; }
+.plan li { display: flex; gap: 12px; font-size: 15.5px; line-height: 1.45; }
+.plan li svg { width: 17px; height: 17px; flex: none; margin-top: 3px; }
+.plan .btn { margin-top: auto; }
+.plan-spacer { flex: 1; min-height: 28px; }
+.plans-note { margin-top: 28px; display: flex; gap: 14px; align-items: flex-start; color: var(--stone); font-size: 15px; max-width: 80ch; }
+.plans-note svg { width: 18px; height: 18px; flex: none; margin-top: 3px; color: var(--ink); }
+
+/* 04 · Método (sección oscura) */
+.method { margin-top: clamp(56px, 7vw, 96px); position: relative; }
+.method-line { position: relative; height: 1px; background: var(--line-dark-strong); }
+.method-line .dot { position: absolute; top: 50%; width: 9px; height: 9px; border-radius: 50%; background: var(--seal); transform: translate(-50%, -50%); left: 0; transition: left 2.4s var(--ease-out); }
+.method.is-visible .method-line .dot { left: 100%; }
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+.step { padding: 30px 28px 0 0; position: relative; }
+.step + .step { padding-left: 28px; border-left: 1px solid var(--line-dark); }
+.step::before { content: ""; position: absolute; top: -4px; left: 0; width: 7px; height: 7px; border-radius: 50%; background: var(--on-dark); }
+.step + .step::before { left: -4px; }
+.step-num { font-family: var(--f-impact); font-size: 18px; color: var(--on-dark-3); }
+.step h3 { margin-top: 18px; font-family: var(--f-impact); font-weight: 400; font-size: clamp(19px, 1.5vw, 23px); letter-spacing: 0; }
+.step p { margin-top: 12px; color: var(--on-dark-2); font-size: 16px; line-height: 1.55; }
+.step-meta { margin-top: 18px; font-size: 13.5px; color: var(--on-dark); display: flex; align-items: center; gap: 10px; }
+.step-meta svg { width: 16px; height: 16px; color: var(--on-dark-2); }
+.step .tags { padding-top: 18px; margin-top: 0; }
+.step .tags li { background: transparent; border-color: var(--line-dark); color: var(--on-dark-2); }
+
+/* 05 · Por qué Riablo — R monumental recortada por el borde */
+.why { overflow: hidden; }
+.why-r {
+  position: absolute; right: -9%; top: 50%; transform: translateY(-50%);
+  width: min(40vw, 580px); opacity: 1; pointer-events: none; user-select: none;
+}
+.why-grid { position: relative; display: grid; grid-template-columns: 7fr 5fr; gap: 40px; }
+.why-copy .lead { color: var(--stone); }
+.why-copy .lead strong { color: var(--ink); }
+.points { margin-top: clamp(40px, 5vw, 64px); display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; border-top: 1px solid var(--line-strong); max-width: 760px; }
+.point { padding: 26px 28px 26px 0; border-bottom: 1px solid var(--line); }
+.point:nth-child(even) { padding-left: 28px; border-left: 1px solid var(--line); }
+.point h3 { font-size: 18px; font-weight: 500; line-height: 1.35; }
+.point p { margin-top: 8px; font-size: 15.5px; color: var(--stone); line-height: 1.55; }
+
+
+/* 06 · Preguntas */
+.faq-grid { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(28px, 5vw, 80px); }
+.faq-aside p { margin-top: 22px; color: var(--stone); max-width: 34ch; }
+.faq-aside .text-link { margin-top: 22px; }
+.faq { border-top: 1px solid var(--line-strong); }
+.faq details { border-bottom: 1px solid var(--line-strong); }
+.faq summary {
+  list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 24px; align-items: center;
+  padding: 24px 0; font-size: clamp(17px, 1.35vw, 19px); font-weight: 500; line-height: 1.35;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq .plus { position: relative; width: 16px; height: 16px; flex: none; }
+.faq .plus::before, .faq .plus::after { content: ""; position: absolute; left: 0; top: 50%; width: 16px; height: 1.5px; background: var(--ink); transition: transform .35s var(--ease-out); }
+.faq .plus::after { transform: rotate(90deg); }
+.faq details[open] .plus::after { transform: rotate(0deg); }
+.faq .answer { padding: 0 48px 26px 0; color: var(--stone); font-size: 16.5px; max-width: 64ch; }
+
+/* 07 · Cierre con órbita */
+.closing { overflow: hidden; }
+.closing-grid { display: grid; grid-template-columns: 7fr 5fr; gap: clamp(32px, 5vw, 80px); align-items: center; }
+.closing h2 { font-family: var(--f-impact); font-weight: 400; font-size: clamp(27px, 3vw, 50px); line-height: 1.14; letter-spacing: -0.01em; }
+.closing h2 em { font-family: var(--f-accent); font-style: italic; font-size: 1.2em; color: var(--on-dark-2); }
+.closing .lead { color: var(--on-dark-2); }
+.closing-actions { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 12px; }
+.contact-list { margin-top: 34px; display: grid; gap: 10px; font-size: 15.5px; color: var(--on-dark-2); }
+.contact-list a { color: var(--on-dark); border-bottom: 1px solid var(--line-dark-strong); }
+.contact-list a:hover { border-color: var(--on-dark); }
+
+.orbit { position: relative; width: min(100%, 420px); aspect-ratio: 1; justify-self: end; }
+.orbit-ring { position: absolute; inset: 0; border: 1px solid var(--line-dark-strong); border-radius: 50%; }
+.orbit-r { position: absolute; left: 50%; top: 50%; width: 30%; transform: translate(-50%, -50%); }
+.orbit-arm { position: absolute; inset: 0; animation: orbit 24s linear infinite; }
+.orbit-arm::after { content: ""; position: absolute; top: 50%; right: -6px; width: 12px; height: 12px; margin-top: -6px; border-radius: 50%; background: var(--seal); }
+@keyframes orbit { to { transform: rotate(360deg); } }
+
+/* Pie */
+.footer { background: var(--ink); color: var(--on-dark-2); padding: 0 0 calc(32px + env(safe-area-inset-bottom)); }
+.footer-inner { border-top: 1px solid var(--line-dark); padding-top: 48px; display: grid; grid-template-columns: 5fr 3fr 3fr; gap: 32px; }
+.footer img { width: 150px; }
+.footer .descr { margin-top: 18px; font-size: 14px; }
+.footer h4 { font-size: 11.5px; font-weight: 500; letter-spacing: .3em; text-transform: uppercase; color: var(--on-dark-3); margin-bottom: 14px; }
+.footer li + li { margin-top: 8px; }
+.footer a { color: var(--on-dark); font-size: 15px; }
+.footer a:hover { color: var(--on-dark-2); }
+.footer-bottom { margin-top: 48px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 13px; color: var(--on-dark-3); }
+.footer-bottom em { font-family: var(--f-accent); font-size: 16px; color: var(--on-dark-2); }
+
+/* Barra fija de contacto en celular */
+.mobile-cta {
+  position: fixed; left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom)); z-index: 60;
+  display: none; transform: translateY(140%); transition: transform .45s var(--ease-out);
+}
+.mobile-cta .btn { width: 100%; height: 52px; box-shadow: 0 10px 30px rgba(14,14,14,.28); }
+body.show-mobile-cta .mobile-cta { transform: none; }
+body.menu-open .mobile-cta { transform: translateY(140%); }
+
+/* =====================================================================
+   RESPONSIVE
+   ===================================================================== */
+@media (min-width: 1600px) {
+  :root { --max: 1440px; --header-h: 84px; }
+  .logo, .logo img { width: 144px; }
+  .nav a { height: 42px; padding: 0 18px; font-size: 15px; }
+  .header-cta { height: 44px; font-size: 15px; }
+}
+
+@media (max-width: 1180px) {
+  .nav a { padding: 0 12px; font-size: 13.5px; }
+  .pains { grid-template-columns: repeat(2, 1fr); }
+  .pain:not(:nth-child(3n+1)) { padding-left: 0; border-left: 0; }
+  .pain:nth-child(even) { padding-left: 28px; border-left: 1px solid var(--line); }
+  .plans { grid-template-columns: 1fr; max-width: 640px; }
+  .plan-for { min-height: 0; }
+  .steps { grid-template-columns: repeat(2, 1fr); row-gap: 48px; }
+  .step:nth-child(3) { padding-left: 0; border-left: 0; }
+  .step:nth-child(3)::before { left: 0; }
+  .why-r { width: 46vw; right: -14%; opacity: .1; }
+}
+
+@media (min-width: 901px) and (max-height: 760px) {
+  .hero h1 { font-size: clamp(26px, 2.6vw, 40px); }
+  .badge { margin-bottom: 16px; }
+  .hero .lede { margin-top: 14px; }
+  .hero-actions { margin-top: 22px; }
+}
+
+@media (max-width: 900px) {
+  :root { --header-h: 66px; }
+  .header { grid-template-columns: 1fr auto auto; gap: 8px; }
+  .logo, .logo img { width: 124px; }
+  .header-cta { display: none; }
+  .burger { display: grid; }
+
+  .menu-backdrop {
+    display: block; position: fixed; inset: 0; z-index: 40; background: var(--ink);
+    opacity: 0; visibility: hidden; transition: opacity .28s ease, visibility .28s ease, -webkit-backdrop-filter .28s ease, backdrop-filter .28s ease;
+  }
+  .nav {
+    position: fixed; inset: 0; z-index: 45; justify-self: stretch; align-self: stretch; flex-direction: column; justify-content: center; align-items: stretch; gap: 12px;
+    padding: max(96px, calc(env(safe-area-inset-top) + 88px)) 22px 32px;
+    opacity: 0; visibility: hidden; transform: translateY(-8px); transition: opacity .28s ease, visibility .28s ease, transform .28s ease;
+  }
+  .nav a, body.is-scrolled .nav a { height: 58px; justify-content: center; font-size: 19px; border-radius: 6px; background: rgba(14,14,14,.6); color: var(--on-dark); border-color: var(--line-dark-strong); }
+  .nav .nav-cta, body.is-scrolled .nav .nav-cta { display: inline-flex; background: var(--paper); color: var(--ink); border-color: var(--paper); font-weight: 500; }
+  body.menu-open { overflow: hidden; }
+  body.menu-open .menu-backdrop { opacity: 1; visibility: visible; -webkit-backdrop-filter: blur(24px); backdrop-filter: blur(24px); }
+  body.menu-open .nav { opacity: 1; visibility: visible; transform: none; }
+  body.menu-open .header { background: transparent; border-color: transparent; color: var(--on-dark); -webkit-backdrop-filter: none; backdrop-filter: none; }
+  body.menu-open .logo .logo-neg { opacity: 1; }
+  body.menu-open .logo .logo-pos { opacity: 0; }
+  body.menu-open .burger { background: rgba(14,14,14,.45); border-color: var(--line-dark-strong); color: var(--on-dark); }
+  body.menu-open .burger .bars span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  body.menu-open .burger .bars span:nth-child(2) { opacity: 0; }
+  body.menu-open .burger .bars span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+  .logo, .burger { z-index: 80; position: relative; }
+
+  .hero-media video, .hero-media img { object-position: 50% 38%; }
+  .hero::after {
+    background:
+      linear-gradient(to top, rgba(14,14,14,.96) 0%, rgba(14,14,14,.9) 34%, rgba(14,14,14,.72) 62%, rgba(14,14,14,.45) 100%);
+  }
+  .hero h1 { font-size: clamp(25px, 6.4vw, 38px); }
+  .promises { grid-template-columns: 1fr; gap: 12px; padding-top: 18px; }
+
+  .section-head, .faq-grid, .why-grid, .closing-grid { grid-template-columns: 1fr; }
+  .section-head { align-items: start; }
+  .service { grid-column: 1 / -1; min-height: 0; }
+  .service--feature { grid-template-columns: 1fr; }
+  .why-r { display: none; }
+  .orbit { justify-self: start; width: min(78%, 320px); }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+  .footer-inner > :first-child { grid-column: 1 / -1; }
+  .mobile-cta { display: block; }
+  .footer { padding-bottom: calc(96px + env(safe-area-inset-bottom)); }
+}
+
+@media (max-width: 640px) {
+  body { font-size: 16.5px; }
+  .pains { grid-template-columns: 1fr; }
+  .pain, .pain:nth-child(even) { padding: 26px 0; border-left: 0; min-height: 0; }
+  .steps { grid-template-columns: 1fr; row-gap: 40px; }
+  .step, .step + .step { padding: 26px 0 0; border-left: 0; }
+  .step::before, .step + .step::before { left: 0; }
+  .points { grid-template-columns: 1fr; }
+  .point, .point:nth-child(even) { padding: 22px 0; border-left: 0; }
+  .hero-actions { flex-direction: column; }
+  .hero-actions .btn { width: 100%; }
+  .badge { letter-spacing: .2em; font-size: 11px; }
+  .badge-city { display: none; }
+  .faq .answer { padding-right: 0; }
+  .footer-inner { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+  .appear, .hero-media, .hero h1 em, .badge-seal { opacity: 1 !important; transform: none !important; clip-path: none !important; filter: none !important; }
+  .js .reveal { opacity: 1; transform: none; }
+  .method .method-line .dot { left: 33.333%; }
+}
+</style>
+</head>
+<body style="background:#0E0E0E;color:#fff">
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- Íconos reutilizables -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4.5 19.5l1.2-3.6A7.8 7.8 0 1 1 8.6 18.6z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 11.6h6M9 9h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M15 15l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3.5 12.2V4.5a1 1 0 0 1 1-1h7.7l8.3 8.3-8.7 8.7z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="8" cy="8" r="1.4" fill="currentColor"/></symbol>
+  <symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="15" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M11 12l8-8M16 7l2.5 2.5M14 9l2 2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 7.5V12l3 2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 11v5M12 8v.2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+</svg>
+
+<div class="menu-backdrop" aria-hidden="true"></div>
+
+<header class="header">
+  <a class="logo appear appear--scale" style="--d:.08s" href="#top" aria-label="Riablo Studio, ir al inicio">
+    <img class="logo-neg" src="assets/riablo-logo-negativo.png" alt="Riablo Studio" width="640" height="158">
+    <img class="logo-pos" src="assets/riablo-logo-positivo.png" alt="" width="640" height="158" aria-hidden="true">
+  </a>
+
+  <nav class="nav" id="site-nav" aria-label="Principal">
+    <a class="appear appear--scale" style="--d:.16s" href="#problemas">Qué resolvemos</a>
+    <a class="appear appear--soft"  style="--d:.26s" href="#servicios">Servicios</a>
+    <a class="appear appear--scale" style="--d:.36s" href="#paquetes">Paquetes</a>
+    <a class="appear appear--soft"  style="--d:.46s" href="#metodo">Cómo trabajamos</a>
+    <a class="appear appear--scale" style="--d:.56s" href="#preguntas">Preguntas</a>
+    <a class="nav-cta" href="https://wa.me/525586353618?text=Hola%2C%20Riablo%20Studio.%20Me%20gustar%C3%ADa%20agendar%20mi%20diagn%C3%B3stico%20sin%20costo.%20Mi%20negocio%20es%3A%20" target="_blank" rel="noopener">Agenda tu diagnóstico</a>
+  </nav>
+
+  <a class="btn btn--light header-cta appear appear--scale" style="--d:.34s" href="https://wa.me/525586353618?text=Hola%2C%20Riablo%20Studio.%20Me%20gustar%C3%ADa%20agendar%20mi%20diagn%C3%B3stico%20sin%20costo.%20Mi%20negocio%20es%3A%20" target="_blank" rel="noopener">Agenda tu diagnóstico</a>
+
+  <button class="burger appear appear--scale" style="--d:.34s" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Abrir menú">
+    <span class="bars"><span></span><span></span><span></span></span>
+  </button>
+</header>
+
+<main id="contenido">
+
+  <!-- ============================== HERO ============================== -->
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="hero-media appear appear--media" style="--d:0s" aria-hidden="true">
+      <video autoplay muted loop playsinline preload="metadata" poster="assets/hero-poster.jpg">
+        <source src="assets/hero.webm" type="video/webm">
+        <source src="assets/hero.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="hero-body">
+      <div class="hero-copy">
+        <p class="badge appear appear--pop" style="--d:.22s"><span class="badge-seal" aria-hidden="true"></span>Estudio de diseño y tecnología<span class="badge-city"> · Querétaro</span></p>
+
+        <h1 id="hero-title">
+          <span class="headline-line"><span class="appear appear--mask" style="--d:.42s">Sabes que algo tiene que cambiar.</span></span>
+          <span class="headline-line"><span class="appear appear--mask" style="--d:.62s">Nosotros sabemos <span class="nowrap"><em>qué</em>.</span></span></span>
+        </h1>
+
+        <p class="lede appear appear--soft" style="--d:.82s;animation-duration:1.25s">Revisamos cómo te encuentran, cómo atiendes y cómo das seguimiento a tus clientes. Te decimos qué mejorar primero y lo hacemos funcionar.</p>
+
+        <div class="hero-actions">
+          <a class="btn btn--light appear appear--btn" style="--d:.96s" id="hero-cta" href="https://wa.me/525586353618?text=Hola%2C%20Riablo%20Studio.%20Me%20gustar%C3%ADa%20agendar%20mi%20diagn%C3%B3stico%20sin%20costo.%20Mi%20negocio%20es%3A%20" target="_blank" rel="noopener">
+            <svg aria-hidden="true"><use href="#i-chat"/></svg>Agenda tu diagnóstico sin costo
+          </a>
+          <a class="btn btn--ghost-dark appear appear--side" style="--d:1.1s" href="#servicios">Ver servicios<svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+        <p class="hero-note appear appear--soft" style="--d:1.2s">Por WhatsApp · 30 minutos · Sin compromiso</p>
+      </div>
+    </div>
+
+    <div class="hero-foot">
+      <div class="horizon appear appear--soft" style="--d:1.05s" aria-hidden="true"></div>
+      <ul class="promises">
+        <li class="promise appear appear--stat" style="--d:1.12s"><svg aria-hidden="true"><use href="#i-search"/></svg><span><b>Diagnóstico sin costo.</b> Primero entendemos tu negocio.</span></li>
+        <li class="promise appear appear--stat" style="--d:1.28s"><svg aria-hidden="true"><use href="#i-tag"/></svg><span><b>Precio cerrado</b> antes de empezar.</span></li>
+        <li class="promise appear appear--stat" style="--d:1.44s"><svg aria-hidden="true"><use href="#i-key"/></svg><span><b>Todo queda a tu nombre.</b> Sin depender de nadie.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================== 01 · PROBLEMAS ============================== -->
+  <section class="section" id="problemas" aria-labelledby="problemas-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="reveal">
+          <p class="label">01 · Lo que vemos</p>
+          <h2 class="h2" id="problemas-title">Los clientes se pierden en el <em>camino</em>.</h2>
+        </div>
+        <p class="lead reveal" style="--rd:.1s">La mayoría de los negocios no pierde clientes por falta de tecnología. Los pierde en un mensaje sin respuesta o en una cotización sin seguimiento.</p>
+      </div>
+
+      <ul class="pains">
+        <li class="pain reveal">
+          <span class="pain-num">01</span>
+          <h3>Te escriben y nadie contesta a tiempo.</h3>
+          <p>El cliente le pregunta a otro negocio y ya no regresa.</p>
+          <a class="pain-fix" href="#servicio-whatsapp"><span>Lo resolvemos con</span>WhatsApp que responde<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </li>
+        <li class="pain reveal" style="--rd:.06s">
+          <span class="pain-num">02</span>
+          <h3>Te buscan en Google y aparece tu competencia.</h3>
+          <p>Si no estás en Maps o tus datos no coinciden, para muchos no existes.</p>
+          <a class="pain-fix" href="#servicio-web"><span>Lo resolvemos con</span>Sitio web y Google<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </li>
+        <li class="pain reveal" style="--rd:.12s">
+          <span class="pain-num">03</span>
+          <h3>Tu página no dice qué haces ni cómo contactarte.</h3>
+          <p>O no tienes página. El cliente duda unos segundos y se va.</p>
+          <a class="pain-fix" href="#servicio-web"><span>Lo resolvemos con</span>Sitio web<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </li>
+        <li class="pain reveal">
+          <span class="pain-num">04</span>
+          <h3>Las cotizaciones se quedan en el aire.</h3>
+          <p>Nadie da seguimiento y la venta se enfría sin que te enteres.</p>
+          <a class="pain-fix" href="#servicio-crm"><span>Lo resolvemos con</span>Clientes en orden<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </li>
+        <li class="pain reveal" style="--rd:.06s">
+          <span class="pain-num">05</span>
+          <h3>Tus contactos viven en una libreta.</h3>
+          <p>O en el celular de alguien. Si esa persona se va, tus clientes también.</p>
+          <a class="pain-fix" href="#servicio-crm"><span>Lo resolvemos con</span>Clientes en orden<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </li>
+        <li class="pain reveal" style="--rd:.12s">
+          <span class="pain-num">06</span>
+          <h3>Todo depende de que tú estés.</h3>
+          <p>Cada duda pasa por ti y el día no te alcanza para hacer crecer el negocio.</p>
+          <a class="pain-fix" href="#servicio-procesos"><span>Lo resolvemos con</span>Procesos más simples<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </li>
+      </ul>
+
+      <div class="pains-cta reveal">
+        <p>¿Te reconociste en dos o más? Empecemos por ahí.</p>
+        <a class="btn btn--ink" href="https://wa.me/525586353618?text=Hola%2C%20Riablo%20Studio.%20Me%20gustar%C3%ADa%20agendar%20mi%20diagn%C3%B3stico%20sin%20costo.%20Mi%20negocio%20es%3A%20" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-chat"/></svg>Agenda tu diagnóstico</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== 02 · SERVICIOS ============================== -->
+  <section class="section section--mist" id="servicios" aria-labelledby="servicios-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="reveal">
+          <p class="label">02 · Qué hacemos</p>
+          <h2 class="h2" id="servicios-title">Primero entendemos. Después <em>construimos</em>.</h2>
+        </div>
+        <p class="lead reveal" style="--rd:.1s">A veces la respuesta es tecnología; a veces, un mejor proceso. Te recomendamos lo que sirve, no lo que se vende más fácil.</p>
+      </div>
+
+      <div class="services">
+        <article class="service service--feature reveal" id="servicio-diagnostico">
+          <div>
+            <p class="label">Diagnóstico · Empieza aquí</p>
+            <h3>Te decimos qué mejorar primero.</h3>
+            <p>En una sesión de 30 minutos revisamos cómo te encuentran, cómo atiendes y cómo das seguimiento. Después recibes un reporte claro con lo que haríamos primero.</p>
+            <p class="feature-price">Sin costo<small>Sin compromiso. Si no te sirve, no te vendemos nada.</small></p>
+            <div class="feature-actions">
+              <a class="btn btn--light" href="https://wa.me/525586353618?text=Hola%2C%20Riablo%20Studio.%20Me%20gustar%C3%ADa%20agendar%20mi%20diagn%C3%B3stico%20sin%20costo.%20Mi%20negocio%20es%3A%20" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-chat"/></svg>Agenda tu diagnóstico</a>
+            </div>
+          </div>
+          <ul class="checklist" aria-label="Qué incluye el diagnóstico">
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Cómo apareces en Google, Maps y redes.</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Por dónde llegan tus clientes y dónde se pierden.</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Cómo respondes y das seguimiento hoy.</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Reporte con 3 a 5 mejoras en orden de prioridad.</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Una recomendación clara, no diez opciones.</li>
+          </ul>
+        </article>
+
+        <article class="service reveal" id="servicio-web">
+          <p class="label">Sitio web</p>
+          <h3>Que te encuentren y te entiendan.</h3>
+          <p>Un sitio claro y rápido en el celular. Dice qué haces, dónde estás y cómo contactarte, y está listo para aparecer en Google.</p>
+          <ul class="tags" aria-label="Incluye"><li>Diseño UX/UI</li><li>Google Business</li><li>SEO local</li></ul>
+        </article>
+
+        <article class="service reveal" style="--rd:.08s" id="servicio-whatsapp">
+          <p class="label">WhatsApp</p>
+          <h3>Que nadie se quede sin respuesta.</h3>
+          <p>Respuestas automáticas, catálogo y agenda de citas en WhatsApp. Funciona aunque estés ocupado o fuera de horario.</p>
+          <ul class="tags" aria-label="Incluye"><li>Chatbot</li><li>WhatsApp Business</li><li>Agenda de citas</li></ul>
+        </article>
+
+        <article class="service reveal" id="servicio-crm">
+          <p class="label">Clientes en orden</p>
+          <h3>Que ningún cliente se te pierda.</h3>
+          <p>Contactos, cotizaciones y seguimientos en un solo lugar. Sabes en qué va cada venta y a quién llamar hoy.</p>
+          <ul class="tags" aria-label="Incluye"><li>CRM a tu medida</li><li>Seguimiento</li><li>Automatización</li></ul>
+        </article>
+
+        <article class="service reveal" style="--rd:.08s" id="servicio-procesos">
+          <p class="label">Procesos</p>
+          <h3>Que tu operación no dependa de ti.</h3>
+          <p>Mapeamos cómo trabaja tu equipo y quitamos los pasos que sobran. A veces no hace falta una app.</p>
+          <ul class="tags" aria-label="Incluye"><li>Mapeo de procesos</li><li>Consultoría</li><li>Experiencia del cliente</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== 03 · PAQUETES ============================== -->
+  <section class="section" id="paquetes" aria-labelledby="paquetes-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="reveal">
+          <p class="label">03 · Paquetes</p>
+          <h2 class="h2" id="paquetes-title">Precio cerrado. Sin <em>sorpresas</em>.</h2>
+        </div>
+        <p class="lead reveal" style="--rd:.1s">Elige por dónde empezar. Antes de arrancar sabes qué incluye, cuánto cuesta y cuándo lo entregamos.</p>
+      </div>
+
+      <div class="plans">
+        <article class="plan reveal">
+          <span class="plan-tag plan-tag--light">Empieza aquí</span>
+          <h3>Diagnóstico</h3>
+          <p class="plan-for">Para saber qué mejorar primero.</p>
+          <div class="plan-price"><strong>Sin costo</strong><span>Sesión de 30 minutos</span></div>
+          <ul>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Revisión de cómo te encuentran y te contactan</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Reporte con 3 a 5 mejoras priorizadas</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Recomendación de qué hacer primero</li>
+          </ul>
+          <div class="plan-spacer"></div>
+          <a class="btn btn--ghost" href="https://wa.me/525586353618?text=Hola%2C%20Riablo%20Studio.%20Me%20gustar%C3%ADa%20agendar%20mi%20diagn%C3%B3stico%20sin%20costo.%20Mi%20negocio%20es%3A%20" target="_blank" rel="noopener">Agendar diagnóstico<svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </article>
+
+        <article class="plan reveal" style="--rd:.08s">
+          <h3>Presencia</h3>
+          <p class="plan-for">Para resolver un problema urgente.</p>
+          <div class="plan-price"><strong>Precio cerrado</strong><span>Entrega en 1 a 2 semanas</span></div>
+          <ul>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Diagnóstico incluido</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Sitio web de 3 a 5 páginas, o WhatsApp automatizado</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Dominio y cuentas a tu nombre</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Sesión para enseñarte a usarlo</li>
+          </ul>
+          <div class="plan-spacer"></div>
+          <a class="btn btn--ghost" href="https://wa.me/525586353618?text=Hola%2C%20Riablo%20Studio.%20Me%20interesa%20el%20paquete%20Presencia.%20Mi%20negocio%20es%3A%20" target="_blank" rel="noopener">Cotizar Presencia<svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </article>
+
+        <article class="plan plan--pick reveal" style="--rd:.16s">
+          <span class="plan-tag">Recomendado</span>
+          <h3>Operación</h3>
+          <p class="plan-for">Para ordenar todo el frente de una vez.</p>
+          <div class="plan-price"><strong>Precio cerrado</strong><span>Entrega en 2 a 3 semanas</span></div>
+          <ul>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Diagnóstico incluido</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Sitio web o WhatsApp automatizado</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>CRM configurado para tu negocio</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>30 días de ajustes después de entregar</li>
+          </ul>
+          <div class="plan-spacer"></div>
+          <a class="btn btn--ink" href="https://wa.me/525586353618?text=Hola%2C%20Riablo%20Studio.%20Me%20interesa%20el%20paquete%20Operaci%C3%B3n.%20Mi%20negocio%20es%3A%20" target="_blank" rel="noopener">Cotizar Operación<svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </article>
+      </div>
+
+      <p class="plans-note reveal"><svg aria-hidden="true"><use href="#i-info"/></svg><span>Pagas 50% para empezar y 50% al entregar. Si un servicio tiene costo mensual de un proveedor (hosting, WhatsApp, licencias), te lo decimos antes y lo pagas directo, sin sobreprecio.</span></p>
+    </div>
+  </section>
+
+  <!-- ============================== 04 · MÉTODO ============================== -->
+  <section class="section section--ink" id="metodo" aria-labelledby="metodo-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="reveal">
+          <p class="label">04 · Cómo trabajamos</p>
+          <h2 class="h2" id="metodo-title">Cuatro pasos, sin <em>rodeos</em>.</h2>
+        </div>
+        <p class="lead reveal" style="--rd:.1s">Sabes en qué paso vamos y qué sigue. Te acompañamos durante todo el camino, también después de entregar.</p>
+      </div>
+
+      <div class="method reveal" id="method">
+        <div class="method-line" aria-hidden="true"><span class="dot"></span></div>
+        <ol class="steps">
+          <li class="step">
+            <span class="step-num">01</span>
+            <h3>Entendemos</h3>
+            <p>Recorremos tu operación de punta a punta antes de opinar.</p>
+            <p class="step-meta"><svg aria-hidden="true"><use href="#i-clock"/></svg>Sesión de 30 minutos</p>
+            <ul class="tags"><li>Mapeo de procesos</li><li>Diagnóstico de experiencia</li></ul>
+          </li>
+          <li class="step">
+            <span class="step-num">02</span>
+            <h3>Proponemos</h3>
+            <p>Una recomendación clara, con prioridades y razones. Aunque la respuesta no sea tecnología.</p>
+            <p class="step-meta"><svg aria-hidden="true"><use href="#i-clock"/></svg>Propuesta en 1 a 2 días</p>
+            <ul class="tags"><li>Estrategia</li><li>Priorización por impacto</li></ul>
+          </li>
+          <li class="step">
+            <span class="step-num">03</span>
+            <h3>Diseñamos</h3>
+            <p>Cada detalle pensado para tu equipo y para tus clientes. Lo revisamos contigo a mitad del camino.</p>
+            <p class="step-meta"><svg aria-hidden="true"><use href="#i-clock"/></svg>Revisiones contigo</p>
+            <ul class="tags"><li>Diseño de procesos</li><li>UX/UI</li></ul>
+          </li>
+          <li class="step">
+            <span class="step-num">04</span>
+            <h3>Construimos</h3>
+            <p>Lo implementamos, lo medimos y lo ajustamos hasta que funcione. Te enseñamos a usarlo.</p>
+            <p class="step-meta"><svg aria-hidden="true"><use href="#i-clock"/></svg>Entrega en 1 a 3 semanas</p>
+            <ul class="tags"><li>Desarrollo</li><li>Automatización</li><li>Seguimiento</li></ul>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== 05 · POR QUÉ RIABLO ============================== -->
+  <section class="section why" id="nosotros" aria-labelledby="nosotros-title">
+    <img class="why-r" src="assets/riablo-r-tinta.png" alt="" aria-hidden="true" width="1200" height="1052" loading="lazy">
+    <div class="wrap">
+      <div class="why-grid">
+        <div class="why-copy">
+          <div class="reveal">
+            <p class="label">05 · Por qué Riablo</p>
+            <h2 class="h2" id="nosotros-title">Diseño y tecnología con <em>colmillo</em>.</h2>
+            <p class="lead">Colmillo es experiencia. Venimos de diseñar productos digitales para <strong>Ibero, Aeroméxico, OCC y la SEP</strong>. Hoy ponemos ese criterio al servicio de negocios como el tuyo.</p>
+          </div>
+
+          <ul class="points">
+            <li class="point reveal"><h3>Hablamos de tu negocio, no de tecnología.</h3><p>Sin tecnicismos. Si usamos un término, te lo explicamos en la misma frase.</p></li>
+            <li class="point reveal" style="--rd:.06s"><h3>Una recomendación, no diez opciones.</h3><p>Te decimos qué haríamos primero y por qué. Tú decides con claridad.</p></li>
+            <li class="point reveal"><h3>Todo queda a tu nombre.</h3><p>Dominio, cuentas y accesos son tuyos. No dependes de nosotros para nada.</p></li>
+            <li class="point reveal" style="--rd:.06s"><h3>No desaparecemos al entregar.</h3><p>Te enseñamos a usar lo que construimos y seguimos al pendiente.</p></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== 06 · PREGUNTAS ============================== -->
+  <section class="section section--mist" id="preguntas" aria-labelledby="preguntas-title">
+    <div class="wrap faq-grid">
+      <div class="faq-aside reveal">
+        <p class="label">06 · Preguntas</p>
+        <h2 class="h2" id="preguntas-title">Antes de que nos <em>escribas</em>.</h2>
+        <p>¿Tienes otra duda? Pregúntanos directo, con gusto te respondemos.</p>
+        <a class="text-link" href="https://wa.me/525586353618?text=Hola%2C%20Riablo%20Studio.%20Me%20gustar%C3%ADa%20platicar%20sobre%20mi%20negocio." target="_blank" rel="noopener">Escríbenos por WhatsApp<svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+
+      <div class="faq reveal" style="--rd:.08s">
+        <details>
+          <summary>¿De verdad el diagnóstico no cuesta?<span class="plus" aria-hidden="true"></span></summary>
+          <p class="answer">Sí. Es una sesión de 30 minutos, en persona o en línea. Te decimos qué mejoraríamos primero. Si decides no seguir, está bien: el reporte es tuyo.</p>
+        </details>
+        <details>
+          <summary>¿Cuánto cuesta un proyecto?<span class="plus" aria-hidden="true"></span></summary>
+          <p class="answer">Depende de lo que tu negocio necesite. Después del diagnóstico te damos un precio cerrado, por escrito, antes de empezar. Pagas 50% al inicio y 50% al entregar.</p>
+        </details>
+        <details>
+          <summary>¿Cuánto tiempo tarda?<span class="plus" aria-hidden="true"></span></summary>
+          <p class="answer">Entre 1 y 3 semanas, según el paquete. Te damos una fecha realista desde el principio y te mostramos avances a mitad del camino.</p>
+        </details>
+        <details>
+          <summary>No sé nada de tecnología. ¿Es para mí?<span class="plus" aria-hidden="true"></span></summary>
+          <p class="answer">Sí. Ese es nuestro trabajo. Te explicamos todo sin tecnicismos y, al entregar, te enseñamos a usarlo paso a paso.</p>
+        </details>
+        <details>
+          <summary>¿De quién es la página, el dominio y las cuentas?<span class="plus" aria-hidden="true"></span></summary>
+          <p class="answer">Tuyos. Todo queda a nombre de tu negocio, con tus accesos. Así nunca dependes de nosotros.</p>
+        </details>
+        <details>
+          <summary>¿Hay pagos mensuales?<span class="plus" aria-hidden="true"></span></summary>
+          <p class="answer">Algunos servicios los cobra el proveedor cada mes, como el hosting o WhatsApp. Te decimos cuánto antes de empezar y los pagas directo, sin sobreprecio.</p>
+        </details>
+        <details>
+          <summary>¿Trabajan solo en Querétaro?<span class="plus" aria-hidden="true"></span></summary>
+          <p class="answer">Estamos en Querétaro y nos encanta visitar tu negocio. También trabajamos en línea con negocios de otras ciudades.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== 07 · CIERRE ============================== -->
+  <section class="section section--ink closing" id="contacto" aria-labelledby="contacto-title">
+    <div class="wrap closing-grid">
+      <div class="reveal">
+        <p class="label">Diagnóstico sin costo</p>
+        <h2 id="contacto-title" style="margin-top:22px">El diablo está en los detalles. Nosotros <em>también</em>.</h2>
+        <p class="lead">Platícanos de tu negocio. En 30 minutos te decimos qué mejorar primero, sin costo y sin compromiso.</p>
+        <div class="closing-actions">
+          <a class="btn btn--light" id="closing-cta" href="https://wa.me/525586353618?text=Hola%2C%20Riablo%20Studio.%20Me%20gustar%C3%ADa%20agendar%20mi%20diagn%C3%B3stico%20sin%20costo.%20Mi%20negocio%20es%3A%20" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-chat"/></svg>Agenda tu diagnóstico por WhatsApp</a>
+        </div>
+        <ul class="contact-list">
+          <li>WhatsApp: <a href="https://wa.me/525586353618" target="_blank" rel="noopener">+52 55 8635 3618</a></li>
+          <li>Correo: <a href="mailto:jj.lealv@gmail.com">jj.lealv@gmail.com</a></li>
+        </ul>
+      </div>
+      <div class="orbit reveal" style="--rd:.12s" aria-hidden="true">
+        <div class="orbit-ring"></div>
+        <div class="orbit-arm"></div>
+        <img class="orbit-r" src="assets/riablo-r-blanca.png" alt="" width="600" height="526" loading="lazy">
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-inner">
+      <div>
+        <img src="assets/riablo-logo-negativo.png" alt="Riablo Studio" width="640" height="158" loading="lazy">
+        <p class="descr">Estudio de diseño y tecnología. Querétaro, México.</p>
+      </div>
+      <div>
+        <h4>Navega</h4>
+        <ul>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#paquetes">Paquetes</a></li>
+          <li><a href="#metodo">Cómo trabajamos</a></li>
+          <li><a href="#preguntas">Preguntas</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="https://wa.me/525586353618" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="mailto:jj.lealv@gmail.com">jj.lealv@gmail.com</a></li>
+          <li><a href="https://instagram.com/riablo.studio" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Riablo Studio</span>
+      <em>Diseño y tecnología con colmillo.</em>
+    </div>
+  </div>
+</footer>
+
+<div class="mobile-cta" aria-hidden="true">
+  <a class="btn btn--ink" tabindex="-1" href="https://wa.me/525586353618?text=Hola%2C%20Riablo%20Studio.%20Me%20gustar%C3%ADa%20agendar%20mi%20diagn%C3%B3stico%20sin%20costo.%20Mi%20negocio%20es%3A%20" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-chat"/></svg>Agenda tu diagnóstico sin costo</a>
+</div>
+
+<script>
+(function () {
+  var doc = document.documentElement, body = document.body;
+  doc.classList.add('js');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* 1 · Entrada: cada elemento queda fijo al terminar su animación */
+  var appear = document.querySelectorAll('.appear');
+  appear.forEach(function (el) {
+    el.addEventListener('animationend', function () { el.classList.add('is-in'); }, { once: true });
+  });
+  /* 2 · Respaldo: si las animaciones no corren, se muestra todo */
+  requestAnimationFrame(function () { requestAnimationFrame(function () {
+    var running = false;
+    appear.forEach(function (el) {
+      if (el.getAnimations && el.getAnimations().some(function (a) { return a.playState === 'running' || a.playState === 'finished'; })) running = true;
+    });
+    if (!running) appear.forEach(function (el) { el.classList.add('is-in'); });
+  }); });
+
+  /* Video: pausa con movimiento reducido o pestaña oculta */
+  var video = document.querySelector('.hero-media video');
+  if (video) {
+    if (reduce) { video.removeAttribute('autoplay'); video.pause(); }
+    document.addEventListener('visibilitychange', function () {
+      if (reduce) return;
+      if (document.hidden) video.pause(); else video.play().catch(function () {});
+    });
+  }
+
+  /* 3-5 · Menú en celular */
+  var burger = document.querySelector('.burger');
+  var nav = document.getElementById('site-nav');
+  var backdrop = document.querySelector('.menu-backdrop');
+  function setMenu(open) {
+    body.classList.toggle('menu-open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+  }
+  burger.addEventListener('click', function () { setMenu(!body.classList.contains('menu-open')); });
+  nav.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+  backdrop.addEventListener('click', function () { setMenu(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+  window.matchMedia('(min-width: 901px)').addEventListener('change', function (e) { if (e.matches) setMenu(false); });
+
+  if (!('IntersectionObserver' in window)) {
+    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-visible'); });
+    return;
+  }
+
+  /* Header: oscuro sobre el hero, claro al bajar */
+  var hero = document.getElementById('top');
+  new IntersectionObserver(function (entries) {
+    body.classList.toggle('is-scrolled', !entries[0].isIntersecting);
+  }, { rootMargin: '-72px 0px 0px 0px', threshold: 0 }).observe(hero);
+
+  /* Botón fijo de WhatsApp en celular: aparece al pasar el CTA del hero y se oculta en el cierre */
+  var heroCta = document.getElementById('hero-cta');
+  var closing = document.getElementById('contacto');
+  var pastHero = false, atClosing = false;
+  function updateMobile() { body.classList.toggle('show-mobile-cta', pastHero && !atClosing); }
+  new IntersectionObserver(function (e) { pastHero = !e[0].isIntersecting && e[0].boundingClientRect.top < 0; updateMobile(); }).observe(heroCta);
+  new IntersectionObserver(function (e) { atClosing = e[0].isIntersecting; updateMobile(); }, { threshold: 0.15 }).observe(closing);
+
+  /* Revelado suave de secciones */
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) { en.target.classList.add('is-visible'); io.unobserve(en.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+})();
+</script>
+</body>
+</html>
