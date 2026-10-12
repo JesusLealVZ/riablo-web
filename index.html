@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Riablo Studio · Estudio de diseño y tecnología en Querétaro</title>
-<meta name="description" content="Revisamos cómo te encuentran, cómo atiendes y cómo das seguimiento a tus clientes. Te decimos qué mejorar primero y lo hacemos funcionar. Diagnóstico sin costo.">
+<title>Riablo Studio · Agentes de IA y automatización para tu negocio</title>
+<meta name="description" content="Creamos agentes de inteligencia artificial y automatizamos cualquier proceso de tu negocio: atención por WhatsApp, seguimiento de clientes, operación y sitio web. Diagnóstico sin costo.">
 <link rel="canonical" href="https://riablostudio.com/">
 <meta name="theme-color" content="#0E0E0E">
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_MX">
 <meta property="og:site_name" content="Riablo Studio">
-<meta property="og:title" content="Riablo Studio · Diseño y tecnología con colmillo">
-<meta property="og:description" content="Sabes que algo tiene que cambiar. Nosotros sabemos qué. Diagnóstico sin costo para tu negocio.">
+<meta property="og:title" content="Riablo Studio · Agentes de IA para tu negocio">
+<meta property="og:description" content="Creamos agentes de inteligencia artificial y automatizamos los procesos de tu negocio. Diagnóstico sin costo.">
 <meta property="og:url" content="https://riablostudio.com/">
 <meta property="og:image" content="https://riablostudio.com/assets/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -30,15 +30,14 @@
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "name": "Riablo Studio",
-  "description": "Estudio de diseño y tecnología para pequeñas y medianas empresas.",
+  "description": "Estudio de diseño y tecnología. Creamos agentes de inteligencia artificial y automatizamos procesos para negocios.",
+  "knowsAbout": ["Agentes de inteligencia artificial", "Automatización de procesos", "Chatbots para WhatsApp", "Seguimiento de clientes", "Diseño UX/UI", "Sitios web"],
   "url": "https://riablostudio.com/",
   "logo": "https://riablostudio.com/assets/riablo-logo-positivo.png",
   "image": "https://riablostudio.com/assets/og-image.png",
   "telephone": "+52 55 8635 3618",
-  "email": "jj.lealv@gmail.com",
-  "address": { "@type": "PostalAddress", "addressLocality": "Querétaro", "addressRegion": "Qro.", "addressCountry": "MX" },
-  "areaServed": "Querétaro, México",
-  "sameAs": ["https://instagram.com/riablo.studio"]
+  "email": "riablostudio@gmail.com",
+  "sameAs": ["https://www.instagram.com/riablo.studio/"]
 }
 </script>
 
@@ -46,8 +45,8 @@
 /* Nunca un destello blanco antes de pintar el hero */
 html, body { background: #0E0E0E; color: #ffffff; }
 
-/* Narrativa por capítulos: hero oscuro → problema (claro) → servicios en bento (oscuro)
-   → método con progreso (claro) → por qué Riablo (oscuro) → preguntas (claro) → cierre (oscuro) */
+/* Narrativa: hero (agentes de IA) → franja de marca → lo que te pasa y cómo lo automatizamos (selector)
+   → cómo trabajamos (4 pasos animados) → por qué Riablo + preguntas → cierre */
 :root {
   /* Paleta del manual de marca */
   --seal: #F50808;
@@ -75,7 +74,7 @@ html, body { background: #0E0E0E; color: #ffffff; }
   --gutter: clamp(20px, 5vw, 72px);
   --max: 1320px;
   --header-h: 76px;
-  --section-y: clamp(88px, 11vw, 152px);
+  --section-y: clamp(84px, 10vw, 140px);
   --radius: 4px;
   --card-radius: 14px;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -99,7 +98,6 @@ strong { font-weight: 500; }
 
 .skip { position: absolute; left: 16px; top: -60px; z-index: 200; background: var(--paper); color: var(--ink); padding: 10px 16px; border-radius: var(--radius); font-weight: 500; }
 .skip:focus { top: 12px; }
-
 .wrap { width: 100%; max-width: var(--max); margin-inline: auto; padding-inline: var(--gutter); }
 
 /* ---------- Texturas ---------- */
@@ -108,38 +106,34 @@ strong { font-weight: 500; }
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   opacity: .05; mix-blend-mode: multiply;
 }
-/* Retícula técnica en secciones oscuras: líneas cada 64 px, desvanecidas hacia los bordes */
+/* Retícula técnica (oscuro): líneas cada 64 px que se desvanecen hacia los bordes */
 .tex-grid { position: relative; isolation: isolate; }
 .tex-grid::before {
   content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
-  background-image:
-    linear-gradient(to right, rgba(255,255,255,.055) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,255,255,.055) 1px, transparent 1px);
+  background-image: linear-gradient(to right, rgba(255,255,255,.055) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,.055) 1px, transparent 1px);
   background-size: 64px 64px; background-position: center top;
   -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 45%, #000 30%, transparent 100%);
           mask-image: radial-gradient(ellipse 75% 65% at 50% 45%, #000 30%, transparent 100%);
 }
-/* Papel milimétrico en secciones claras: puntos cada 24 px */
+/* Papel milimétrico (claro): puntos cada 24 px */
 .tex-dots { position: relative; isolation: isolate; }
 .tex-dots::before {
   content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
-  background-image: radial-gradient(rgba(14,14,14,.16) 1px, transparent 1.2px);
-  background-size: 24px 24px;
+  background-image: radial-gradient(rgba(14,14,14,.16) 1px, transparent 1.2px); background-size: 24px 24px;
   -webkit-mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent);
           mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent);
 }
-
-/* Barra de avance de lectura */
 .progress { position: fixed; inset: 0 0 auto 0; height: 2px; z-index: 70; pointer-events: none; }
 .progress span { display: block; height: 100%; background: var(--seal); transform-origin: 0 50%; transform: scaleX(0); }
 
-/* ---------- Tipografía de sistema ---------- */
+/* ---------- Tipografía ---------- */
 .label { display: inline-flex; align-items: center; gap: 12px; font-weight: 500; font-size: 12px; letter-spacing: .3em; text-transform: uppercase; line-height: 1.2; }
 .label::before { content: ""; width: 8px; height: 8px; background: var(--seal); flex: none; }
 .h2 { font-family: var(--f-impact); font-weight: 400; font-size: clamp(26px, 2.7vw, 44px); line-height: 1.16; letter-spacing: -0.01em; margin-top: 22px; max-width: 18ch; text-wrap: balance; }
-/* Acento curvo: siempre en rojo sello (texto grande: pasa 3:1 sobre blanco, niebla y tinta) */
-em.acc, .h2 em, .hero h1 em, .closing h2 em { font-family: var(--f-accent); font-style: italic; font-weight: 400; font-size: 1.2em; letter-spacing: 0; line-height: 1; color: var(--seal); }
-.lead { font-size: clamp(17px, 1.3vw, 19px); line-height: 1.6; max-width: 52ch; }
+/* Acento curvo siempre en rojo sello (solo en titulares grandes) */
+.h2 em, .hero h1 em, .closing h2 em { font-family: var(--f-accent); font-style: italic; font-weight: 400; font-size: 1.2em; letter-spacing: 0; line-height: 1; color: var(--seal); }
+.lead { font-size: clamp(17px, 1.3vw, 19px); line-height: 1.6; max-width: 46ch; }
+.kicker { font-size: 11.5px; font-weight: 500; letter-spacing: .26em; text-transform: uppercase; line-height: 1.4; color: var(--stone); }
 
 /* ---------- Botones ---------- */
 .btn {
@@ -153,7 +147,6 @@ em.acc, .h2 em, .hero h1 em, .closing h2 em { font-family: var(--f-accent); font
 .btn .arrow { transition: transform .35s var(--ease-out); }
 .btn:hover .arrow { transform: translateX(4px); }
 .btn:active { transform: translateY(1px); }
-/* Barrido de luz del prompt original, neutro, sin brillos de color */
 .btn::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(115deg, transparent 25%, rgba(255,255,255,.18) 50%, transparent 75%); transform: translateX(-130%); transition: transform .7s ease; }
 .btn:hover::after { transform: translateX(130%); }
 .btn--light { background: var(--paper); color: var(--ink); border-color: var(--paper); }
@@ -162,10 +155,6 @@ em.acc, .h2 em, .hero h1 em, .closing h2 em { font-family: var(--f-accent); font
 .btn--ghost-dark:hover { border-color: var(--on-dark); }
 .btn--ink { background: var(--ink); color: var(--paper); border-color: var(--ink); }
 .btn--ink:hover { background: #262626; border-color: #262626; }
-
-.text-link { display: inline-flex; align-items: center; gap: 8px; font-weight: 500; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
-.text-link .arrow { width: 16px; height: 16px; transition: transform .35s var(--ease-out); }
-.text-link:hover .arrow { transform: translateX(4px); }
 
 /* =====================================================================
    HEADER
@@ -213,12 +202,11 @@ body.is-scrolled .burger { background: var(--paper); border-color: var(--line-st
   content: ""; position: absolute; inset: 0; z-index: -2; pointer-events: none;
   background:
     linear-gradient(to top, rgba(14,14,14,.95) 0%, rgba(14,14,14,.8) 26%, rgba(14,14,14,.2) 58%, rgba(14,14,14,0) 72%),
-    linear-gradient(to right, rgba(14,14,14,.55) 0%, rgba(14,14,14,0) 55%),
+    linear-gradient(to right, rgba(14,14,14,.7) 0%, rgba(14,14,14,.35) 35%, rgba(14,14,14,0) 60%),
     linear-gradient(to bottom, rgba(14,14,14,.55) 0%, rgba(14,14,14,0) 18%);
 }
 .hero.tex-grid::before { z-index: -1; -webkit-mask-image: radial-gradient(ellipse 60% 55% at 70% 40%, #000 10%, transparent 90%); mask-image: radial-gradient(ellipse 60% 55% at 70% 40%, #000 10%, transparent 90%); }
-/* Marcas de encuadre y coordenadas: detalle técnico sobrio */
-.hud { position: absolute; inset: calc(var(--header-h) + 16px) var(--gutter) auto var(--gutter); height: calc(100% - var(--header-h) - 150px); pointer-events: none; z-index: -1; }
+.hud { position: absolute; inset: calc(var(--header-h) + 16px) var(--gutter) auto var(--gutter); height: 30%; pointer-events: none; z-index: -1; }
 .hud i { position: absolute; width: 18px; height: 18px; border: 0 solid var(--line-dark-strong); }
 .hud i:nth-child(1) { top: 0; left: 0; border-top-width: 1px; border-left-width: 1px; }
 .hud i:nth-child(2) { top: 0; right: 0; border-top-width: 1px; border-right-width: 1px; }
@@ -226,26 +214,27 @@ body.is-scrolled .burger { background: var(--paper); border-color: var(--line-st
 .hud-coords b { font-weight: 500; color: var(--on-dark-2); }
 .hud-coords .live { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--seal); margin-right: 8px; vertical-align: 1px; animation: blink 2.4s ease-in-out infinite; }
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: .25; } }
-.hero-body { display: flex; align-items: flex-end; padding: calc(var(--header-h) + 24px) var(--gutter) clamp(40px, 6vh, 72px); width: 100%; max-width: var(--max); margin-inline: auto; }
+.hero-body { display: flex; align-items: flex-end; padding: calc(var(--header-h) + 24px) var(--gutter) clamp(36px, 5vh, 64px); width: 100%; max-width: var(--max); margin-inline: auto; }
 .hero-copy { max-width: 1000px; }
 .badge { display: inline-flex; align-items: center; gap: 12px; padding: 9px 14px; border: 1px solid var(--line-dark-strong); border-radius: var(--radius); background: rgba(14,14,14,.4); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); font-size: 12px; font-weight: 500; letter-spacing: .3em; text-transform: uppercase; margin-bottom: 26px; }
 .badge-seal { width: 8px; height: 8px; background: var(--seal); flex: none; }
-.hero h1 { font-family: var(--f-impact); font-weight: 400; font-size: clamp(27px, 3.05vw, 54px); line-height: 1.14; letter-spacing: -0.01em; display: flex; flex-direction: column; }
+.hero h1 { font-family: var(--f-impact); font-weight: 400; font-size: clamp(27px, 3.1vw, 56px); line-height: 1.14; letter-spacing: -0.01em; display: flex; flex-direction: column; }
 .headline-line { display: block; overflow: hidden; padding: .04em 0 .14em; }
 .headline-line > span { display: block; }
-.hero .lede { margin-top: 22px; max-width: 520px; font-size: clamp(16.5px, 1.25vw, 19px); color: var(--on-dark-2); }
-.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
-.hero-note { margin-top: 16px; font-size: 13.5px; color: var(--on-dark-3); }
-.hero-foot { width: 100%; max-width: var(--max); margin-inline: auto; padding: 0 var(--gutter) max(28px, env(safe-area-inset-bottom)); }
+.hero .lede { margin-top: 20px; max-width: 460px; font-size: clamp(17px, 1.3vw, 20px); color: var(--on-dark-2); }
+.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: 30px; }
+.hero-note { font-size: 13.5px; color: var(--on-dark-3); }
+.hero-foot { width: 100%; max-width: var(--max); margin-inline: auto; padding: 0 var(--gutter) max(26px, env(safe-area-inset-bottom)); }
+.horizon-wrap { position: relative; }
 .horizon { position: relative; height: 1px; background: var(--line-dark); overflow: hidden; }
 .horizon::before { content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: 30%; background: linear-gradient(to right, transparent, rgba(255,255,255,.7), transparent); animation: scan 6s ease-in-out infinite; }
 @keyframes scan { 0% { transform: translateX(-100%); } 100% { transform: translateX(340%); } }
-.horizon-wrap { position: relative; }
 .horizon-wrap::after { content: ""; position: absolute; left: 33.333%; top: 0; width: 7px; height: 7px; background: var(--seal); border-radius: 50%; transform: translate(-50%, -50%); box-shadow: 0 0 0 4px var(--seal-soft); }
-.promises { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding-top: 22px; }
-.promise { display: flex; align-items: center; gap: 14px; font-size: 14.5px; color: var(--on-dark-2); }
-.promise svg { width: 20px; height: 20px; flex: none; color: var(--on-dark-2); }
-.promise b { font-weight: 500; color: var(--on-dark); }
+/* Índice de lo que resolvemos: cada chip abre su caso en la sección 01 */
+.hero-fixes { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding-top: 20px; }
+.hero-fixes .kicker { color: var(--on-dark-3); margin-right: 8px; }
+.hero-fixes a { display: inline-flex; align-items: center; gap: 8px; height: 36px; padding: 0 14px; border: 1px solid var(--line-dark-strong); border-radius: 999px; font-size: 14px; color: var(--on-dark); background: rgba(14,14,14,.35); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); transition: background-color .3s ease, color .3s ease, border-color .3s ease; }
+.hero-fixes a:hover { background: var(--paper); color: var(--ink); border-color: var(--paper); }
 
 /* ---------- Entrada del hero ---------- */
 .appear { animation-duration: 1.05s; animation-fill-mode: both; animation-timing-function: var(--ease-out); animation-delay: var(--d, .08s); }
@@ -281,121 +270,75 @@ body.is-scrolled .burger { background: var(--paper); border-color: var(--line-st
 .section { position: relative; padding-block: var(--section-y); background: var(--paper); color: var(--ink); }
 .section--mist { background: var(--mist); }
 .section--ink { background: var(--ink); color: var(--on-dark); }
-.section-head { display: grid; grid-template-columns: 6fr 5fr; gap: clamp(28px, 5vw, 80px); align-items: end; }
+.section-head { display: grid; grid-template-columns: 6fr 5fr; gap: clamp(24px, 5vw, 80px); align-items: end; }
 .section-head .lead { color: var(--stone); }
 .section--ink .section-head .lead { color: var(--on-dark-2); }
 
-/* ---------- Tarjetas base ---------- */
-.card { position: relative; border-radius: var(--card-radius); overflow: hidden; isolation: isolate; display: flex; flex-direction: column; min-width: 0; }
-.card-light { background: var(--paper); border: 1px solid var(--line); transition: border-color .3s ease, transform .5s var(--ease-out), box-shadow .5s var(--ease-out); }
-.card-light:hover { border-color: var(--line-strong); transform: translateY(-3px); box-shadow: 0 18px 40px -24px rgba(14,14,14,.35); }
-.kicker { font-size: 11.5px; font-weight: 500; letter-spacing: .26em; text-transform: uppercase; color: var(--stone); }
-
-/* Tarjeta con luz que sigue al cursor (adaptación de GlowCard con rojo sello) */
+/* Tarjeta oscura con luz roja que sigue al cursor (GlowCard adaptada) */
 .glow {
   --mx: 88%; --my: 0%;
+  position: relative; border-radius: var(--card-radius); overflow: hidden; isolation: isolate; min-width: 0;
   background-color: var(--ink-card);
   background-image: radial-gradient(420px circle at var(--mx) var(--my), rgba(255,255,255,.07), transparent 45%);
   border: 1px solid var(--line-dark); color: var(--on-dark);
 }
 .glow::before, .glow::after {
   content: ""; position: absolute; inset: -1px; border-radius: inherit; pointer-events: none; padding: 1px; z-index: 2;
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor;
           mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
 }
 .glow::before { background: radial-gradient(260px circle at var(--mx) var(--my), rgba(245,8,8,1), transparent 60%); opacity: .9; }
 .glow::after { background: radial-gradient(140px circle at var(--mx) var(--my), rgba(255,255,255,.85), transparent 60%); opacity: .5; }
 .glow .kicker { color: var(--on-dark-3); }
-.bento-body .kicker, .why-card .kicker { margin-top: 0; font-size: 11.5px; line-height: 1.4; color: var(--on-dark-3); }
 
-/* ---------- 01 · Problema (bento claro) ---------- */
-.pain-grid { margin-top: clamp(48px, 6vw, 80px); display: grid; gap: 16px; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-areas: "path path p1 p2" "path path p3 p4"; }
-.pain-path { grid-area: path; padding: clamp(28px, 3vw, 40px); background: var(--ink); color: var(--on-dark); min-height: 440px; }
-.pain-path h3 { font-family: var(--f-impact); font-weight: 400; font-size: clamp(22px, 2vw, 30px); line-height: 1.22; margin-top: 16px; max-width: 18ch; }
-.pain-path p { color: var(--on-dark-2); margin-top: 12px; max-width: 40ch; }
-.pain-path .kicker { color: var(--on-dark-3); }
-/* Recorrido del cliente: puntos que avanzan y algunos se caen en el camino */
-.journey { margin-top: auto; padding-top: 32px; }
-.journey .stops-labels { margin-top: 6px; }
-.track { position: relative; height: 56px; container-type: inline-size; }
-.track + .track { margin-top: -6px; }
-.track-line { position: absolute; left: 0; right: 0; top: 30px; height: 1px; background: var(--line-dark-strong); }
-.stop { position: absolute; top: 24px; width: 13px; height: 13px; margin-left: -6px; border-radius: 50%; border: 1px solid var(--on-dark-2); background: var(--ink); }
-.stop.s1 { left: 0; margin-left: 0; } .stop.s2 { left: 33.33%; } .stop.s3 { left: 66.66%; } .stop.s4 { left: 100%; margin-left: -13px; background: var(--on-dark); }
-.stop.drop { border-color: var(--seal); }
-.dot { position: absolute; top: 27px; left: 0; width: 7px; height: 7px; border-radius: 50%; background: var(--on-dark); opacity: 0; }
-.is-live .dot { animation: travel 7.2s linear infinite; animation-delay: var(--dd, 0s); }
-.is-live .dot.fall2 { animation-name: fall-at-2; }
-.is-live .dot.fall3 { animation-name: fall-at-3; }
-@keyframes travel { 0% { opacity: 0; transform: translateX(0); } 4% { opacity: 1; } 92% { opacity: 1; transform: translateX(calc(100cqw - 7px)); } 100% { opacity: 0; transform: translateX(calc(100cqw - 7px)); } }
-@keyframes fall-at-2 { 0% { opacity: 0; transform: translateX(0); background: #fff; } 4% { opacity: 1; } 33% { transform: translateX(33.33cqw); background: #fff; } 36% { background: #F50808; } 52% { opacity: 0; transform: translateX(35cqw) translateY(34px); background: #F50808; } 100% { opacity: 0; } }
-@keyframes fall-at-3 { 0% { opacity: 0; transform: translateX(0); background: #fff; } 4% { opacity: 1; } 64% { transform: translateX(66.66cqw); background: #fff; } 67% { background: #F50808; } 82% { opacity: 0; transform: translateX(68cqw) translateY(34px); background: #F50808; } 100% { opacity: 0; } }
-.stops-labels { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; font-size: clamp(11px, 1vw, 12.5px); white-space: nowrap; color: var(--on-dark-3); }
-.stops-labels li:nth-child(2), .stops-labels li:nth-child(3) { text-align: center; }
-.stops-labels li:last-child { text-align: right; color: var(--on-dark); }
-.stops-labels .x { color: var(--on-dark-2); }
-.stops-labels .x::before { content: ""; display: inline-block; width: 6px; height: 6px; background: var(--seal); border-radius: 50%; margin-right: 6px; vertical-align: 1px; }
-
-.pain { padding: 28px; min-height: 212px; }
-.pain[data-area="p1"] { grid-area: p1; } .pain[data-area="p2"] { grid-area: p2; } .pain[data-area="p3"] { grid-area: p3; } .pain[data-area="p4"] { grid-area: p4; }
-.pain-icon { width: 44px; height: 44px; border-radius: 10px; border: 1px solid var(--line); display: grid; place-items: center; color: var(--ink); transition: background-color .3s ease, color .3s ease, border-color .3s ease; }
-.pain-icon svg { width: 22px; height: 22px; }
-.pain:hover .pain-icon { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-.pain h3 { margin-top: 22px; font-size: 19px; font-weight: 500; line-height: 1.3; letter-spacing: -0.01em; }
-.pain p { margin-top: 8px; color: var(--stone); font-size: 15.5px; line-height: 1.5; }
-.pain-fix { margin-top: auto; padding-top: 18px; font-size: 13px; font-weight: 500; display: inline-flex; gap: 8px; align-items: center; }
-.pain-fix svg { width: 14px; height: 14px; transition: transform .35s var(--ease-out); }
-.pain:hover .pain-fix svg { transform: translateX(3px); }
-
-/* ---------- 02 · Servicios (bento oscuro) ---------- */
-.bento-grid { margin-top: clamp(48px, 6vw, 80px); display: grid; gap: 16px; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: minmax(320px, auto); grid-template-areas: "diag web web" "diag chat crm" "help proc proc"; }
-.bento { justify-content: space-between; }
-.bento[data-area="diag"] { grid-area: diag; } .bento[data-area="web"] { grid-area: web; } .bento[data-area="chat"] { grid-area: chat; }
-.bento[data-area="crm"] { grid-area: crm; } .bento[data-area="proc"] { grid-area: proc; } .bento[data-area="help"] { grid-area: help; }
-.bento-viz { position: relative; flex: 1; min-height: 150px; display: grid; place-items: center; padding: 28px 28px 0; }
-.bento[data-area="diag"] .bento-viz { place-items: start center; }
-.bento-body { position: relative; z-index: 1; padding: 22px 28px 26px; transition: transform .4s var(--ease-out); }
-.bento-body h3 { margin-top: 10px; font-size: clamp(20px, 1.6vw, 24px); font-weight: 500; line-height: 1.25; letter-spacing: -0.015em; max-width: 24ch; }
-.bento-body p { margin-top: 8px; color: var(--on-dark-2); font-size: 15.5px; line-height: 1.5; max-width: 44ch; }
-.bento-cta { margin-top: 16px; display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500; color: var(--on-dark); border-bottom: 1px solid var(--line-dark-strong); padding-bottom: 2px; transition: opacity .35s ease, transform .35s var(--ease-out), border-color .3s ease; }
-.bento-cta svg { width: 15px; height: 15px; }
-.bento-cta:hover { border-color: var(--on-dark); }
-@media (hover: hover) and (pointer: fine) {
-  .bento .bento-cta { opacity: 0; transform: translateY(8px); }
-  .bento:hover .bento-cta, .bento:focus-within .bento-cta { opacity: 1; transform: none; }
-  .bento:hover .bento-body { transform: translateY(-4px); }
+/* =====================================================================
+   01 · LO QUE TE PASA → CÓMO LO RESOLVEMOS (selector)
+   ===================================================================== */
+.fix { margin-top: clamp(40px, 5vw, 72px); display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 16px; align-items: stretch; }
+.fix > * { min-width: 0; }
+.fix-tabs { position: relative; display: flex; flex-direction: column; gap: 8px; }
+.fix-tab {
+  position: relative; overflow: hidden; display: flex; align-items: center; gap: 16px; width: 100%; min-height: 72px;
+  padding: 18px 22px; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); color: var(--ink);
+  text-align: left; font-size: clamp(16.5px, 1.3vw, 19px); font-weight: 500; line-height: 1.3;
+  transition: border-color .3s ease, background-color .35s ease, color .35s ease, transform .4s var(--ease-out);
 }
-.chip { display: inline-flex; align-items: center; gap: 8px; font-size: 11.5px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; padding: 6px 10px; border-radius: 999px; border: 1px solid var(--line-dark-strong); color: var(--on-dark); }
-.chip i { width: 6px; height: 6px; border-radius: 50%; background: var(--seal); }
+.fix-tab:hover { border-color: var(--line-strong); transform: translateX(4px); }
+.fix-tab .n { font-family: var(--f-impact); font-size: 12px; color: var(--stone); flex: none; width: 24px; transition: color .35s ease; }
+.fix-tab .q { flex: 1; min-width: 0; }
+.fix-tab .go { width: 18px; height: 18px; flex: none; opacity: 0; transform: translateX(-6px); transition: opacity .3s ease, transform .35s var(--ease-out); }
+.fix-tab[aria-selected="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); transform: none; }
+.fix-tab[aria-selected="true"] .n { color: var(--seal); }
+.fix-tab[aria-selected="true"] .go { opacity: 1; transform: none; }
+.fix-tab .bar { position: absolute; left: 0; right: 0; bottom: 0; height: 2px; }
+.fix-tab .bar span { display: block; height: 100%; background: var(--seal); transform-origin: 0 50%; transform: scaleX(0); }
+.fix-tab[aria-selected="true"] .bar span { animation: fill 7s linear forwards; }
+.fix.is-paused .fix-tab .bar span, .fix:not(.in-view) .fix-tab .bar span { animation-play-state: paused; }
+.fix.is-manual .fix-tab .bar span { animation: none; transform: scaleX(0); }
+.fix.is-manual .fix-tab[aria-selected="true"] .bar span { transform: scaleX(1); }
+@keyframes fill { to { transform: scaleX(1); } }
+.fix-hint { margin-top: 6px; font-size: 13.5px; color: var(--stone); display: flex; align-items: center; gap: 10px; }
+.fix-hint i { width: 18px; height: 1px; background: var(--seal); }
 
-/* Visual · radar de diagnóstico */
-.viz-diag { display: flex; flex-direction: column; align-items: center; width: 100%; gap: 22px; }
-.scan-head { align-self: stretch; display: flex; justify-content: space-between; align-items: center; font-size: 11.5px; letter-spacing: .2em; text-transform: uppercase; color: var(--on-dark-3); padding-bottom: 12px; border-bottom: 1px solid var(--line-dark); }
-.scan-head b { font-weight: 500; color: var(--on-dark); display: inline-flex; align-items: center; gap: 8px; }
-.scan-head b::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--seal); animation: blink 1.6s ease-in-out infinite; }
-.radar { position: relative; width: min(100%, 320px); aspect-ratio: 1; border-radius: 50%; }
-.radar .ring { position: absolute; border: 1px solid var(--line-dark-strong); border-radius: 50%; }
-.radar .r1 { inset: 0; } .radar .r2 { inset: 17%; border-color: var(--line-dark); } .radar .r3 { inset: 34%; border-color: var(--line-dark); }
-.radar .axis { position: absolute; background: var(--line-dark); }
-.radar .ax { left: 0; right: 0; top: 50%; height: 1px; } .radar .ay { top: 0; bottom: 0; left: 50%; width: 1px; }
-.radar .sweep { position: absolute; inset: 0; border-radius: 50%; background: conic-gradient(from 0deg, rgba(245,8,8,.42), rgba(245,8,8,0) 75deg, transparent 360deg); }
-.is-live .radar .sweep { animation: spin 4.8s linear infinite; }
-.radar .blip { position: absolute; width: 9px; height: 9px; margin: -4px; border-radius: 50%; background: var(--on-dark); color: var(--on-dark); }
-.radar .blip::after { content: ""; position: absolute; inset: -6px; border-radius: 50%; border: 1px solid currentColor; opacity: 0; }
-.radar .b1 { left: 70%; top: 28%; color: var(--seal); background: var(--seal); }
-.radar .b2 { left: 30%; top: 64%; --bd: .8s; }
-.radar .b3 { left: 62%; top: 74%; color: var(--seal); background: var(--seal); --bd: 1.6s; }
-.is-live .radar .blip::after { animation: ping 2.4s ease-out infinite; animation-delay: var(--bd, 0s); }
-.radar-center { position: absolute; left: 50%; top: 50%; width: 12px; height: 12px; margin: -6px; border-radius: 50%; background: var(--on-dark); box-shadow: 0 0 0 6px rgba(255,255,255,.08); }
-@keyframes spin { to { transform: rotate(360deg); } }
-@keyframes ping { 0% { opacity: .9; transform: scale(.4); } 100% { opacity: 0; transform: scale(2.2); } }
-.radar-legend { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 16px; font-size: 12.5px; color: var(--on-dark-3); }
-.radar-legend i { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--seal); margin-right: 6px; vertical-align: 1px; }
-.radar-legend li:nth-child(2) i { background: var(--on-dark); }
+.fix-panels { position: relative; min-width: 0; display: grid; }
+.fix-panel { display: flex; flex-direction: column; min-height: 520px; }
+.js .fix-panel:not(.is-active) { display: none; }
+.js .fix-panel.is-active { animation: panel-in .6s var(--ease-out); }
+@keyframes panel-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+.fix-viz { position: relative; flex: 1; min-height: 250px; display: grid; place-items: center; padding: 32px 32px 0; }
+.fix-body { position: relative; z-index: 1; padding: 26px 32px 30px; }
+.fix-body h3 { margin-top: 10px; font-size: clamp(22px, 2vw, 28px); font-weight: 500; line-height: 1.22; letter-spacing: -0.015em; max-width: 26ch; }
+.ba { margin-top: 20px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: stretch; gap: 10px; }
+.ba > div { border: 1px solid var(--line-dark); border-radius: 10px; padding: 12px 14px; font-size: 15px; line-height: 1.4; }
+.ba small { display: block; font-size: 11px; font-weight: 500; letter-spacing: .22em; text-transform: uppercase; margin-bottom: 4px; color: var(--on-dark-3); }
+.ba .before { color: var(--on-dark-2); }
+.ba .after { color: var(--on-dark); border-color: rgba(245,8,8,.45); background: rgba(245,8,8,.06); }
+.ba .after small { color: var(--on-dark-2); }
+.ba .to { align-self: center; width: 18px; height: 18px; color: var(--seal); }
+.fix-body .btn { margin-top: 22px; }
 
 /* Visual · búsqueda en Google */
-.browser { width: min(100%, 560px); border: 1px solid var(--line-dark-strong); border-radius: 12px; background: var(--ink-raise); overflow: hidden; }
+.browser { width: min(100%, 520px); border: 1px solid var(--line-dark-strong); border-radius: 12px; background: var(--ink-raise); overflow: hidden; }
 .browser-bar { display: flex; align-items: center; gap: 6px; padding: 10px 12px; border-bottom: 1px solid var(--line-dark); }
 .browser-bar > span { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,.18); }
 .browser-bar .url { margin-left: 10px; flex: 1; height: 22px; border-radius: 6px; background: rgba(255,255,255,.06); font-size: 11.5px; color: var(--on-dark-3); display: flex; align-items: center; padding: 0 10px; }
@@ -419,8 +362,8 @@ body.is-scrolled .burger { background: var(--paper); border-color: var(--line-st
 .is-live .res-you { animation: found 8s var(--ease-out) infinite; }
 @keyframes found { 0%, 28% { opacity: 0; transform: translateY(10px); } 34%, 90% { opacity: 1; transform: none; } 100% { opacity: 0; } }
 
-/* Visual · conversación de WhatsApp */
-.chat { width: min(100%, 300px); display: flex; flex-direction: column; gap: 8px; font-size: 13px; line-height: 1.4; }
+/* Visual · WhatsApp que responde y agenda */
+.chat { width: min(100%, 320px); display: flex; flex-direction: column; gap: 8px; font-size: 13px; line-height: 1.4; }
 .bubble { max-width: 82%; padding: 9px 12px; border-radius: 12px; }
 .bubble small { display: block; margin-top: 3px; font-size: 10.5px; color: var(--on-dark-3); text-align: right; }
 .b-in { align-self: flex-start; background: var(--ink-raise); border: 1px solid var(--line-dark); border-bottom-left-radius: 4px; }
@@ -447,19 +390,23 @@ body.is-scrolled .burger { background: var(--paper); border-color: var(--line-st
 @keyframes c6 { 0%, 61% { opacity: 0; transform: translateY(8px); } 65%, 90% { opacity: 1; transform: none; } 96%, 100% { opacity: 0; } }
 @keyframes pick { 0%, 45% { background: transparent; border-color: rgba(255,255,255,.28); } 47%, 92% { background: #F50808; border-color: #F50808; } 100% { background: transparent; } }
 
-/* Visual · tablero de clientes */
-.kanban { width: min(100%, 320px); display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; position: relative; }
+/* Visual · cotizaciones con siguiente paso */
+.kanban { width: min(100%, 360px); display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; position: relative; }
 .col { display: grid; gap: 6px; align-content: start; }
 .col b { font-size: 10.5px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--on-dark-3); padding-bottom: 4px; border-bottom: 1px solid var(--line-dark); margin-bottom: 4px; }
-.k-card { height: 34px; border-radius: 6px; background: var(--ink-raise); border: 1px solid var(--line-dark); padding: 7px; display: grid; gap: 5px; }
+.k-card { height: 38px; border-radius: 6px; background: var(--ink-raise); border: 1px solid var(--line-dark); padding: 8px; display: grid; gap: 6px; }
 .k-card i { display: block; height: 5px; border-radius: 3px; background: rgba(255,255,255,.16); }
 .k-card i:last-child { width: 55%; background: rgba(255,255,255,.08); }
 .k-move { position: absolute; left: 0; top: 30px; width: calc((100% - 16px) / 3); border-color: var(--seal); background: #221213; box-shadow: 0 8px 20px -10px rgba(245,8,8,.6); transform: translateX(calc(100% + 8px)); }
 .is-live .k-move { animation: move 7s var(--ease-out) infinite; }
 @keyframes move { 0%, 18% { transform: translateX(0); opacity: 1; } 32%, 52% { transform: translateX(calc(100% + 8px)); } 66%, 92% { transform: translateX(calc(200% + 16px)); opacity: 1; } 100% { transform: translateX(calc(200% + 16px)); opacity: 0; } }
+.k-alert { position: absolute; right: -6px; top: -14px; display: inline-flex; align-items: center; gap: 6px; font-size: 11.5px; padding: 5px 9px; border-radius: 999px; background: var(--paper); color: var(--ink); box-shadow: 0 8px 18px -8px rgba(0,0,0,.6); }
+.k-alert i { width: 6px; height: 6px; border-radius: 50%; background: var(--seal); }
+.is-live .k-alert { animation: alert 7s var(--ease-out) infinite; }
+@keyframes alert { 0%, 22% { opacity: 0; transform: translateY(6px); } 26%, 50% { opacity: 1; transform: none; } 56%, 100% { opacity: 0; } }
 
-/* Visual · proceso simplificado */
-.flow { width: min(100%, 620px); }
+/* Visual · proceso con un paso de sobra */
+.flow { width: min(100%, 560px); }
 .flow-row { position: relative; display: flex; justify-content: space-between; align-items: center; gap: 8px; container-type: inline-size; }
 .flow-line { position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: var(--line-dark-strong); }
 .flow-pulse { position: absolute; top: 50%; left: 0; width: 9px; height: 9px; margin-top: -4px; border-radius: 50%; background: var(--seal); box-shadow: 0 0 0 5px var(--seal-soft); opacity: 0; }
@@ -472,78 +419,143 @@ body.is-scrolled .burger { background: var(--paper); border-color: var(--line-st
 .is-live .node.extra::after { animation: strike 5s ease-in-out infinite; }
 @keyframes strike { 0%, 30% { transform: scaleX(0); } 42%, 85% { transform: scaleX(1); } 100% { transform: scaleX(0); } }
 @keyframes drop-step { 0%, 40% { opacity: 1; } 55%, 85% { opacity: .4; } 100% { opacity: 1; } }
-.flow-caption { margin-top: 18px; display: flex; justify-content: space-between; font-size: 12.5px; color: var(--on-dark-3); }
-.flow-caption b { font-weight: 500; color: var(--on-dark); }
 
-/* Tarjeta de ayuda */
-.bento.help { background: var(--paper); color: var(--ink); padding: 28px; justify-content: space-between; }
-.bento.help h3 { font-family: var(--f-impact); font-weight: 400; font-size: clamp(20px, 1.6vw, 24px); line-height: 1.3; margin-top: 14px; }
-.bento.help p:not(.kicker) { margin-top: 10px; color: var(--stone); }
-.bento.help .btn { margin-top: 24px; align-self: flex-start; }
+/* Visual · radar de diagnóstico */
+.viz-diag { display: flex; flex-direction: column; align-items: center; width: min(100%, 340px); gap: 18px; }
+.scan-head { align-self: stretch; display: flex; justify-content: space-between; align-items: center; font-size: 11.5px; letter-spacing: .2em; text-transform: uppercase; color: var(--on-dark-3); padding-bottom: 12px; border-bottom: 1px solid var(--line-dark); }
+.scan-head b { font-weight: 500; color: var(--on-dark); display: inline-flex; align-items: center; gap: 8px; }
+.scan-head b::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--seal); animation: blink 1.6s ease-in-out infinite; }
+.radar { position: relative; width: min(100%, 260px); aspect-ratio: 1; border-radius: 50%; }
+.radar .ring { position: absolute; border: 1px solid var(--line-dark-strong); border-radius: 50%; }
+.radar .r1 { inset: 0; } .radar .r2 { inset: 17%; border-color: var(--line-dark); } .radar .r3 { inset: 34%; border-color: var(--line-dark); }
+.radar .axis { position: absolute; background: var(--line-dark); }
+.radar .ax { left: 0; right: 0; top: 50%; height: 1px; } .radar .ay { top: 0; bottom: 0; left: 50%; width: 1px; }
+.radar .sweep { position: absolute; inset: 0; border-radius: 50%; background: conic-gradient(from 0deg, rgba(245,8,8,.42), rgba(245,8,8,0) 75deg, transparent 360deg); }
+.is-live .radar .sweep { animation: spin 4.8s linear infinite; }
+.radar .blip { position: absolute; width: 9px; height: 9px; margin: -4px; border-radius: 50%; background: var(--on-dark); color: var(--on-dark); }
+.radar .blip::after { content: ""; position: absolute; inset: -6px; border-radius: 50%; border: 1px solid currentColor; opacity: 0; }
+.radar .b1 { left: 70%; top: 28%; color: var(--seal); background: var(--seal); }
+.radar .b2 { left: 30%; top: 64%; --bd: .8s; }
+.radar .b3 { left: 62%; top: 74%; color: var(--seal); background: var(--seal); --bd: 1.6s; }
+.is-live .radar .blip::after { animation: ping 2.4s ease-out infinite; animation-delay: var(--bd, 0s); }
+.radar-center { position: absolute; left: 50%; top: 50%; width: 12px; height: 12px; margin: -6px; border-radius: 50%; background: var(--on-dark); box-shadow: 0 0 0 6px rgba(255,255,255,.08); }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes ping { 0% { opacity: .9; transform: scale(.4); } 100% { opacity: 0; transform: scale(2.2); } }
+.radar-legend { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 16px; font-size: 12.5px; color: var(--on-dark-3); }
+.radar-legend i { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--seal); margin-right: 6px; vertical-align: 1px; }
+.radar-legend li:nth-child(2) i { background: var(--on-dark); }
 
-/* ---------- 03 · Método ---------- */
-.method { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(32px, 6vw, 96px); align-items: start; }
-.method-aside { position: sticky; top: calc(var(--header-h) + 48px); }
-.method-aside .lead { color: var(--stone); margin-top: 22px; }
-.method-meter { margin-top: 36px; max-width: 340px; }
-.meter-top { display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; color: var(--stone); }
-.meter-top b { font-family: var(--f-impact); font-weight: 400; font-size: 22px; color: var(--ink); }
-.meter-bar { margin-top: 10px; height: 2px; background: var(--line); position: relative; overflow: hidden; }
-.meter-bar span { position: absolute; inset: 0; background: var(--seal); transform-origin: 0 50%; transform: scaleX(.25); transition: transform .6s var(--ease-out); }
-.meter-steps { margin-top: 12px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; font-size: 12px; color: var(--stone); }
-.meter-steps li.is-on { color: var(--ink); font-weight: 500; }
-.method-aside .btn { margin-top: 32px; }
-.steps { display: grid; gap: 16px; }
-.step-card { padding: clamp(26px, 3vw, 36px); transition: border-color .4s ease, box-shadow .5s var(--ease-out), transform .5s var(--ease-out); }
-.step-card.is-active { border-color: var(--ink); box-shadow: 0 24px 50px -30px rgba(14,14,14,.45); }
-.step-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-.step-num { font-family: var(--f-impact); font-size: 40px; line-height: 1; color: transparent; -webkit-text-stroke: 1px var(--ink); transition: color .4s ease; }
-.step-card.is-active .step-num { color: var(--ink); }
-.step-time { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--stone); padding: 6px 10px; border: 1px solid var(--line); border-radius: 999px; }
-.step-time svg { width: 15px; height: 15px; }
-.step-card h3 { margin-top: 22px; font-family: var(--f-impact); font-weight: 400; font-size: clamp(21px, 1.8vw, 26px); }
-.step-card > p { margin-top: 10px; color: var(--stone); max-width: 52ch; }
-.step-get { margin-top: 20px; padding: 14px 16px; border-radius: 10px; background: var(--mist); display: flex; gap: 12px; align-items: flex-start; font-size: 15.5px; }
-.step-get svg { width: 18px; height: 18px; flex: none; margin-top: 3px; color: var(--seal); }
-.step-get span { color: var(--stone); }
-.step-get strong { color: var(--ink); }
-.tags { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px; }
-.tags li { font-size: 12.5px; padding: 6px 10px; border: 1px solid var(--line); border-radius: 999px; color: var(--stone); background: var(--paper); }
-
-/* ---------- Franja en movimiento ---------- */
-.marquee { overflow: hidden; border-block: 1px solid var(--line-dark); background: var(--ink); padding-block: 26px; }
-.marquee-track { display: flex; width: max-content; animation: marquee 38s linear infinite; }
-.marquee-track span { font-family: var(--f-impact); font-size: clamp(30px, 4.4vw, 64px); line-height: 1.1; white-space: nowrap; color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,.45); padding-right: .5em; }
-.marquee-track span:nth-child(4n+3) { color: var(--on-dark); -webkit-text-stroke: 0; }
+/* Franja de marca en movimiento */
+.marquee { overflow: hidden; background: var(--ink); border-top: 1px solid var(--line-dark); padding-block: 22px; }
+.marquee-track { display: flex; width: max-content; animation: marquee 40s linear infinite; }
+.marquee-track span { font-family: var(--f-impact); font-size: clamp(26px, 3.6vw, 52px); line-height: 1.15; white-space: nowrap; color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,.45); padding-right: .5em; }
+.marquee-track span:nth-child(4n+1) { color: var(--on-dark); -webkit-text-stroke: 0; }
 .marquee-track .dotsep { color: var(--seal); -webkit-text-stroke: 0; }
 @keyframes marquee { to { transform: translateX(-50%); } }
 
-/* ---------- 04 · Por qué Riablo (bento oscuro) ---------- */
-.why-grid { display: grid; gap: 16px; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-areas: "a a b b" "a a c d"; }
-.why-a { grid-area: a; padding: clamp(28px, 3.4vw, 48px); min-height: 520px; justify-content: space-between; }
-.why-a .lead { color: var(--on-dark-2); margin-top: 22px; max-width: 40ch; }
-.why-r { position: absolute; right: -8%; top: -6%; width: 46%; opacity: .06; pointer-events: none; z-index: -1; }
-.why-pillars { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 36px; }
-.why-pillars li { border-top: 1px solid var(--line-dark-strong); padding-top: 12px; font-size: 13px; color: var(--on-dark-2); }
-.why-pillars b { display: block; font-weight: 500; color: var(--on-dark); font-size: 15px; margin-bottom: 2px; }
-.why-b { grid-area: b; padding: 28px; }
-.why-c { grid-area: c; padding: 28px; }
-.why-d { grid-area: d; padding: 28px; }
-.why-card h3 { margin-top: 14px; font-size: 20px; font-weight: 500; line-height: 1.3; }
-.why-card p { margin-top: 8px; font-size: 15.5px; color: var(--on-dark-2); }
-.logos { margin-top: auto; padding-top: 22px; display: flex; flex-wrap: wrap; gap: 8px; }
-.logos li { font-size: 13.5px; padding: 8px 12px; border: 1px solid var(--line-dark-strong); border-radius: 8px; color: var(--on-dark); }
-.why-icon { width: 40px; height: 40px; border-radius: 10px; border: 1px solid var(--line-dark-strong); display: grid; place-items: center; }
-.why-icon svg { width: 20px; height: 20px; }
+/* Encabezado del agente en el chat */
+.chat-head { display: flex; align-items: center; gap: 10px; padding-bottom: 10px; margin-bottom: 4px; border-bottom: 1px solid var(--line-dark); font-size: 12.5px; }
+.chat-head .bot { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: var(--seal); color: var(--paper); }
+.chat-head .bot svg { width: 16px; height: 16px; }
+.chat-head b { font-weight: 500; }
+.chat-head i { font-style: normal; color: var(--on-dark-3); display: inline-flex; align-items: center; gap: 6px; }
+.chat-head i::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--on-dark); animation: blink 1.6s ease-in-out infinite; }
 
-/* ---------- 05 · Preguntas ---------- */
-.faq-grid { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(28px, 5vw, 80px); }
-.faq-aside p { margin-top: 22px; color: var(--stone); max-width: 34ch; }
-.faq-aside .text-link { margin-top: 22px; }
-.faq { display: grid; gap: 10px; align-content: start; }
+/* Agente que reemplaza el paso manual */
+.flow-bot { margin: 26px auto 0; width: max-content; max-width: 100%; display: flex; align-items: center; gap: 10px; padding: 8px 14px 8px 8px; border-radius: 999px; border: 1px solid var(--line-dark-strong); font-size: 13.5px; color: var(--on-dark-2); }
+.flow-bot span { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; border: 1px solid var(--line-dark-strong); color: var(--on-dark); }
+.flow-bot svg { width: 16px; height: 16px; }
+.is-live .flow-bot { animation: bot-on 5s ease-in-out infinite; }
+.is-live .flow-bot span { animation: bot-icon 5s ease-in-out infinite; }
+@keyframes bot-on { 0%, 40% { color: #C4C4C4; border-color: rgba(255,255,255,.28); } 50%, 88% { color: #FFFFFF; border-color: rgba(245,8,8,.6); } 100% { color: #C4C4C4; border-color: rgba(255,255,255,.28); } }
+@keyframes bot-icon { 0%, 40% { background: transparent; border-color: rgba(255,255,255,.28); } 50%, 88% { background: #F50808; border-color: #F50808; } 100% { background: transparent; } }
+
+/* =====================================================================
+   02 · CÓMO TRABAJAMOS (cuatro pasos animados)
+   ===================================================================== */
+.method { overflow: hidden; }
+.method-r { position: absolute; right: -10%; bottom: -22%; width: min(40vw, 520px); opacity: .035; pointer-events: none; z-index: -1; }
+.steps-row { margin-top: clamp(40px, 5vw, 72px); }
+.steps-line { position: relative; height: 1px; background: var(--line-dark-strong); container-type: inline-size; }
+.steps-pulse { position: absolute; left: 0; top: 50%; width: 9px; height: 9px; margin-top: -4px; border-radius: 50%; background: var(--seal); box-shadow: 0 0 0 5px var(--seal-soft); }
+.is-live .steps-pulse { animation: steps-run 8s linear infinite; }
+@keyframes steps-run { from { transform: translateX(0); } to { transform: translateX(calc(100cqw - 9px)); } }
+.steps { margin-top: 26px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.step { padding: 24px; display: flex; flex-direction: column; }
+.is-live .step { animation: step-on 8s linear infinite; animation-delay: calc(var(--i) * 2s - 8s); }
+@keyframes step-on { 0%, 24% { border-color: rgba(245,8,8,.6); } 26%, 100% { border-color: rgba(255,255,255,.12); } }
+.step-viz { height: 112px; display: grid; place-items: center; border-bottom: 1px solid var(--line-dark); margin: -4px -4px 20px; padding-bottom: 16px; }
+.step-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.step-num { font-family: var(--f-impact); font-size: 28px; line-height: 1; color: transparent; -webkit-text-stroke: 1px var(--on-dark-2); }
+.is-live .step .step-num { animation: num-on 8s linear infinite; animation-delay: calc(var(--i) * 2s - 8s); }
+@keyframes num-on { 0%, 24% { color: #FFFFFF; } 26%, 100% { color: transparent; } }
+.step-meta { font-size: 12.5px; color: var(--on-dark-2); padding: 5px 10px; border: 1px solid var(--line-dark-strong); border-radius: 999px; white-space: nowrap; }
+.step-meta.free { color: var(--on-dark); border-color: rgba(245,8,8,.6); background: rgba(245,8,8,.08); }
+.step h3 { margin-top: 18px; font-family: var(--f-impact); font-weight: 400; font-size: clamp(18px, 1.45vw, 21px); }
+.step p { margin-top: 8px; color: var(--on-dark-2); font-size: 15.5px; line-height: 1.5; }
+.step .tag { margin-top: auto; padding-top: 16px; font-size: 12px; color: var(--on-dark-3); letter-spacing: .04em; }
+.method-cta { margin-top: 36px; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; }
+.method-cta p { color: var(--on-dark-2); font-size: 15.5px; }
+
+/* Mini visual · Entendemos (escaneo) */
+.mv-scan { position: relative; width: 84px; height: 84px; border-radius: 50%; border: 1px solid var(--line-dark-strong); overflow: hidden; }
+.mv-scan::before { content: ""; position: absolute; inset: 18%; border-radius: 50%; border: 1px solid var(--line-dark); }
+.mv-scan .sw { position: absolute; inset: 0; background: conic-gradient(from 0deg, rgba(245,8,8,.5), transparent 80deg); border-radius: 50%; }
+.is-live .mv-scan .sw { animation: spin 3s linear infinite; }
+.mv-scan .pt { position: absolute; width: 6px; height: 6px; border-radius: 50%; background: var(--on-dark); }
+.mv-scan .pt:nth-of-type(2) { left: 64%; top: 30%; background: var(--seal); }
+.mv-scan .pt:nth-of-type(3) { left: 28%; top: 60%; }
+/* Mini visual · Proponemos (prioridades) */
+.mv-prio { width: 150px; display: grid; gap: 9px; }
+.mv-prio div { display: flex; align-items: center; gap: 8px; }
+.mv-prio b { font-family: var(--f-impact); font-weight: 400; font-size: 10px; color: var(--on-dark-3); width: 10px; }
+.mv-prio i { display: block; height: 8px; border-radius: 4px; background: rgba(255,255,255,.18); transform-origin: 0 50%; }
+.mv-prio div:nth-child(1) i { width: 100%; background: var(--seal); }
+.mv-prio div:nth-child(1) b { color: var(--on-dark); }
+.mv-prio div:nth-child(2) i { width: 70%; }
+.mv-prio div:nth-child(3) i { width: 44%; }
+.is-live .mv-prio i { animation: grow 4s var(--ease-out) infinite; }
+.mv-prio div:nth-child(2) i { animation-delay: .2s; } .mv-prio div:nth-child(3) i { animation-delay: .4s; }
+@keyframes grow { 0% { transform: scaleX(0); } 30%, 85% { transform: scaleX(1); } 100% { transform: scaleX(1); opacity: .2; } }
+/* Mini visual · Diseñamos (pantalla que se arma) */
+.mv-wire { width: 64px; height: 92px; border: 1px solid var(--line-dark-strong); border-radius: 10px; padding: 8px 7px; display: grid; gap: 5px; align-content: start; }
+.mv-wire i { display: block; height: 6px; border-radius: 3px; background: rgba(255,255,255,.2); }
+.mv-wire i.img { height: 26px; border-radius: 4px; background: rgba(255,255,255,.1); }
+.mv-wire i.short { width: 60%; }
+.mv-wire i.cta { height: 10px; margin-top: 4px; background: var(--seal); width: 70%; }
+.is-live .mv-wire i { animation: piece 5s var(--ease-out) infinite; animation-delay: calc(var(--k) * .3s); }
+@keyframes piece { 0% { opacity: 0; transform: translateY(6px); } 14%, 86% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+/* Mini visual · Construimos (listo) */
+.mv-build { display: flex; align-items: center; gap: 12px; }
+.mv-track { width: 110px; height: 8px; border-radius: 4px; background: rgba(255,255,255,.12); overflow: hidden; }
+.mv-track i { display: block; height: 100%; width: 100%; background: var(--on-dark); transform-origin: 0 50%; }
+.is-live .mv-track i { animation: load 4.5s var(--ease-out) infinite; }
+@keyframes load { 0% { transform: scaleX(0); } 55%, 100% { transform: scaleX(1); } }
+.mv-ok { width: 30px; height: 30px; border-radius: 50%; background: var(--seal); color: var(--paper); display: grid; place-items: center; }
+.mv-ok svg { width: 16px; height: 16px; }
+.is-live .mv-ok { animation: ok 4.5s var(--ease-out) infinite; }
+@keyframes ok { 0%, 52% { transform: scale(0); } 62% { transform: scale(1.2); } 70%, 100% { transform: scale(1); } }
+
+/* =====================================================================
+   03 · POR QUÉ RIABLO + PREGUNTAS
+   ===================================================================== */
+.why { display: grid; grid-template-columns: 6fr 6fr; gap: clamp(36px, 6vw, 104px); align-items: start; }
+.why .lead { color: var(--stone); margin-top: 22px; }
+.names { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 4px 18px; }
+.names li { font-family: var(--f-impact); font-size: clamp(22px, 2.4vw, 34px); line-height: 1.25; color: var(--ink); }
+.names li:not(:last-child)::after { content: "·"; color: var(--seal); margin-left: 18px; }
+.names.is-visible li { animation: ink-in 1s var(--ease-out) both; animation-delay: calc(var(--i) * .14s); }
+@keyframes ink-in { from { color: transparent; -webkit-text-stroke: 1px var(--ink); } 60% { color: transparent; -webkit-text-stroke: 1px var(--ink); } to { color: var(--ink); -webkit-text-stroke: 0; } }
+.diffs { margin-top: 36px; display: grid; border-top: 1px solid var(--line-strong); }
+.diffs li { display: flex; align-items: center; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); font-size: 17px; font-weight: 500; }
+.diffs span { width: 40px; height: 40px; flex: none; border-radius: 10px; border: 1px solid var(--line); display: grid; place-items: center; transition: background-color .3s ease, color .3s ease, border-color .3s ease, transform .4s var(--ease-out); }
+.diffs svg { width: 20px; height: 20px; }
+.diffs li:hover span { background: var(--ink); color: var(--paper); border-color: var(--ink); transform: rotate(-6deg); }
+.faq-title { font-family: var(--f-impact); font-weight: 400; font-size: clamp(20px, 1.7vw, 24px); }
+.faq { margin-top: 22px; display: grid; gap: 10px; }
 .faq details { background: var(--paper); border: 1px solid var(--line); border-radius: 12px; transition: border-color .3s ease; }
 .faq details[open] { border-color: var(--line-strong); }
-.faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 24px; align-items: center; padding: 20px 22px; font-size: clamp(16.5px, 1.3vw, 18.5px); font-weight: 500; line-height: 1.35; }
+.faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 24px; align-items: center; padding: 20px 22px; font-size: clamp(16.5px, 1.3vw, 18px); font-weight: 500; line-height: 1.35; }
 .faq summary::-webkit-details-marker { display: none; }
 .faq .plus { position: relative; width: 28px; height: 28px; flex: none; border-radius: 50%; border: 1px solid var(--line); transition: background-color .3s ease, border-color .3s ease; }
 .faq .plus::before, .faq .plus::after { content: ""; position: absolute; left: 8px; right: 8px; top: 50%; height: 1.5px; margin-top: -.75px; background: var(--ink); transition: transform .35s var(--ease-out), background-color .3s ease; }
@@ -551,37 +563,35 @@ body.is-scrolled .burger { background: var(--paper); border-color: var(--line-st
 .faq details[open] .plus { background: var(--ink); border-color: var(--ink); }
 .faq details[open] .plus::before, .faq details[open] .plus::after { background: var(--paper); }
 .faq details[open] .plus::after { transform: rotate(0deg); }
-.faq .answer { padding: 0 22px 22px; color: var(--stone); font-size: 16px; max-width: 60ch; }
+.faq .answer { padding: 0 22px 22px; color: var(--stone); font-size: 16px; max-width: 56ch; }
 
-/* ---------- Cierre ---------- */
+/* =====================================================================
+   CIERRE Y PIE
+   ===================================================================== */
 .closing { overflow: hidden; }
 .closing-grid { display: grid; grid-template-columns: 7fr 5fr; gap: clamp(32px, 5vw, 80px); align-items: center; }
 .closing h2 { font-family: var(--f-impact); font-weight: 400; font-size: clamp(27px, 3vw, 50px); line-height: 1.14; letter-spacing: -0.01em; margin-top: 22px; }
-.closing .lead { color: var(--on-dark-2); margin-top: 22px; }
-.closing-actions { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 12px; }
+.closing .lead { color: var(--on-dark-2); margin-top: 20px; }
+.closing-actions { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 12px; }
 .contact-list { margin-top: 30px; display: grid; gap: 10px; font-size: 15.5px; color: var(--on-dark-2); }
 .contact-list a { color: var(--on-dark); border-bottom: 1px solid var(--line-dark-strong); }
 .contact-list a:hover { border-color: var(--on-dark); }
-.orbit { position: relative; width: min(100%, 420px); aspect-ratio: 1; justify-self: end; }
+.orbit { position: relative; width: min(100%, 400px); aspect-ratio: 1; justify-self: end; }
 .orbit-ring { position: absolute; inset: 0; border: 1px solid var(--line-dark-strong); border-radius: 50%; }
 .orbit-ring.inner { inset: 16%; border-style: dashed; border-color: var(--line-dark); animation: spin 60s linear infinite reverse; }
 .orbit-r { position: absolute; left: 50%; top: 50%; width: 30%; transform: translate(-50%, -50%); }
 .orbit-arm { position: absolute; inset: 0; animation: spin 24s linear infinite; }
 .orbit-arm::after { content: ""; position: absolute; top: 50%; right: -6px; width: 12px; height: 12px; margin-top: -6px; border-radius: 50%; background: var(--seal); box-shadow: 0 0 0 6px var(--seal-soft); }
-
-/* Pie */
 .footer { background: var(--ink); color: var(--on-dark-2); padding: 0 0 calc(32px + env(safe-area-inset-bottom)); }
-.footer-inner { border-top: 1px solid var(--line-dark); padding-top: 48px; display: grid; grid-template-columns: 5fr 3fr 3fr; gap: 32px; }
+.footer-inner { border-top: 1px solid var(--line-dark); padding-top: 44px; display: grid; grid-template-columns: 5fr 3fr 3fr; gap: 32px; }
 .footer img { width: 150px; }
 .footer .descr { margin-top: 18px; font-size: 14px; }
 .footer h4 { font-size: 11.5px; font-weight: 500; letter-spacing: .3em; text-transform: uppercase; color: var(--on-dark-3); margin-bottom: 14px; }
 .footer li + li { margin-top: 8px; }
 .footer a { color: var(--on-dark); font-size: 15px; }
 .footer a:hover { color: var(--on-dark-2); }
-.footer-bottom { margin-top: 48px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 13px; color: var(--on-dark-3); }
+.footer-bottom { margin-top: 44px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 13px; color: var(--on-dark-3); }
 .footer-bottom em { font-family: var(--f-accent); font-size: 16px; color: var(--on-dark-2); }
-
-/* Botón fijo en celular */
 .mobile-cta { position: fixed; left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom)); z-index: 60; display: none; transform: translateY(140%); transition: transform .45s var(--ease-out); }
 .mobile-cta .btn { width: 100%; height: 52px; box-shadow: 0 10px 30px rgba(14,14,14,.3); }
 body.show-mobile-cta .mobile-cta { transform: none; }
@@ -598,11 +608,10 @@ body.menu-open .mobile-cta { transform: translateY(140%); }
 }
 @media (max-width: 1180px) {
   .nav a { padding: 0 12px; font-size: 13.5px; }
-  .pain-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-areas: "path path" "p1 p2" "p3 p4"; }
-  .pain-path { min-height: 400px; }
-  .bento-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-areas: "diag web" "diag chat" "crm proc" "help help"; }
-  .why-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-areas: "a a" "b b" "c d"; }
-  .why-a { min-height: 0; }
+  .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fix { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .ba { grid-template-columns: 1fr; }
+  .ba .to { transform: rotate(90deg); justify-self: center; }
 }
 @media (min-width: 901px) and (max-height: 760px) {
   .hero h1 { font-size: clamp(26px, 2.6vw, 40px); }
@@ -635,12 +644,20 @@ body.menu-open .mobile-cta { transform: translateY(140%); }
   .hero::after { background: linear-gradient(to top, rgba(14,14,14,.96) 0%, rgba(14,14,14,.9) 34%, rgba(14,14,14,.72) 62%, rgba(14,14,14,.45) 100%); }
   .hud { display: none; }
   .hero h1 { font-size: clamp(22px, 5.9vw, 38px); }
-  .promises { grid-template-columns: 1fr; gap: 12px; padding-top: 18px; }
-  .section-head, .faq-grid, .closing-grid, .method { grid-template-columns: 1fr; }
+  .section-head, .closing-grid, .why { grid-template-columns: 1fr; }
   .section-head { align-items: start; }
-  .method-aside { position: static; }
-  .method-meter { display: none; }
-  .orbit { justify-self: start; width: min(78%, 320px); }
+  /* Selector: los casos se vuelven una tira deslizable sobre el panel */
+  .fix { grid-template-columns: minmax(0, 1fr); }
+  .fix-tabs { flex-direction: row; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--gutter); scrollbar-width: none; margin-inline: calc(var(--gutter) * -1); padding: 2px var(--gutter) 4px; }
+  .fix-tabs::-webkit-scrollbar { display: none; }
+  .fix-tab { flex: 0 0 auto; width: auto; max-width: 74vw; min-height: 60px; padding: 14px 16px; font-size: 15.5px; scroll-snap-align: start; }
+  .fix-tab:hover { transform: none; }
+  .fix-tab .go { display: none; }
+  .fix-hint { display: none; }
+  .fix-panel { min-height: 0; }
+  .fix-viz { min-height: 220px; padding: 26px 22px 0; }
+  .fix-body { padding: 22px 22px 26px; }
+  .orbit { justify-self: start; width: min(78%, 300px); }
   .footer-inner { grid-template-columns: 1fr 1fr; }
   .footer-inner > :first-child { grid-column: 1 / -1; }
   .mobile-cta { display: block; }
@@ -648,26 +665,21 @@ body.menu-open .mobile-cta { transform: translateY(140%); }
 }
 @media (max-width: 680px) {
   body { font-size: 16.5px; }
-  .pain-grid { grid-template-columns: 1fr; grid-template-areas: "path" "p1" "p2" "p3" "p4"; }
-  .pain, .pain-path { min-height: 0; }
-  .bento-grid { grid-template-columns: 1fr; grid-template-areas: "diag" "web" "chat" "crm" "proc" "help"; grid-auto-rows: auto; }
-  .bento-viz { min-height: 0; padding: 24px 22px 0; }
-  .bento-body { padding: 20px 22px 24px; }
-  .why-grid { grid-template-columns: 1fr; grid-template-areas: "a" "b" "c" "d"; }
-  .why-pillars { grid-template-columns: repeat(2, 1fr); row-gap: 16px; }
-  .hero-actions { flex-direction: column; }
+  .steps { grid-template-columns: 1fr; }
   .hero-actions .btn { width: 100%; }
+  .hero-note { width: 100%; text-align: center; }
   .badge { letter-spacing: .2em; font-size: 11px; }
-  .badge-city { display: none; }
+  .hero-fixes .kicker { width: 100%; }
+  .hero-fixes a { height: 34px; font-size: 13.5px; padding: 0 12px; }
   .flow-row .node { font-size: 11px; padding: 7px 8px; }
   .footer-inner { grid-template-columns: 1fr; }
-  .step-num { font-size: 32px; }
+  .names li { font-size: 22px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
   .appear, .hero-media, .hero h1 em, .badge-seal { opacity: 1 !important; transform: none !important; filter: none !important; }
-  .dot, .flow-pulse { opacity: 0 !important; }
+  .flow-pulse { opacity: 0 !important; }
 }
 </style>
 </head>
@@ -679,15 +691,14 @@ body.menu-open .mobile-cta { transform: translateY(140%); }
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4.5 19.5l1.2-3.6A7.8 7.8 0 1 1 8.6 18.6z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 11.6h6M9 9h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
-  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M15 15l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
   <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 1 1 13 0c0 5.4-6.5 11-6.5 11z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="2.2" fill="currentColor"/></symbol>
-  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6.5 3.5h7l4 4v13h-11z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M13.5 3.5v4h4M9 12h6M9 15.5h4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
   <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4.8 20c.9-3.7 3.8-5.6 7.2-5.6s6.3 1.9 7.2 5.6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
   <symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="15" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M11 12l8-8M16 7l2.5 2.5M14 9l2 2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
-  <symbol id="i-talk" viewBox="0 0 24 24"><path d="M4 6.5h12v8H9l-3.5 3v-3H4z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M16 9.5h4v7h-1.5v2.5L15.5 16.5H12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
-  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 7.5V12l3 2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
-  <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M15.5 8.5l-2 5-5 2 2-5z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="1.3" fill="currentColor"/></symbol>
+  <symbol id="i-bot" viewBox="0 0 24 24"><rect x="4.5" y="8" width="15" height="11" rx="3" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 8V5M10 4.5h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="9.5" cy="13.5" r="1.3" fill="currentColor"/><circle cx="14.5" cy="13.5" r="1.3" fill="currentColor"/><path d="M2.5 12.5v3M21.5 12.5v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+  <symbol id="i-hand" viewBox="0 0 24 24"><path d="M3.5 13.5l3-3 4 1.5 3.5-3.5 4 4-5.5 5.5c-.8.8-2 .9-2.9.3L3.5 13.5z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M17.5 12l3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
 </svg>
 
 <div class="menu-backdrop" aria-hidden="true"></div>
@@ -698,10 +709,9 @@ body.menu-open .mobile-cta { transform: translateY(140%); }
     <img class="logo-pos" src="assets/riablo-logo-positivo.png" alt="" width="640" height="158" aria-hidden="true">
   </a>
   <nav class="nav" id="site-nav" aria-label="Principal">
-    <a class="appear appear--scale" style="--d:.16s" href="#problema">Qué resolvemos</a>
-    <a class="appear appear--soft"  style="--d:.26s" href="#servicios">Servicios</a>
-    <a class="appear appear--scale" style="--d:.36s" href="#metodo">Cómo trabajamos</a>
-    <a class="appear appear--soft"  style="--d:.46s" href="#preguntas">Preguntas</a>
+    <a class="appear appear--scale" style="--d:.16s" href="#resolvemos">Qué automatizamos</a>
+    <a class="appear appear--soft"  style="--d:.26s" href="#metodo">Cómo trabajamos</a>
+    <a class="appear appear--scale" style="--d:.36s" href="#nosotros">Por qué Riablo</a>
     <a class="nav-cta" href="https://wa.me/525586353618?text=Hola%2C%20Riablo%20Studio.%20Me%20gustar%C3%ADa%20agendar%20mi%20diagn%C3%B3stico%20sin%20costo.%20Mi%20negocio%20es%3A%20" target="_blank" rel="noopener">Agenda tu diagnóstico</a>
   </nav>
   <a class="btn btn--light header-cta appear appear--scale" style="--d:.34s" href="https://wa.me/525586353618?text=Hola%2C%20Riablo%20Studio.%20Me%20gustar%C3%ADa%20agendar%20mi%20diagn%C3%B3stico%20sin%20costo.%20Mi%20negocio%20es%3A%20" target="_blank" rel="noopener">Agenda tu diagnóstico</a>
@@ -720,351 +730,284 @@ body.menu-open .mobile-cta { transform: translateY(140%); }
     </div>
     <div class="hud appear appear--soft" style="--d:1.3s" aria-hidden="true">
       <i></i><i></i>
-      <p class="hud-coords"><span class="live"></span><b>Querétaro</b><br>20.59° N · 100.39° O</p>
+      <p class="hud-coords"><span class="live"></span><b>Agentes de IA</b><br>Automatización de procesos</p>
     </div>
 
     <div class="hero-body">
       <div class="hero-copy">
-        <p class="badge appear appear--pop" style="--d:.22s"><span class="badge-seal" aria-hidden="true"></span>Estudio de diseño y tecnología<span class="badge-city"> · Querétaro</span></p>
+        <p class="badge appear appear--pop" style="--d:.22s"><span class="badge-seal" aria-hidden="true"></span>Estudio de diseño y tecnología</p>
         <h1 id="hero-title">
-          <span class="headline-line"><span class="appear appear--mask" style="--d:.42s">Sabes que algo tiene que cambiar.</span></span>
-          <span class="headline-line"><span class="appear appear--mask" style="--d:.62s">Nosotros sabemos <span class="nowrap"><em>qué</em>.</span></span></span>
+          <span class="headline-line"><span class="appear appear--mask" style="--d:.42s">Creamos agentes de</span></span>
+          <span class="headline-line"><span class="appear appear--mask" style="--d:.56s"><em>inteligencia artificial</em></span></span>
+          <span class="headline-line"><span class="appear appear--mask" style="--d:.70s">para tu negocio.</span></span>
         </h1>
-        <p class="lede appear appear--soft" style="--d:.82s;animation-duration:1.25s">Revisamos cómo te encuentran, cómo atiendes y cómo das seguimiento. Te decimos qué mejorar primero y lo hacemos funcionar.</p>
+        <p class="lede appear appear--soft" style="--d:.82s;animation-duration:1.25s">Automatizamos cualquier proceso, de la primera respuesta a la entrega. Rápido y sin rodeos.</p>
         <div class="hero-actions">
-          <a class="btn btn--light appear appear--btn" style="--d:.96s" id="hero-cta" href="https://wa.me/525586353618?text=Hola%2C%20Riablo%20Studio.%20Me%20gustar%C3%ADa%20agendar%20mi%20diagn%C3%B3stico%20sin%20costo.%20Mi%20negocio%20es%3A%20" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-chat"/></svg>Agenda tu diagnóstico sin costo</a>
-          <a class="btn btn--ghost-dark appear appear--side" style="--d:1.1s" href="#metodo">Así trabajamos<svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn--light appear appear--btn" style="--d:.96s" id="hero-cta" href="https://wa.me/525586353618?text=Hola%2C%20Riablo%20Studio.%20Me%20gustar%C3%ADa%20agendar%20mi%20diagn%C3%B3stico%20sin%20costo.%20Mi%20negocio%20es%3A%20" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-chat"/></svg>Agenda tu diagnóstico</a>
+          <p class="hero-note appear appear--side" style="--d:1.1s">Sin costo · 30 minutos · Por WhatsApp</p>
         </div>
-        <p class="hero-note appear appear--soft" style="--d:1.2s">Por WhatsApp · 30 minutos · Sin compromiso</p>
       </div>
     </div>
 
     <div class="hero-foot">
       <div class="horizon-wrap appear appear--soft" style="--d:1.05s" aria-hidden="true"><div class="horizon"></div></div>
-      <ul class="promises">
-        <li class="promise appear appear--stat" style="--d:1.12s"><svg aria-hidden="true"><use href="#i-search"/></svg><span><b>Primero entendemos.</b> Después proponemos.</span></li>
-        <li class="promise appear appear--stat" style="--d:1.28s"><svg aria-hidden="true"><use href="#i-talk"/></svg><span><b>Sin tecnicismos.</b> Hablamos de tu negocio.</span></li>
-        <li class="promise appear appear--stat" style="--d:1.44s"><svg aria-hidden="true"><use href="#i-key"/></svg><span><b>Todo a tu nombre.</b> Te acompañamos siempre.</span></li>
-      </ul>
+      <nav class="hero-fixes" aria-label="Lo que resolvemos">
+        <span class="kicker appear appear--stat" style="--d:1.1s">Automatizamos</span>
+        <a class="appear appear--stat" style="--d:1.16s" href="#resolvemos" data-tab="0">Atención en WhatsApp</a>
+        <a class="appear appear--stat" style="--d:1.22s" href="#resolvemos" data-tab="1">Tareas repetitivas</a>
+        <a class="appear appear--stat" style="--d:1.28s" href="#resolvemos" data-tab="2">Seguimiento de clientes</a>
+        <a class="appear appear--stat" style="--d:1.34s" href="#resolvemos" data-tab="3">Sitio web y Google</a>
+        <a class="appear appear--stat" style="--d:1.40s" href="#resolvemos" data-tab="4">Diagnóstico</a>
+      </nav>
     </div>
   </section>
 
-  <!-- ============================== 01 · PROBLEMA ============================== -->
-  <section class="section tex-dots" id="problema" aria-labelledby="problema-title">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="reveal">
-          <p class="label">01 · El problema</p>
-          <h2 class="h2" id="problema-title">Los clientes se pierden en el <em>camino</em>.</h2>
-        </div>
-        <p class="lead reveal" style="--rd:.1s">Casi nunca es falta de tecnología. Es un mensaje sin respuesta o una cotización olvidada.</p>
-      </div>
 
-      <div class="pain-grid">
-        <article class="card pain-path reveal" data-live>
-          <p class="kicker">El recorrido de tu cliente</p>
-          <h3>De cada cinco que te buscan, ¿cuántos compran?</h3>
-          <p>Si no lo sabes, ahí empieza el diagnóstico.</p>
-          <div class="journey" aria-hidden="true">
-            <div class="track">
-              <span class="track-line"></span>
-              <span class="stop s1"></span><span class="stop s2 drop"></span><span class="stop s3 drop"></span><span class="stop s4"></span>
-              <span class="dot" style="--dd:0s"></span>
-              <span class="dot fall2" style="--dd:3.6s"></span>
-            </div>
-            <div class="track">
-              <span class="track-line"></span>
-              <span class="stop s1"></span><span class="stop s2 drop"></span><span class="stop s3 drop"></span><span class="stop s4"></span>
-              <span class="dot fall3" style="--dd:1.2s"></span>
-              <span class="dot fall2" style="--dd:4.8s"></span>
-            </div>
-            <div class="track">
-              <span class="track-line"></span>
-              <span class="stop s1"></span><span class="stop s2 drop"></span><span class="stop s3 drop"></span><span class="stop s4"></span>
-              <span class="dot fall2" style="--dd:2.4s"></span>
-              <span class="dot fall3" style="--dd:6s"></span>
-            </div>
-            <ul class="stops-labels"><li>Te buscan</li><li class="x">Te escriben</li><li class="x">Cotizas</li><li>Compran</li></ul>
-          </div>
-        </article>
-
-        <article class="card card-light pain reveal" data-area="p1" style="--rd:.05s">
-          <span class="pain-icon"><svg aria-hidden="true"><use href="#i-chat"/></svg></span>
-          <h3>Te escriben y nadie contesta.</h3>
-          <p>El cliente le pregunta a otro.</p>
-          <a class="pain-fix" href="#servicio-whatsapp">WhatsApp que responde<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-        </article>
-        <article class="card card-light pain reveal" data-area="p2" style="--rd:.1s">
-          <span class="pain-icon"><svg aria-hidden="true"><use href="#i-pin"/></svg></span>
-          <h3>Te buscan y aparece otro.</h3>
-          <p>Si no estás en Google, no existes.</p>
-          <a class="pain-fix" href="#servicio-web">Sitio web y Google<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-        </article>
-        <article class="card card-light pain reveal" data-area="p3" style="--rd:.15s">
-          <span class="pain-icon"><svg aria-hidden="true"><use href="#i-doc"/></svg></span>
-          <h3>Cotizas y nadie da seguimiento.</h3>
-          <p>La venta se enfría sin que te enteres.</p>
-          <a class="pain-fix" href="#servicio-crm">Clientes en orden<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-        </article>
-        <article class="card card-light pain reveal" data-area="p4" style="--rd:.2s">
-          <span class="pain-icon"><svg aria-hidden="true"><use href="#i-user"/></svg></span>
-          <h3>Todo depende de que tú estés.</h3>
-          <p>Y el día no te alcanza para crecer.</p>
-          <a class="pain-fix" href="#servicio-procesos">Procesos más simples<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================== 02 · SERVICIOS ============================== -->
-  <section class="section section--ink tex-grid" id="servicios" aria-labelledby="servicios-title">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="reveal">
-          <p class="label">02 · Lo que hacemos</p>
-          <h2 class="h2" id="servicios-title">Lo que sirve, no lo que se <em>vende</em>.</h2>
-        </div>
-        <p class="lead reveal" style="--rd:.1s">A veces la respuesta es tecnología. A veces, un mejor proceso.</p>
-      </div>
-
-      <div class="bento-grid">
-        <article class="card glow bento reveal" data-area="diag" id="servicio-diagnostico" data-live>
-          <div class="bento-viz">
-            <div class="viz-diag" aria-hidden="true">
-              <div class="scan-head"><span>Tu negocio</span><b>Revisando</b></div>
-              <div class="radar">
-                <span class="sweep"></span>
-                <span class="ring r1"></span><span class="ring r2"></span><span class="ring r3"></span>
-                <span class="axis ax"></span><span class="axis ay"></span>
-                <span class="radar-center"></span>
-                <span class="blip b1"></span><span class="blip b2"></span><span class="blip b3"></span>
-              </div>
-              <ul class="radar-legend"><li><i></i>Google</li><li><i></i>WhatsApp</li><li><i></i>Seguimiento</li></ul>
-            </div>
-          </div>
-          <div class="bento-body">
-            <span class="chip"><i></i>Empieza aquí · sin costo</span>
-            <h3>Diagnóstico: te decimos qué mejorar primero.</h3>
-            <p>30 minutos. Revisamos tu negocio de punta a punta y te damos un plan claro.</p>
-            <a class="bento-cta" href="https://wa.me/525586353618?text=Hola%2C%20Riablo%20Studio.%20Me%20gustar%C3%ADa%20agendar%20mi%20diagn%C3%B3stico%20sin%20costo.%20Mi%20negocio%20es%3A%20" target="_blank" rel="noopener">Agenda tu diagnóstico<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-          </div>
-        </article>
-
-        <article class="card glow bento reveal" data-area="web" id="servicio-web" style="--rd:.06s" data-live>
-          <div class="bento-viz">
-            <div class="browser" aria-hidden="true">
-              <div class="browser-bar"><span></span><span></span><span></span><div class="url">google.com</div></div>
-              <div class="search"><svg><use href="#i-search"/></svg><span class="typed">dentista cerca de mí</span><i class="caret"></i></div>
-              <ul class="results">
-                <li class="res res-you"><span class="pin"><svg><use href="#i-pin"/></svg></span><span><b>Tu negocio</b><span>Abierto ahora · Cómo llegar · WhatsApp</span></span></li>
-                <li class="res"><span class="pin"></span><span class="lines"><i></i><i></i></span></li>
-                <li class="res"><span class="pin"></span><span class="lines"><i></i><i></i></span></li>
-              </ul>
-            </div>
-          </div>
-          <div class="bento-body">
-            <p class="kicker">Sitio web y Google</p>
-            <h3>Que te encuentren y te entiendan.</h3>
-            <p>Un sitio claro en el celular y tu ficha de Google en orden.</p>
-            <a class="bento-cta" href="https://wa.me/525586353618?text=Hola%2C%20Riablo%20Studio.%20Me%20interesa%20un%20sitio%20web%20para%20mi%20negocio." target="_blank" rel="noopener">Pregúntanos<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-          </div>
-        </article>
-
-        <article class="card glow bento reveal" data-area="chat" id="servicio-whatsapp" style="--rd:.1s" data-live>
-          <div class="bento-viz">
-            <div class="chat" aria-hidden="true">
-              <div class="bubble b-in c1">Hola, ¿tienen cita hoy?<small>23:41</small></div>
-              <div class="typing c2"><i></i><i></i><i></i></div>
-              <div class="bubble b-out c3">Hola. Sí, elige tu horario:<small>23:41</small></div>
-              <div class="slots c4"><span>10:00</span><span class="pick">12:30</span><span>17:00</span></div>
-              <div class="bubble b-in c5">12:30, por favor<small>23:42</small></div>
-              <div class="bubble b-out c6">Listo. Te esperamos.<small>23:42</small></div>
-            </div>
-          </div>
-          <div class="bento-body">
-            <p class="kicker">WhatsApp</p>
-            <h3>Que nadie se quede sin respuesta.</h3>
-            <p>Responde y agenda, aunque estés ocupado.</p>
-            <a class="bento-cta" href="https://wa.me/525586353618?text=Hola%2C%20Riablo%20Studio.%20Me%20interesa%20automatizar%20mi%20WhatsApp." target="_blank" rel="noopener">Pregúntanos<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-          </div>
-        </article>
-
-        <article class="card glow bento reveal" data-area="crm" id="servicio-crm" style="--rd:.14s" data-live>
-          <div class="bento-viz">
-            <div class="kanban" aria-hidden="true">
-              <div class="col"><b>Nuevo</b><span class="k-card"><i></i><i></i></span><span class="k-card"><i></i><i></i></span></div>
-              <div class="col"><b>Cotizado</b><span class="k-card"><i></i><i></i></span></div>
-              <div class="col"><b>Cliente</b><span class="k-card"><i></i><i></i></span><span class="k-card"><i></i><i></i></span></div>
-              <span class="k-card k-move"><i></i><i></i></span>
-            </div>
-          </div>
-          <div class="bento-body">
-            <p class="kicker">Clientes en orden</p>
-            <h3>Que ningún cliente se te pierda.</h3>
-            <p>Sabes en qué va cada venta y a quién llamar hoy.</p>
-            <a class="bento-cta" href="https://wa.me/525586353618?text=Hola%2C%20Riablo%20Studio.%20Me%20interesa%20ordenar%20el%20seguimiento%20de%20mis%20clientes." target="_blank" rel="noopener">Pregúntanos<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-          </div>
-        </article>
-
-        <article class="card glow bento reveal" data-area="proc" id="servicio-procesos" style="--rd:.06s" data-live>
-          <div class="bento-viz">
-            <div class="flow" aria-hidden="true">
-              <div class="flow-row">
-                <span class="flow-line"></span><span class="flow-pulse"></span>
-                <span class="node">Pedido</span><span class="node">Confirmación</span><span class="node extra">Doble captura</span><span class="node">Entrega</span>
-              </div>
-              <div class="flow-caption"><span>Quitamos lo que sobra</span><b>Menos pasos</b></div>
-            </div>
-          </div>
-          <div class="bento-body">
-            <p class="kicker">Procesos</p>
-            <h3>Que tu operación no dependa de ti.</h3>
-            <p>Mapeamos cómo trabaja tu equipo y quitamos pasos. A veces no hace falta una app.</p>
-            <a class="bento-cta" href="https://wa.me/525586353618?text=Hola%2C%20Riablo%20Studio.%20Me%20interesa%20mejorar%20los%20procesos%20de%20mi%20negocio." target="_blank" rel="noopener">Pregúntanos<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-          </div>
-        </article>
-
-        <article class="card bento help reveal" data-area="help" style="--rd:.1s">
-          <div>
-            <p class="kicker">¿No sabes por dónde empezar?</p>
-            <h3>Para eso es el <em class="acc">diagnóstico</em>.</h3>
-            <p>Te decimos qué necesitas y qué no.</p>
-          </div>
-          <a class="btn btn--ink" href="https://wa.me/525586353618?text=Hola%2C%20Riablo%20Studio.%20Me%20gustar%C3%ADa%20agendar%20mi%20diagn%C3%B3stico%20sin%20costo.%20Mi%20negocio%20es%3A%20" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-chat"/></svg>Agenda tu diagnóstico</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================== 03 · MÉTODO ============================== -->
-  <section class="section section--mist tex-dots" id="metodo" aria-labelledby="metodo-title">
-    <div class="wrap method">
-      <div class="method-aside">
-        <div class="reveal">
-          <p class="label">03 · Cómo trabajamos</p>
-          <h2 class="h2" id="metodo-title">Cuatro pasos, sin <em>rodeos</em>.</h2>
-          <p class="lead">Siempre sabes en qué paso vamos y qué sigue.</p>
-        </div>
-        <div class="method-meter" aria-hidden="true">
-          <div class="meter-top"><span>Paso</span><span><b id="step-now">01</b> / 04</span></div>
-          <div class="meter-bar"><span id="meter-fill"></span></div>
-          <ol class="meter-steps"><li class="is-on">Entender</li><li>Proponer</li><li>Diseñar</li><li>Construir</li></ol>
-        </div>
-        <a class="btn btn--ink" href="https://wa.me/525586353618?text=Hola%2C%20Riablo%20Studio.%20Me%20gustar%C3%ADa%20agendar%20mi%20diagn%C3%B3stico%20sin%20costo.%20Mi%20negocio%20es%3A%20" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-chat"/></svg>Empieza por el paso 1</a>
-      </div>
-
-      <ol class="steps">
-        <li class="card card-light step-card is-active reveal">
-          <div class="step-top"><span class="step-num">01</span><span class="step-time"><svg aria-hidden="true"><use href="#i-clock"/></svg>30 minutos</span></div>
-          <h3>Entendemos</h3>
-          <p>Recorremos tu operación de punta a punta antes de opinar.</p>
-          <div class="step-get"><svg aria-hidden="true"><use href="#i-check"/></svg><span><strong>Recibes:</strong> qué está pasando y dónde se pierden tus clientes.</span></div>
-          <ul class="tags"><li>Mapeo de procesos</li><li>Diagnóstico de experiencia</li></ul>
-        </li>
-        <li class="card card-light step-card reveal">
-          <div class="step-top"><span class="step-num">02</span><span class="step-time"><svg aria-hidden="true"><use href="#i-clock"/></svg>1 a 2 días</span></div>
-          <h3>Proponemos</h3>
-          <p>Una recomendación clara, con prioridades. Aunque no sea tecnología.</p>
-          <div class="step-get"><svg aria-hidden="true"><use href="#i-check"/></svg><span><strong>Recibes:</strong> un plan con qué hacer primero y por qué.</span></div>
-          <ul class="tags"><li>Estrategia</li><li>Priorización por impacto</li></ul>
-        </li>
-        <li class="card card-light step-card reveal">
-          <div class="step-top"><span class="step-num">03</span><span class="step-time"><svg aria-hidden="true"><use href="#i-compass"/></svg>Lo revisas con nosotros</span></div>
-          <h3>Diseñamos</h3>
-          <p>Cada detalle pensado para tu equipo y para tus clientes.</p>
-          <div class="step-get"><svg aria-hidden="true"><use href="#i-check"/></svg><span><strong>Recibes:</strong> un prototipo que pruebas antes de construir.</span></div>
-          <ul class="tags"><li>Diseño de procesos</li><li>UX/UI</li></ul>
-        </li>
-        <li class="card card-light step-card reveal">
-          <div class="step-top"><span class="step-num">04</span><span class="step-time"><svg aria-hidden="true"><use href="#i-key"/></svg>Queda a tu nombre</span></div>
-          <h3>Construimos</h3>
-          <p>Lo implementamos, lo medimos y lo ajustamos hasta que funcione.</p>
-          <div class="step-get"><svg aria-hidden="true"><use href="#i-check"/></svg><span><strong>Recibes:</strong> la solución funcionando y una sesión para aprender a usarla.</span></div>
-          <ul class="tags"><li>Desarrollo</li><li>Automatización</li><li>Seguimiento</li></ul>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- ============================== FRANJA ============================== -->
+  <!-- ============================== FRANJA DE MARCA ============================== -->
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
-      <span>Entendemos</span><span class="dotsep">·</span><span>Proponemos</span><span class="dotsep">·</span><span>Diseñamos</span><span class="dotsep">·</span><span>Construimos</span><span class="dotsep">·</span>
-      <span>Entendemos</span><span class="dotsep">·</span><span>Proponemos</span><span class="dotsep">·</span><span>Diseñamos</span><span class="dotsep">·</span><span>Construimos</span><span class="dotsep">·</span>
+      <span>Agentes de IA</span><span class="dotsep">·</span><span>Automatización de procesos</span><span class="dotsep">·</span><span>Agentes de IA</span><span class="dotsep">·</span><span>Automatización de procesos</span><span class="dotsep">·</span>
+      <span>Agentes de IA</span><span class="dotsep">·</span><span>Automatización de procesos</span><span class="dotsep">·</span><span>Agentes de IA</span><span class="dotsep">·</span><span>Automatización de procesos</span><span class="dotsep">·</span>
     </div>
   </div>
 
-  <!-- ============================== 04 · POR QUÉ RIABLO ============================== -->
-  <section class="section section--ink tex-grid" id="nosotros" aria-labelledby="nosotros-title">
+  <!-- ============================== 01 · LO QUE TE PASA ============================== -->
+  <section class="section tex-dots" id="resolvemos" aria-labelledby="resolvemos-title">
     <div class="wrap">
-      <div class="why-grid">
-        <article class="card glow why-a reveal" data-live>
-          <img class="why-r" src="assets/riablo-r-blanca.png" alt="" aria-hidden="true" width="600" height="526" loading="lazy">
-          <div>
-            <p class="label">04 · Por qué Riablo</p>
-            <h2 class="h2" id="nosotros-title">Diseño y tecnología con <em>colmillo</em>.</h2>
-            <p class="lead">Colmillo es experiencia. Sabemos cómo es el juego y te decimos lo que vemos, sin rodeos.</p>
+      <div class="section-head">
+        <div class="reveal">
+          <p class="label">01 · Lo que te pasa</p>
+          <h2 class="h2" id="resolvemos-title">¿Qué te gustaría que se hiciera <em>solo</em>?</h2>
+        </div>
+        <p class="lead reveal" style="--rd:.1s">Elige lo que te pasa. Te mostramos cómo lo automatizamos.</p>
+      </div>
+
+      <div class="fix">
+        <div>
+          <div class="fix-tabs" role="tablist" aria-label="Lo que te pasa">
+            <button class="fix-tab" role="tab" id="tab-0" aria-controls="fix-0" aria-selected="true" tabindex="0" type="button"><span class="n">01</span><span class="q">“Me escriben y no alcanzo a contestar.”</span><svg class="go" aria-hidden="true"><use href="#i-arrow"/></svg><span class="bar" aria-hidden="true"><span></span></span></button>
+            <button class="fix-tab" role="tab" id="tab-1" aria-controls="fix-1" aria-selected="false" tabindex="-1" type="button"><span class="n">02</span><span class="q">“Hago lo mismo todos los días.”</span><svg class="go" aria-hidden="true"><use href="#i-arrow"/></svg><span class="bar" aria-hidden="true"><span></span></span></button>
+            <button class="fix-tab" role="tab" id="tab-2" aria-controls="fix-2" aria-selected="false" tabindex="-1" type="button"><span class="n">03</span><span class="q">“Cotizo y el cliente se enfría.”</span><svg class="go" aria-hidden="true"><use href="#i-arrow"/></svg><span class="bar" aria-hidden="true"><span></span></span></button>
+            <button class="fix-tab" role="tab" id="tab-3" aria-controls="fix-3" aria-selected="false" tabindex="-1" type="button"><span class="n">04</span><span class="q">“No me encuentran en internet.”</span><svg class="go" aria-hidden="true"><use href="#i-arrow"/></svg><span class="bar" aria-hidden="true"><span></span></span></button>
+            <button class="fix-tab" role="tab" id="tab-4" aria-controls="fix-4" aria-selected="false" tabindex="-1" type="button"><span class="n">05</span><span class="q">“No sé qué automatizar primero.”</span><svg class="go" aria-hidden="true"><use href="#i-arrow"/></svg><span class="bar" aria-hidden="true"><span></span></span></button>
           </div>
-          <ul class="why-pillars">
-            <li><b>Consultoría</b>Entendemos</li>
-            <li><b>Innovación</b>Proponemos</li>
-            <li><b>Diseño</b>Diseñamos</li>
-            <li><b>Desarrollo</b>Construimos</li>
-          </ul>
-        </article>
+          <p class="fix-hint"><i></i>Lo que nos dicen los dueños de negocio</p>
+        </div>
 
-        <article class="card glow why-card why-b reveal" style="--rd:.06s" data-live>
-          <p class="kicker">Experiencia real</p>
-          <h3>Diseñamos productos digitales para grandes marcas.</h3>
-          <p>Ahora ponemos ese criterio al servicio de tu negocio.</p>
-          <ul class="logos"><li>Ibero</li><li>Aeroméxico</li><li>OCC</li><li>SEP</li></ul>
-        </article>
-
-        <article class="card glow why-card why-c reveal" style="--rd:.1s" data-live>
-          <span class="why-icon"><svg aria-hidden="true"><use href="#i-talk"/></svg></span>
-          <h3>Hablamos claro.</h3>
-          <p>Una recomendación, no diez opciones.</p>
-        </article>
-
-        <article class="card glow why-card why-d reveal" style="--rd:.14s" data-live>
-          <span class="why-icon"><svg aria-hidden="true"><use href="#i-key"/></svg></span>
-          <h3>Todo es tuyo.</h3>
-          <p>Cuentas y accesos a tu nombre. Te acompañamos después de entregar.</p>
-        </article>
+        <div class="fix-panels">
+          <article class="glow fix-panel is-active" role="tabpanel" id="fix-0" aria-labelledby="tab-0" tabindex="0" data-live>
+<div class="fix-viz" aria-hidden="true">
+              <div class="chat">
+                <div class="chat-head"><span class="bot"><svg><use href="#i-bot"/></svg></span><b>Agente de IA</b><i>en línea</i></div>
+                <div class="bubble b-in c1">Hola, ¿tienen cita hoy?<small>23:41</small></div>
+                <div class="typing c2"><i></i><i></i><i></i></div>
+                <div class="bubble b-out c3">Hola. Sí, elige tu horario:<small>23:41</small></div>
+                <div class="slots c4"><span>10:00</span><span class="pick">12:30</span><span>17:00</span></div>
+                <div class="bubble b-in c5">12:30, por favor<small>23:42</small></div>
+                <div class="bubble b-out c6">Listo. Te esperamos.<small>23:42</small></div>
+              </div>
+            </div>
+            <div class="fix-body">
+              <p class="kicker">Agente de IA para WhatsApp</p>
+              <h3>Un agente que responde, cotiza y agenda por ti.</h3>
+              <div class="ba">
+                <div class="before"><small>Hoy</small>Contestas al día siguiente.</div>
+                <svg class="to" aria-hidden="true"><use href="#i-arrow"/></svg>
+                <div class="after"><small>Con Riablo</small>Responde en segundos, las 24 horas.</div>
+              </div>
+              <a class="btn btn--light" href="https://wa.me/525586353618?text=Hola%2C%20Riablo%20Studio.%20Me%20escriben%20por%20WhatsApp%20y%20no%20alcanzo%20a%20contestar.%20Me%20interesa%20un%20agente%20de%20IA.%20Mi%20negocio%20es%3A%20" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-chat"/></svg>Quiero mi agente</a>
+            </div>
+          </article>
+          <article class="glow fix-panel" role="tabpanel" id="fix-1" aria-labelledby="tab-1" tabindex="0" data-live>
+<div class="fix-viz" aria-hidden="true">
+              <div class="flow">
+                <div class="flow-row">
+                  <span class="flow-line"></span><span class="flow-pulse"></span>
+                  <span class="node">Pedido</span><span class="node extra">Captura a mano</span><span class="node">Confirmación</span><span class="node">Entrega</span>
+                </div>
+                <div class="flow-bot"><span><svg><use href="#i-bot"/></svg></span>Lo hace un agente, sin errores</div>
+              </div>
+            </div>
+            <div class="fix-body">
+              <p class="kicker">Automatización de procesos</p>
+              <h3>Lo que se repite, que se haga solo.</h3>
+              <div class="ba">
+                <div class="before"><small>Hoy</small>Capturas, copias y pegas a mano.</div>
+                <svg class="to" aria-hidden="true"><use href="#i-arrow"/></svg>
+                <div class="after"><small>Con Riablo</small>Se hace solo y tu equipo se enfoca en vender.</div>
+              </div>
+              <a class="btn btn--light" href="https://wa.me/525586353618?text=Hola%2C%20Riablo%20Studio.%20Hago%20las%20mismas%20tareas%20todos%20los%20d%C3%ADas%20y%20quiero%20automatizarlas.%20Mi%20negocio%20es%3A%20" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-chat"/></svg>Quiero automatizar esto</a>
+            </div>
+          </article>
+          <article class="glow fix-panel" role="tabpanel" id="fix-2" aria-labelledby="tab-2" tabindex="0" data-live>
+<div class="fix-viz" aria-hidden="true">
+              <div class="kanban">
+                <div class="col"><b>Nuevo</b><span class="k-card"><i></i><i></i></span><span class="k-card"><i></i><i></i></span></div>
+                <div class="col"><b>Cotizado</b><span class="k-card"><i></i><i></i></span></div>
+                <div class="col"><b>Cliente</b><span class="k-card"><i></i><i></i></span><span class="k-card"><i></i><i></i></span></div>
+                <span class="k-card k-move"><i></i><i></i></span>
+                <span class="k-alert"><i></i>Seguimiento enviado</span>
+              </div>
+            </div>
+            <div class="fix-body">
+              <p class="kicker">Seguimiento automático</p>
+              <h3>Ninguna cotización se queda en el aire.</h3>
+              <div class="ba">
+                <div class="before"><small>Hoy</small>Nadie da seguimiento.</div>
+                <svg class="to" aria-hidden="true"><use href="#i-arrow"/></svg>
+                <div class="after"><small>Con Riablo</small>El agente escribe, recuerda y te avisa.</div>
+              </div>
+              <a class="btn btn--light" href="https://wa.me/525586353618?text=Hola%2C%20Riablo%20Studio.%20Cotizo%20y%20mis%20clientes%20se%20enfr%C3%ADan.%20Quiero%20seguimiento%20autom%C3%A1tico.%20Mi%20negocio%20es%3A%20" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-chat"/></svg>Quiero automatizar esto</a>
+            </div>
+          </article>
+          <article class="glow fix-panel" role="tabpanel" id="fix-3" aria-labelledby="tab-3" tabindex="0" data-live>
+<div class="fix-viz" aria-hidden="true">
+              <div class="browser">
+                <div class="browser-bar"><span></span><span></span><span></span><div class="url">google.com</div></div>
+                <div class="search"><svg><use href="#i-search"/></svg><span class="typed">dentista cerca de mí</span><i class="caret"></i></div>
+                <ul class="results">
+                  <li class="res res-you"><span class="pin"><svg><use href="#i-pin"/></svg></span><span><b>Tu negocio</b><span>Abierto ahora · Cómo llegar · WhatsApp</span></span></li>
+                  <li class="res"><span class="pin"></span><span class="lines"><i></i><i></i></span></li>
+                  <li class="res"><span class="pin"></span><span class="lines"><i></i><i></i></span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="fix-body">
+              <p class="kicker">Sitio web y Google</p>
+              <h3>Que te encuentren y te escriban.</h3>
+              <div class="ba">
+                <div class="before"><small>Hoy</small>Buscan tu giro y aparece otro.</div>
+                <svg class="to" aria-hidden="true"><use href="#i-arrow"/></svg>
+                <div class="after"><small>Con Riablo</small>Apareces y el agente atiende al instante.</div>
+              </div>
+              <a class="btn btn--light" href="https://wa.me/525586353618?text=Hola%2C%20Riablo%20Studio.%20No%20me%20encuentran%20en%20internet%20y%20quiero%20resolverlo.%20Mi%20negocio%20es%3A%20" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-chat"/></svg>Quiero resolver esto</a>
+            </div>
+          </article>
+          <article class="glow fix-panel" role="tabpanel" id="fix-4" aria-labelledby="tab-4" tabindex="0" data-live>
+<div class="fix-viz" aria-hidden="true">
+              <div class="viz-diag">
+                <div class="scan-head"><span>Tu negocio</span><b>Revisando</b></div>
+                <div class="radar">
+                  <span class="sweep"></span>
+                  <span class="ring r1"></span><span class="ring r2"></span><span class="ring r3"></span>
+                  <span class="axis ax"></span><span class="axis ay"></span>
+                  <span class="radar-center"></span>
+                  <span class="blip b1"></span><span class="blip b2"></span><span class="blip b3"></span>
+                </div>
+                <ul class="radar-legend"><li><i></i>Automatizar ya</li><li><i></i>Puede esperar</li></ul>
+              </div>
+            </div>
+            <div class="fix-body">
+              <p class="kicker">Diagnóstico · sin costo</p>
+              <h3>Te decimos qué automatizar primero.</h3>
+              <div class="ba">
+                <div class="before"><small>Hoy</small>No sabes por dónde empezar.</div>
+                <svg class="to" aria-hidden="true"><use href="#i-arrow"/></svg>
+                <div class="after"><small>Con Riablo</small>Sabes qué automatizar y en qué orden.</div>
+              </div>
+              <a class="btn btn--light" href="https://wa.me/525586353618?text=Hola%2C%20Riablo%20Studio.%20Me%20gustar%C3%ADa%20agendar%20mi%20diagn%C3%B3stico%20sin%20costo.%20Mi%20negocio%20es%3A%20" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-chat"/></svg>Agenda tu diagnóstico</a>
+            </div>
+          </article>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================== 05 · PREGUNTAS ============================== -->
-  <section class="section section--mist tex-dots" id="preguntas" aria-labelledby="preguntas-title">
-    <div class="wrap faq-grid">
-      <div class="faq-aside reveal">
-        <p class="label">05 · Preguntas</p>
-        <h2 class="h2" id="preguntas-title">Antes de que nos <em>escribas</em>.</h2>
-        <p>¿Otra duda? Pregúntanos directo.</p>
-        <a class="text-link" href="https://wa.me/525586353618?text=Hola%2C%20Riablo%20Studio.%20Me%20gustar%C3%ADa%20platicar%20sobre%20mi%20negocio." target="_blank" rel="noopener">Escríbenos por WhatsApp<svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+  <!-- ============================== 02 · CÓMO TRABAJAMOS ============================== -->
+  <section class="section section--ink tex-grid method" id="metodo" aria-labelledby="metodo-title">
+    <img class="method-r" src="assets/riablo-r-blanca.png" alt="" aria-hidden="true" width="600" height="526" loading="lazy">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="reveal">
+          <p class="label">02 · Cómo trabajamos</p>
+          <h2 class="h2" id="metodo-title">Cuatro pasos, sin <em>rodeos</em>.</h2>
+        </div>
+        <p class="lead reveal" style="--rd:.1s">Siempre sabes en qué paso vamos.</p>
       </div>
-      <div class="faq reveal" style="--rd:.08s">
-        <details>
-          <summary>¿El diagnóstico tiene costo?<span class="plus" aria-hidden="true"></span></summary>
-          <p class="answer">No. Son 30 minutos, en persona o en línea. Te decimos qué mejorar primero, sin compromiso.</p>
-        </details>
-        <details>
-          <summary>¿Qué pasa después del diagnóstico?<span class="plus" aria-hidden="true"></span></summary>
-          <p class="answer">Te mandamos un plan claro, con prioridades. Tú decides si seguimos juntos.</p>
-        </details>
-        <details>
-          <summary>No sé de tecnología. ¿Es para mí?<span class="plus" aria-hidden="true"></span></summary>
-          <p class="answer">Sí. Te explicamos todo sin tecnicismos y te enseñamos a usar lo que hacemos.</p>
-        </details>
-        <details>
-          <summary>¿De quién son la página y las cuentas?<span class="plus" aria-hidden="true"></span></summary>
-          <p class="answer">Tuyas. Todo queda a nombre de tu negocio. Nunca dependes de nosotros.</p>
-        </details>
-        <details>
-          <summary>¿Trabajan fuera de Querétaro?<span class="plus" aria-hidden="true"></span></summary>
-          <p class="answer">Sí, en línea. En Querétaro también vamos a tu negocio.</p>
-        </details>
+
+      <div class="steps-row" data-live>
+        <div class="steps-line" aria-hidden="true"><span class="steps-pulse"></span></div>
+        <ol class="steps">
+          <li class="glow step reveal" style="--i:0">
+            <div class="step-viz" aria-hidden="true"><div class="mv-scan"><span class="sw"></span><span class="pt"></span><span class="pt"></span></div></div>
+            <div class="step-head"><span class="step-num">01</span><span class="step-meta free">Sin costo</span></div>
+            <h3>Entendemos</h3>
+            <p>Mapeamos tus procesos de punta a punta.</p>
+            <span class="tag">Diagnóstico · 30 min</span>
+          </li>
+          <li class="glow step reveal" style="--i:1;--rd:.06s">
+            <div class="step-viz" aria-hidden="true"><div class="mv-prio"><div><b>1</b><i></i></div><div><b>2</b><i></i></div><div><b>3</b><i></i></div></div></div>
+            <div class="step-head"><span class="step-num">02</span><span class="step-meta">1 a 2 días</span></div>
+            <h3>Proponemos</h3>
+            <p>Qué automatizar primero y por qué.</p>
+            <span class="tag">Estrategia · Prioridades</span>
+          </li>
+          <li class="glow step reveal" style="--i:2;--rd:.12s">
+            <div class="step-viz" aria-hidden="true"><div class="mv-wire"><i style="--k:0"></i><i class="img" style="--k:1"></i><i style="--k:2"></i><i class="short" style="--k:3"></i><i class="cta" style="--k:4"></i></div></div>
+            <div class="step-head"><span class="step-num">03</span><span class="step-meta">Contigo</span></div>
+            <h3>Diseñamos</h3>
+            <p>El agente y el flujo a tu medida. Lo pruebas antes.</p>
+            <span class="tag">Agentes de IA · UX/UI</span>
+          </li>
+          <li class="glow step reveal" style="--i:3;--rd:.18s">
+            <div class="step-viz" aria-hidden="true"><div class="mv-build"><span class="mv-track"><i></i></span><span class="mv-ok"><svg><use href="#i-check"/></svg></span></div></div>
+            <div class="step-head"><span class="step-num">04</span><span class="step-meta">A tu nombre</span></div>
+            <h3>Construimos</h3>
+            <p>Lo conectamos a tus herramientas y lo medimos.</p>
+            <span class="tag">Automatización · Integraciones</span>
+          </li>
+        </ol>
+      </div>
+
+      <div class="method-cta reveal">
+        <a class="btn btn--light" href="https://wa.me/525586353618?text=Hola%2C%20Riablo%20Studio.%20Me%20gustar%C3%ADa%20agendar%20mi%20diagn%C3%B3stico%20sin%20costo.%20Mi%20negocio%20es%3A%20" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-chat"/></svg>Empieza por el paso 1</a>
+        <p>El primer paso no tiene costo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== 03 · POR QUÉ RIABLO + PREGUNTAS ============================== -->
+  <section class="section section--mist tex-dots" id="nosotros" aria-labelledby="nosotros-title">
+    <div class="wrap why">
+      <div class="reveal">
+        <p class="label">03 · Por qué Riablo</p>
+        <h2 class="h2" id="nosotros-title">Diseño y tecnología con <em>colmillo</em>.</h2>
+        <p class="lead">Colmillo es experiencia. Hemos diseñado productos digitales para</p>
+        <ul class="names reveal" aria-label="Marcas para las que hemos diseñado">
+          <li style="--i:0">Ibero</li><li style="--i:1">Aeroméxico</li><li style="--i:2">OCC</li><li style="--i:3">SEP</li>
+        </ul>
+        <ul class="diffs">
+          <li><span><svg aria-hidden="true"><use href="#i-bot"/></svg></span>Agentes de IA a la medida, no plantillas.</li>
+          <li><span><svg aria-hidden="true"><use href="#i-target"/></svg></span>Una recomendación, no diez opciones.</li>
+          <li><span><svg aria-hidden="true"><use href="#i-key"/></svg></span>Todo queda a tu nombre.</li>
+          <li><span><svg aria-hidden="true"><use href="#i-hand"/></svg></span>Seguimos contigo después de entregar.</li>
+        </ul>
+      </div>
+
+      <div class="reveal" style="--rd:.08s" id="preguntas">
+        <h3 class="faq-title">Preguntas frecuentes</h3>
+        <div class="faq">
+          <details>
+            <summary>¿Qué es un agente de inteligencia artificial?<span class="plus" aria-hidden="true"></span></summary>
+            <p class="answer">Un asistente digital que trabaja por ti: responde mensajes, da seguimiento y hace tareas repetitivas, siempre con tus reglas.</p>
+          </details>
+          <details>
+            <summary>¿Qué procesos se pueden automatizar?<span class="plus" aria-hidden="true"></span></summary>
+            <p class="answer">Casi cualquiera que se repita: atención, citas, cotizaciones, recordatorios, reportes y captura de datos.</p>
+          </details>
+          <details>
+            <summary>¿Cómo es el diagnóstico?<span class="plus" aria-hidden="true"></span></summary>
+            <p class="answer">Una plática de 30 minutos, en persona o en línea. Revisamos tu negocio y te llevas un plan. Sin costo y sin compromiso.</p>
+          </details>
+          <details>
+            <summary>No sé de tecnología. ¿Es para mí?<span class="plus" aria-hidden="true"></span></summary>
+            <p class="answer">Sí. Hablamos de tu negocio, no de tecnología, y te enseñamos a usar todo.</p>
+          </details>
+          <details>
+            <summary>¿Y si no necesito automatizar?<span class="plus" aria-hidden="true"></span></summary>
+            <p class="answer">Te lo decimos. A veces basta con ordenar un proceso.</p>
+          </details>
+        </div>
       </div>
     </div>
   </section>
@@ -1073,15 +1016,16 @@ body.menu-open .mobile-cta { transform: translateY(140%); }
   <section class="section section--ink closing tex-grid" id="contacto" aria-labelledby="contacto-title">
     <div class="wrap closing-grid">
       <div class="reveal">
-        <p class="label">Diagnóstico sin costo</p>
+        <p class="label">Hablemos</p>
         <h2 id="contacto-title">El diablo está en los detalles. Nosotros <em>también</em>.</h2>
-        <p class="lead">Platícanos de tu negocio. En 30 minutos te decimos qué mejorar primero.</p>
+        <p class="lead">Cuéntanos qué te quita tiempo. Lo automatizamos.</p>
         <div class="closing-actions">
-          <a class="btn btn--light" id="closing-cta" href="https://wa.me/525586353618?text=Hola%2C%20Riablo%20Studio.%20Me%20gustar%C3%ADa%20agendar%20mi%20diagn%C3%B3stico%20sin%20costo.%20Mi%20negocio%20es%3A%20" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-chat"/></svg>Agenda tu diagnóstico por WhatsApp</a>
+          <a class="btn btn--light" id="closing-cta" href="https://wa.me/525586353618?text=Hola%2C%20Riablo%20Studio.%20Me%20gustar%C3%ADa%20agendar%20mi%20diagn%C3%B3stico%20sin%20costo.%20Mi%20negocio%20es%3A%20" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-chat"/></svg>Escríbenos por WhatsApp</a>
         </div>
         <ul class="contact-list">
           <li>WhatsApp: <a href="https://wa.me/525586353618" target="_blank" rel="noopener">+52 55 8635 3618</a></li>
-          <li>Correo: <a href="mailto:jj.lealv@gmail.com">jj.lealv@gmail.com</a></li>
+          <li>Correo: <a href="mailto:riablostudio@gmail.com">riablostudio@gmail.com</a></li>
+          <li>Instagram: <a href="https://www.instagram.com/riablo.studio/" target="_blank" rel="noopener">@riablo.studio</a></li>
         </ul>
       </div>
       <div class="orbit reveal" style="--rd:.12s" aria-hidden="true">
@@ -1099,14 +1043,14 @@ body.menu-open .mobile-cta { transform: translateY(140%); }
     <div class="footer-inner">
       <div>
         <img src="assets/riablo-logo-negativo.png" alt="Riablo Studio" width="640" height="158" loading="lazy">
-        <p class="descr">Estudio de diseño y tecnología. Querétaro, México.</p>
+        <p class="descr">Estudio de diseño y tecnología.<br>Agentes de IA y automatización de procesos.</p>
       </div>
       <div>
         <h4>Navega</h4>
         <ul>
-          <li><a href="#problema">Qué resolvemos</a></li>
-          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#resolvemos">Qué automatizamos</a></li>
           <li><a href="#metodo">Cómo trabajamos</a></li>
+          <li><a href="#nosotros">Por qué Riablo</a></li>
           <li><a href="#preguntas">Preguntas</a></li>
         </ul>
       </div>
@@ -1114,8 +1058,8 @@ body.menu-open .mobile-cta { transform: translateY(140%); }
         <h4>Contacto</h4>
         <ul>
           <li><a href="https://wa.me/525586353618" target="_blank" rel="noopener">WhatsApp</a></li>
-          <li><a href="mailto:jj.lealv@gmail.com">jj.lealv@gmail.com</a></li>
-          <li><a href="https://instagram.com/riablo.studio" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="mailto:riablostudio@gmail.com">riablostudio@gmail.com</a></li>
+          <li><a href="https://www.instagram.com/riablo.studio/" target="_blank" rel="noopener">@riablo.studio</a></li>
         </ul>
       </div>
     </div>
@@ -1183,6 +1127,52 @@ body.menu-open .mobile-cta { transform: translateY(140%); }
   }
   window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
 
+  /* 01 · Selector: lo que te pasa → cómo lo resolvemos.
+     Avanza solo cada 7 s mientras se ve; al tocar un caso se queda fijo. */
+  var fix = document.querySelector('.fix');
+  var strip = fix.querySelector('.fix-tabs');
+  var tabs = [].slice.call(fix.querySelectorAll('.fix-tab'));
+  var panels = tabs.map(function (t) { return document.getElementById(t.getAttribute('aria-controls')); });
+  var current = 0;
+  function select(i, focus) {
+    current = i;
+    tabs.forEach(function (t, k) {
+      var on = k === i;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+      panels[k].classList.toggle('is-active', on);
+    });
+    if (strip.scrollWidth > strip.clientWidth + 2) {
+      var pad = parseFloat(getComputedStyle(strip).paddingLeft) || 0;
+      strip.scrollTo({ left: tabs[i].offsetLeft - pad, behavior: reduce ? 'auto' : 'smooth' });
+    }
+    if (focus) tabs[i].focus();
+  }
+  function manual() { fix.classList.add('is-manual'); }
+  if (reduce) manual();
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { manual(); select(i); });
+    t.querySelector('.bar span').addEventListener('animationend', function () {
+      if (!fix.classList.contains('is-manual')) select((i + 1) % tabs.length);
+    });
+  });
+  strip.addEventListener('keydown', function (e) {
+    var k = e.key, n = tabs.length, next = null;
+    if (k === 'ArrowDown' || k === 'ArrowRight') next = (current + 1) % n;
+    if (k === 'ArrowUp' || k === 'ArrowLeft') next = (current - 1 + n) % n;
+    if (k === 'Home') next = 0;
+    if (k === 'End') next = n - 1;
+    if (next !== null) { e.preventDefault(); manual(); select(next, true); }
+  });
+  fix.addEventListener('mouseenter', function () { fix.classList.add('is-paused'); });
+  fix.addEventListener('mouseleave', function () { fix.classList.remove('is-paused'); });
+  fix.addEventListener('focusin', function () { fix.classList.add('is-paused'); });
+  fix.addEventListener('focusout', function () { fix.classList.remove('is-paused'); });
+  /* Los chips del hero abren su caso */
+  document.querySelectorAll('[data-tab]').forEach(function (a) {
+    a.addEventListener('click', function () { manual(); select(parseInt(a.getAttribute('data-tab'), 10)); });
+  });
+
   /* Luz que sigue al cursor en las tarjetas oscuras (solo con mouse) */
   var glows = [].slice.call(document.querySelectorAll('.glow'));
   if (finePointer && !reduce) {
@@ -1190,8 +1180,8 @@ body.menu-open .mobile-cta { transform: translateY(140%); }
     var apply = function () {
       pending = false;
       glows.forEach(function (g) {
-        if (!g.classList.contains('is-live')) return;
         var r = g.getBoundingClientRect();
+        if (r.bottom < 0 || r.top > window.innerHeight || r.width === 0) return;
         g.style.setProperty('--mx', (px - r.left) + 'px');
         g.style.setProperty('--my', (py - r.top) + 'px');
       });
@@ -1200,15 +1190,17 @@ body.menu-open .mobile-cta { transform: translateY(140%); }
   }
 
   if (!('IntersectionObserver' in window)) {
+    fix.classList.add('in-view');
     if (!reduce) document.querySelectorAll('[data-live]').forEach(function (el) { el.classList.add('is-live'); });
     return;
   }
 
-  /* Las animaciones de cada tarjeta solo corren mientras se ve */
+  /* Las animaciones solo corren mientras se ven */
   var liveIO = new IntersectionObserver(function (entries) {
     entries.forEach(function (en) { en.target.classList.toggle('is-live', en.isIntersecting && !reduce); });
   }, { rootMargin: '10% 0px' });
   document.querySelectorAll('[data-live]').forEach(function (el) { liveIO.observe(el); });
+  new IntersectionObserver(function (e) { fix.classList.toggle('in-view', e[0].isIntersecting); }, { threshold: .35 }).observe(fix);
 
   /* Header oscuro sobre el hero y claro al bajar */
   var hero = document.getElementById('top');
@@ -1220,22 +1212,6 @@ body.menu-open .mobile-cta { transform: translateY(140%); }
   function updateMobile() { body.classList.toggle('show-mobile-cta', pastHero && !atClosing); }
   new IntersectionObserver(function (e) { pastHero = !e[0].isIntersecting && e[0].boundingClientRect.top < 0; updateMobile(); }).observe(heroCta);
   new IntersectionObserver(function (e) { atClosing = e[0].isIntersecting; updateMobile(); }, { threshold: 0.15 }).observe(closing);
-
-  /* Método: el paso activo sigue al scroll */
-  var steps = [].slice.call(document.querySelectorAll('.step-card'));
-  var stepNow = document.getElementById('step-now'), fill = document.getElementById('meter-fill');
-  var meterItems = [].slice.call(document.querySelectorAll('.meter-steps li'));
-  var stepIO = new IntersectionObserver(function (entries) {
-    entries.forEach(function (en) {
-      if (!en.isIntersecting) return;
-      var i = steps.indexOf(en.target);
-      steps.forEach(function (s, k) { s.classList.toggle('is-active', k === i); });
-      meterItems.forEach(function (m, k) { m.classList.toggle('is-on', k <= i); });
-      stepNow.textContent = '0' + (i + 1);
-      fill.style.transform = 'scaleX(' + ((i + 1) / steps.length) + ')';
-    });
-  }, { rootMargin: '-45% 0px -45% 0px' });
-  steps.forEach(function (s) { stepIO.observe(s); });
 
   /* Revelado: solo animan los bloques que aún están abajo de la pantalla */
   if (!reduce) {
