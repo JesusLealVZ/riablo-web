@@ -1,6 +1,20 @@
 <!doctype html>
 <html lang="es-MX">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DNKM7EBHP7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DNKM7EBHP7');
+
+  /* Google Ads: cuando tengas el ID (AW-…) y la etiqueta de la conversión "Clic a WhatsApp",
+     escríbelos aquí. Mientras estén vacíos, solo se mide con Google Analytics. */
+  window.RIABLO_TAGS = { ga4: 'G-DNKM7EBHP7', ads: '', adsLeadLabel: '' };
+  if (window.RIABLO_TAGS.ads) gtag('config', window.RIABLO_TAGS.ads);
+</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Riablo Studio · Agentes de IA y automatización para tu negocio</title>
@@ -24,29 +38,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Michroma&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="assets/hero-poster.jpg">
-
-<!-- Google Analytics 4 y Google Ads.
-     Pega aquí tus identificadores. Mientras estén vacíos no se carga nada de Google. -->
-<script>
-  window.RIABLO_TAGS = {
-    ga4: '',          /* ID de medición de Google Analytics, p. ej. G-ABC123XYZ */
-    ads: '',          /* ID de Google Ads, p. ej. AW-123456789 */
-    adsLeadLabel: ''  /* Etiqueta de la conversión "Clic a WhatsApp", p. ej. AbC-D_efG-h12 */
-  };
-  (function (t) {
-    var first = t.ga4 || t.ads;
-    if (!first) return;
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = function () { window.dataLayer.push(arguments); };
-    gtag('js', new Date());
-    if (t.ga4) gtag('config', t.ga4);
-    if (t.ads) gtag('config', t.ads);
-    var s = document.createElement('script');
-    s.async = true;
-    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(first);
-    document.head.appendChild(s);
-  })(window.RIABLO_TAGS);
-</script>
 
 <script type="application/ld+json">
 {

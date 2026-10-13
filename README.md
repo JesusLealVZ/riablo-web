@@ -31,17 +31,10 @@ Todos los botones abren `https://wa.me/525586353618` con un mensaje prellenado s
 
 ## Google Analytics y Google Ads
 
-En `index.html`, dentro del `<head>`, está el bloque `window.RIABLO_TAGS`:
+- **Google Analytics 4:** instalado con la etiqueta oficial de Google (`G-DNKM7EBHP7`), justo después de `<head>` en `index.html`.
+- **Google Ads:** en ese mismo bloque está `window.RIABLO_TAGS`. Escribe ahí el ID de Google Ads (`AW-…`) y la etiqueta de la conversión "Clic a WhatsApp". Mientras estén vacíos, solo se mide con Analytics.
 
-```js
-window.RIABLO_TAGS = {
-  ga4: 'G-XXXXXXXXXX',     // ID de medición de Google Analytics 4
-  ads: 'AW-XXXXXXXXX',     // ID de Google Ads
-  adsLeadLabel: 'XXXXXXX'  // Etiqueta de la conversión "Clic a WhatsApp"
-};
-```
-
-Si los valores están vacíos, no se carga nada de Google. Eventos que se envían:
+Eventos que se envían:
 
 | Evento | Cuándo | Datos |
 |---|---|---|
