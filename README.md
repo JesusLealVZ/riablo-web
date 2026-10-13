@@ -29,6 +29,30 @@ robots.txt, sitemap.xml
 
 Todos los botones abren `https://wa.me/525586353618` con un mensaje prellenado según el botón (diagnóstico, paquete Presencia, paquete Operación o consulta general).
 
+## Google Analytics y Google Ads
+
+En `index.html`, dentro del `<head>`, está el bloque `window.RIABLO_TAGS`:
+
+```js
+window.RIABLO_TAGS = {
+  ga4: 'G-XXXXXXXXXX',     // ID de medición de Google Analytics 4
+  ads: 'AW-XXXXXXXXX',     // ID de Google Ads
+  adsLeadLabel: 'XXXXXXX'  // Etiqueta de la conversión "Clic a WhatsApp"
+};
+```
+
+Si los valores están vacíos, no se carga nada de Google. Eventos que se envían:
+
+| Evento | Cuándo | Datos |
+|---|---|---|
+| `generate_lead` | Clic en cualquier botón de WhatsApp | `method`, `link_location` (dónde estaba el botón), `link_text` |
+| `conversion` (Google Ads) | El mismo clic, si hay `ads` y `adsLeadLabel` | `send_to` |
+| `contact` | Clic en el correo | `method: email` |
+| `click_instagram` | Clic en Instagram | `link_location` |
+| `select_content` | Alguien abre un caso de "Lo que te pasa" | `item_id` (el caso) |
+
+En GA4 marca `generate_lead` como **evento clave**.
+
 ## Probar en local
 
 ```

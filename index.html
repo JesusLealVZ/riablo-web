@@ -25,6 +25,29 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Michroma&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="assets/hero-poster.jpg">
 
+<!-- Google Analytics 4 y Google Ads.
+     Pega aquí tus identificadores. Mientras estén vacíos no se carga nada de Google. -->
+<script>
+  window.RIABLO_TAGS = {
+    ga4: '',          /* ID de medición de Google Analytics, p. ej. G-ABC123XYZ */
+    ads: '',          /* ID de Google Ads, p. ej. AW-123456789 */
+    adsLeadLabel: ''  /* Etiqueta de la conversión "Clic a WhatsApp", p. ej. AbC-D_efG-h12 */
+  };
+  (function (t) {
+    var first = t.ga4 || t.ads;
+    if (!first) return;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    gtag('js', new Date());
+    if (t.ga4) gtag('config', t.ga4);
+    if (t.ads) gtag('config', t.ads);
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(first);
+    document.head.appendChild(s);
+  })(window.RIABLO_TAGS);
+</script>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -1238,6 +1261,38 @@ body.menu-open .mobile-cta { transform: translateY(140%); }
       e.preventDefault(); manual(); render(i);
       var target = wide.matches ? document.getElementById('resolvemos') : tabs[i];
       target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+    });
+  });
+
+  /* Medición: clics a WhatsApp (conversión), correo, Instagram y casos que se abren.
+     No hace nada si no hay identificadores de Google en RIABLO_TAGS. */
+  var T = window.RIABLO_TAGS || {};
+  function track(name, params) { if (typeof window.gtag === 'function') window.gtag('event', name, params || {}); }
+  function where(a) {
+    if (a.closest('.header')) return 'encabezado';
+    if (a.closest('.mobile-cta')) return 'barra_celular';
+    if (a.closest('.footer')) return 'pie';
+    var panel = a.closest('.fix-panel');
+    if (panel) { var b = document.querySelector('[aria-controls="' + panel.id + '"] .q'); return 'caso: ' + (b ? b.textContent.replace(/[“”]/g, '') : panel.id); }
+    var sec = a.closest('section[id]');
+    return sec ? sec.id : 'otro';
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a) return;
+    var href = a.getAttribute('href');
+    if (href.indexOf('wa.me/') > -1) {
+      track('generate_lead', { method: 'whatsapp', link_location: where(a), link_text: a.textContent.trim() });
+      if (T.ads && T.adsLeadLabel) track('conversion', { send_to: T.ads + '/' + T.adsLeadLabel });
+    } else if (href.indexOf('mailto:') === 0) {
+      track('contact', { method: 'email', link_location: where(a) });
+    } else if (href.indexOf('instagram.com') > -1) {
+      track('click_instagram', { link_location: where(a) });
+    }
+  });
+  tabs.forEach(function (t) {
+    t.addEventListener('click', function () {
+      if (t.getAttribute('aria-expanded') === 'true') track('select_content', { content_type: 'caso', item_id: t.querySelector('.q').textContent.replace(/[“”]/g, '') });
     });
   });
 
