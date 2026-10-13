@@ -27,7 +27,7 @@ robots.txt, sitemap.xml
 
 ## WhatsApp
 
-Todos los botones abren `https://wa.me/525586353618` con un mensaje prellenado según el botón (diagnóstico, paquete Presencia, paquete Operación o consulta general).
+Todos los botones abren `https://wa.me/525586353618` con un mensaje prellenado según el botón (diagnóstico o el caso que la persona eligió en "Lo que te pasa").
 
 ## Google Analytics y Google Ads
 
