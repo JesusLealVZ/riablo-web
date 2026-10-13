@@ -195,7 +195,7 @@ body.is-scrolled .burger { background: var(--paper); border-color: var(--line-st
 /* =====================================================================
    HERO
    ===================================================================== */
-.hero { position: relative; min-height: 100vh; min-height: 100svh; display: grid; grid-template-rows: 1fr auto; background: var(--ink); color: var(--on-dark); overflow: hidden; isolation: isolate; }
+.hero { position: relative; min-height: 100vh; min-height: 100svh; display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: 1fr auto; background: var(--ink); color: var(--on-dark); overflow: hidden; isolation: isolate; }
 .hero-media { position: absolute; inset: 0; z-index: -3; }
 .hero-media video, .hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 42%; }
 .hero::after {
@@ -224,15 +224,16 @@ body.is-scrolled .burger { background: var(--paper); border-color: var(--line-st
 .hero .lede { margin-top: 20px; max-width: 460px; font-size: clamp(17px, 1.3vw, 20px); color: var(--on-dark-2); }
 .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: 30px; }
 .hero-note { font-size: 13.5px; color: var(--on-dark-3); }
-.hero-foot { width: 100%; max-width: var(--max); margin-inline: auto; padding: 0 var(--gutter) max(26px, env(safe-area-inset-bottom)); }
+.hero-foot { min-width: 0; width: 100%; max-width: var(--max); margin-inline: auto; padding: 0 var(--gutter) max(26px, env(safe-area-inset-bottom)); }
 .horizon-wrap { position: relative; }
 .horizon { position: relative; height: 1px; background: var(--line-dark); overflow: hidden; }
 .horizon::before { content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: 30%; background: linear-gradient(to right, transparent, rgba(255,255,255,.7), transparent); animation: scan 6s ease-in-out infinite; }
 @keyframes scan { 0% { transform: translateX(-100%); } 100% { transform: translateX(340%); } }
 .horizon-wrap::after { content: ""; position: absolute; left: 33.333%; top: 0; width: 7px; height: 7px; background: var(--seal); border-radius: 50%; transform: translate(-50%, -50%); box-shadow: 0 0 0 4px var(--seal-soft); }
 /* Índice de lo que resolvemos: cada chip abre su caso en la sección 01 */
-.hero-fixes { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding-top: 20px; }
-.hero-fixes .kicker { color: var(--on-dark-3); margin-right: 8px; }
+.hero-fixes-wrap { display: flex; align-items: center; gap: 16px; padding-top: 20px; }
+.hero-fixes-wrap .kicker { color: var(--on-dark-3); flex: none; }
+.hero-fixes { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; min-width: 0; }
 .hero-fixes a { display: inline-flex; align-items: center; gap: 8px; height: 36px; padding: 0 14px; border: 1px solid var(--line-dark-strong); border-radius: 999px; font-size: 14px; color: var(--on-dark); background: rgba(14,14,14,.35); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); transition: background-color .3s ease, color .3s ease, border-color .3s ease; }
 .hero-fixes a:hover { background: var(--paper); color: var(--ink); border-color: var(--paper); }
 
@@ -294,9 +295,15 @@ body.is-scrolled .burger { background: var(--paper); border-color: var(--line-st
 /* =====================================================================
    01 · LO QUE TE PASA → CÓMO LO RESOLVEMOS (selector)
    ===================================================================== */
-.fix { margin-top: clamp(40px, 5vw, 72px); display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 16px; align-items: stretch; }
-.fix > * { min-width: 0; }
-.fix-tabs { position: relative; display: flex; flex-direction: column; gap: 8px; }
+/* Escritorio: lista a la izquierda y el detalle a la derecha. Celular: acordeón (cada caso abre debajo). */
+.fix { margin-top: clamp(40px, 5vw, 72px); display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); grid-template-rows: repeat(6, auto) minmax(0, 1fr); column-gap: 16px; row-gap: 8px; align-items: start; }
+.fix > *, .fix-item > * { min-width: 0; }
+.fix-item { display: contents; }
+.fix-item:nth-child(1) .fix-tab { grid-row: 1; } .fix-item:nth-child(2) .fix-tab { grid-row: 2; } .fix-item:nth-child(3) .fix-tab { grid-row: 3; }
+.fix-item:nth-child(4) .fix-tab { grid-row: 4; } .fix-item:nth-child(5) .fix-tab { grid-row: 5; }
+.fix-tab { grid-column: 1; }
+.fix-hint { grid-column: 1; grid-row: 6; }
+.fix-panel { grid-column: 2; grid-row: 1 / 8; align-self: stretch; }
 .fix-tab {
   position: relative; overflow: hidden; display: flex; align-items: center; gap: 16px; width: 100%; min-height: 72px;
   padding: 18px 22px; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); color: var(--ink);
@@ -307,20 +314,19 @@ body.is-scrolled .burger { background: var(--paper); border-color: var(--line-st
 .fix-tab .n { font-family: var(--f-impact); font-size: 12px; color: var(--stone); flex: none; width: 24px; transition: color .35s ease; }
 .fix-tab .q { flex: 1; min-width: 0; }
 .fix-tab .go { width: 18px; height: 18px; flex: none; opacity: 0; transform: translateX(-6px); transition: opacity .3s ease, transform .35s var(--ease-out); }
-.fix-tab[aria-selected="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); transform: none; }
-.fix-tab[aria-selected="true"] .n { color: var(--seal); }
-.fix-tab[aria-selected="true"] .go { opacity: 1; transform: none; }
+.fix-tab[aria-expanded="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); transform: none; }
+.fix-tab[aria-expanded="true"] .n { color: var(--seal); }
+.fix-tab[aria-expanded="true"] .go { opacity: 1; transform: none; }
 .fix-tab .bar { position: absolute; left: 0; right: 0; bottom: 0; height: 2px; }
 .fix-tab .bar span { display: block; height: 100%; background: var(--seal); transform-origin: 0 50%; transform: scaleX(0); }
-.fix-tab[aria-selected="true"] .bar span { animation: fill 7s linear forwards; }
+.fix-tab[aria-expanded="true"] .bar span { animation: fill 7s linear forwards; }
 .fix.is-paused .fix-tab .bar span, .fix:not(.in-view) .fix-tab .bar span { animation-play-state: paused; }
 .fix.is-manual .fix-tab .bar span { animation: none; transform: scaleX(0); }
-.fix.is-manual .fix-tab[aria-selected="true"] .bar span { transform: scaleX(1); }
+.fix.is-manual .fix-tab[aria-expanded="true"] .bar span { transform: scaleX(1); }
 @keyframes fill { to { transform: scaleX(1); } }
 .fix-hint { margin-top: 6px; font-size: 13.5px; color: var(--stone); display: flex; align-items: center; gap: 10px; }
 .fix-hint i { width: 18px; height: 1px; background: var(--seal); }
 
-.fix-panels { position: relative; min-width: 0; display: grid; }
 .fix-panel { display: flex; flex-direction: column; min-height: 520px; }
 .js .fix-panel:not(.is-active) { display: none; }
 .js .fix-panel.is-active { animation: panel-in .6s var(--ease-out); }
@@ -541,11 +547,6 @@ body.is-scrolled .burger { background: var(--paper); border-color: var(--line-st
    ===================================================================== */
 .why { display: grid; grid-template-columns: 6fr 6fr; gap: clamp(36px, 6vw, 104px); align-items: start; }
 .why .lead { color: var(--stone); margin-top: 22px; }
-.names { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 4px 18px; }
-.names li { font-family: var(--f-impact); font-size: clamp(22px, 2.4vw, 34px); line-height: 1.25; color: var(--ink); }
-.names li:not(:last-child)::after { content: "·"; color: var(--seal); margin-left: 18px; }
-.names.is-visible li { animation: ink-in 1s var(--ease-out) both; animation-delay: calc(var(--i) * .14s); }
-@keyframes ink-in { from { color: transparent; -webkit-text-stroke: 1px var(--ink); } 60% { color: transparent; -webkit-text-stroke: 1px var(--ink); } to { color: var(--ink); -webkit-text-stroke: 0; } }
 .diffs { margin-top: 36px; display: grid; border-top: 1px solid var(--line-strong); }
 .diffs li { display: flex; align-items: center; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); font-size: 17px; font-weight: 500; }
 .diffs span { width: 40px; height: 40px; flex: none; border-radius: 10px; border: 1px solid var(--line); display: grid; place-items: center; transition: background-color .3s ease, color .3s ease, border-color .3s ease, transform .4s var(--ease-out); }
@@ -641,22 +642,28 @@ body.menu-open .mobile-cta { transform: translateY(140%); }
   body.menu-open .burger .bars span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
   .logo, .burger { z-index: 80; position: relative; }
   .hero-media video, .hero-media img { object-position: 50% 38%; }
-  .hero::after { background: linear-gradient(to top, rgba(14,14,14,.96) 0%, rgba(14,14,14,.9) 34%, rgba(14,14,14,.72) 62%, rgba(14,14,14,.45) 100%); }
+  .hero::after { background: linear-gradient(to top, rgba(14,14,14,.97) 0%, rgba(14,14,14,.9) 42%, rgba(14,14,14,.45) 72%, rgba(14,14,14,.2) 100%); }
   .hud { display: none; }
   .hero h1 { font-size: clamp(22px, 5.9vw, 38px); }
   .section-head, .closing-grid, .why { grid-template-columns: 1fr; }
   .section-head { align-items: start; }
-  /* Selector: los casos se vuelven una tira deslizable sobre el panel */
-  .fix { grid-template-columns: minmax(0, 1fr); }
-  .fix-tabs { flex-direction: row; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--gutter); scrollbar-width: none; margin-inline: calc(var(--gutter) * -1); padding: 2px var(--gutter) 4px; }
-  .fix-tabs::-webkit-scrollbar { display: none; }
-  .fix-tab { flex: 0 0 auto; width: auto; max-width: 74vw; min-height: 60px; padding: 14px 16px; font-size: 15.5px; scroll-snap-align: start; }
+  /* Selector: acordeón. El caso abierto se une a su respuesta. */
+  .fix { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; row-gap: 8px; }
+  .fix-tab, .fix-panel, .fix-hint { grid-column: auto; grid-row: auto !important; }
+  .fix-tab { min-height: 64px; padding: 16px 18px; font-size: 16px; gap: 12px; }
   .fix-tab:hover { transform: none; }
-  .fix-tab .go { display: none; }
+  .fix-tab .go { opacity: 1; transform: rotate(90deg); color: var(--stone); }
+  .fix-tab[aria-expanded="true"] { border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+  .fix-tab[aria-expanded="true"] .go { transform: rotate(-90deg); color: var(--paper); }
+  .fix-tab .bar { display: none; }
+  .fix-panel { min-height: 0; margin-top: -9px; border-top-left-radius: 0; border-top-right-radius: 0; border-top-color: transparent; }
+  .js .fix-panel.is-active { animation: panel-open .45s var(--ease-out); }
+  @keyframes panel-open { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
   .fix-hint { display: none; }
-  .fix-panel { min-height: 0; }
-  .fix-viz { min-height: 220px; padding: 26px 22px 0; }
-  .fix-body { padding: 22px 22px 26px; }
+  .fix-viz { min-height: 0; padding: 26px 18px 0; }
+  .fix-body { padding: 20px 18px 22px; }
+  .fix-body h3 { font-size: 21px; }
+  .fix-body .btn { width: 100%; }
   .orbit { justify-self: start; width: min(78%, 300px); }
   .footer-inner { grid-template-columns: 1fr 1fr; }
   .footer-inner > :first-child { grid-column: 1 / -1; }
@@ -664,16 +671,64 @@ body.menu-open .mobile-cta { transform: translateY(140%); }
   .footer { padding-bottom: calc(96px + env(safe-area-inset-bottom)); }
 }
 @media (max-width: 680px) {
+  :root { --section-y: 68px; }
   body { font-size: 16.5px; }
-  .steps { grid-template-columns: 1fr; }
+  .section-head { gap: 14px; }
+  .lead { font-size: 16.5px; }
+  .fix { margin-top: 32px; }
+  .ba { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .ba .to { display: none; }
+  .ba > div { padding: 10px 12px; font-size: 14.5px; }
+  .chat { font-size: 12.5px; }
+  .browser .results .res:last-child { display: none; }
+  /* Cuatro pasos: línea de tiempo vertical con el pulso bajando */
+  .steps-row { position: relative; padding-left: 24px; margin-top: 32px; }
+  .steps-line { position: absolute; left: 4px; top: 6px; bottom: 6px; width: 1px; height: auto; container-type: size; }
+  .steps-pulse { left: -4px; top: 0; margin-top: 0; }
+  .is-live .steps-pulse { animation-name: steps-run-v; }
+  @keyframes steps-run-v { from { transform: translateY(0); } to { transform: translateY(calc(100cqh - 9px)); } }
+  .steps { grid-template-columns: 1fr; margin-top: 0; gap: 10px; }
+  .step { padding: 18px 18px 16px; }
+  .step-viz { display: none; }
+  .step-num { font-size: 22px; }
+  .step h3 { margin-top: 10px; font-size: 18px; }
+  .step p { font-size: 15px; margin-top: 4px; }
+  .step .tag { padding-top: 10px; }
+  .method-cta { margin-top: 24px; }
+  .method-cta .btn { width: 100%; }
+  .method-cta p { width: 100%; text-align: center; font-size: 14px; }
+  /* Chips del hero en una sola fila deslizable */
+  .hero-fixes-wrap { flex-direction: column; align-items: stretch; gap: 10px; padding-top: 16px; }
+  .hero-fixes { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-inline: calc(var(--gutter) * -1); padding-inline: var(--gutter);
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 var(--gutter), #000 calc(100% - 40px), transparent); mask-image: linear-gradient(to right, transparent 0, #000 var(--gutter), #000 calc(100% - 40px), transparent); }
+  .hero-fixes::-webkit-scrollbar { display: none; }
+  .hero-fixes a { flex: none; }
+  .hero .lede { margin-top: 16px; }
+  .hero-actions { margin-top: 24px; gap: 10px; }
+  .badge { margin-bottom: 20px; }
+  /* Por qué + preguntas */
+  .diffs { margin-top: 26px; }
+  .diffs li { font-size: 16px; padding: 14px 0; }
+  .faq summary { padding: 18px; font-size: 16px; }
+  .faq .answer { padding: 0 18px 18px; font-size: 15.5px; }
+  /* Cierre: emblema pequeño arriba */
+  .closing-grid { gap: 24px; }
+  .orbit { order: -1; width: 132px; }
+  .orbit-arm::after { width: 9px; height: 9px; margin-top: -4.5px; right: -4.5px; }
+  .closing-actions .btn { width: 100%; }
+  .contact-list { font-size: 15px; }
   .hero-actions .btn { width: 100%; }
   .hero-note { width: 100%; text-align: center; }
   .badge { letter-spacing: .2em; font-size: 11px; }
-  .hero-fixes .kicker { width: 100%; }
-  .hero-fixes a { height: 34px; font-size: 13.5px; padding: 0 12px; }
+  .hero-fixes a { height: 36px; font-size: 13.5px; padding: 0 13px; }
   .flow-row .node { font-size: 11px; padding: 7px 8px; }
-  .footer-inner { grid-template-columns: 1fr; }
-  .names li { font-size: 22px; }
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 28px 20px; padding-top: 36px; }
+  .footer-bottom { flex-direction: column; margin-top: 32px; gap: 6px; }
+}
+@media (max-width: 380px) {
+  .flow-row .node { font-size: 10.5px; padding: 6px 7px; }
+  .ba { grid-template-columns: 1fr; }
+  .kanban { width: 100%; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -751,14 +806,16 @@ body.menu-open .mobile-cta { transform: translateY(140%); }
 
     <div class="hero-foot">
       <div class="horizon-wrap appear appear--soft" style="--d:1.05s" aria-hidden="true"><div class="horizon"></div></div>
-      <nav class="hero-fixes" aria-label="Lo que resolvemos">
+<div class="hero-fixes-wrap">
         <span class="kicker appear appear--stat" style="--d:1.1s">Automatizamos</span>
+        <nav class="hero-fixes" aria-label="Lo que resolvemos">
         <a class="appear appear--stat" style="--d:1.16s" href="#resolvemos" data-tab="0">Atención en WhatsApp</a>
         <a class="appear appear--stat" style="--d:1.22s" href="#resolvemos" data-tab="1">Tareas repetitivas</a>
         <a class="appear appear--stat" style="--d:1.28s" href="#resolvemos" data-tab="2">Seguimiento de clientes</a>
         <a class="appear appear--stat" style="--d:1.34s" href="#resolvemos" data-tab="3">Sitio web y Google</a>
         <a class="appear appear--stat" style="--d:1.40s" href="#resolvemos" data-tab="4">Diagnóstico</a>
       </nav>
+      </div>
     </div>
   </section>
 
@@ -783,132 +840,135 @@ body.menu-open .mobile-cta { transform: translateY(140%); }
       </div>
 
       <div class="fix">
-        <div>
-          <div class="fix-tabs" role="tablist" aria-label="Lo que te pasa">
-            <button class="fix-tab" role="tab" id="tab-0" aria-controls="fix-0" aria-selected="true" tabindex="0" type="button"><span class="n">01</span><span class="q">“Me escriben y no alcanzo a contestar.”</span><svg class="go" aria-hidden="true"><use href="#i-arrow"/></svg><span class="bar" aria-hidden="true"><span></span></span></button>
-            <button class="fix-tab" role="tab" id="tab-1" aria-controls="fix-1" aria-selected="false" tabindex="-1" type="button"><span class="n">02</span><span class="q">“Hago lo mismo todos los días.”</span><svg class="go" aria-hidden="true"><use href="#i-arrow"/></svg><span class="bar" aria-hidden="true"><span></span></span></button>
-            <button class="fix-tab" role="tab" id="tab-2" aria-controls="fix-2" aria-selected="false" tabindex="-1" type="button"><span class="n">03</span><span class="q">“Cotizo y el cliente se enfría.”</span><svg class="go" aria-hidden="true"><use href="#i-arrow"/></svg><span class="bar" aria-hidden="true"><span></span></span></button>
-            <button class="fix-tab" role="tab" id="tab-3" aria-controls="fix-3" aria-selected="false" tabindex="-1" type="button"><span class="n">04</span><span class="q">“No me encuentran en internet.”</span><svg class="go" aria-hidden="true"><use href="#i-arrow"/></svg><span class="bar" aria-hidden="true"><span></span></span></button>
-            <button class="fix-tab" role="tab" id="tab-4" aria-controls="fix-4" aria-selected="false" tabindex="-1" type="button"><span class="n">05</span><span class="q">“No sé qué automatizar primero.”</span><svg class="go" aria-hidden="true"><use href="#i-arrow"/></svg><span class="bar" aria-hidden="true"><span></span></span></button>
-          </div>
-          <p class="fix-hint"><i></i>Lo que nos dicen los dueños de negocio</p>
-        </div>
-
-        <div class="fix-panels">
-          <article class="glow fix-panel is-active" role="tabpanel" id="fix-0" aria-labelledby="tab-0" tabindex="0" data-live>
-<div class="fix-viz" aria-hidden="true">
-              <div class="chat">
-                <div class="chat-head"><span class="bot"><svg><use href="#i-bot"/></svg></span><b>Agente de IA</b><i>en línea</i></div>
-                <div class="bubble b-in c1">Hola, ¿tienen cita hoy?<small>23:41</small></div>
-                <div class="typing c2"><i></i><i></i><i></i></div>
-                <div class="bubble b-out c3">Hola. Sí, elige tu horario:<small>23:41</small></div>
-                <div class="slots c4"><span>10:00</span><span class="pick">12:30</span><span>17:00</span></div>
-                <div class="bubble b-in c5">12:30, por favor<small>23:42</small></div>
-                <div class="bubble b-out c6">Listo. Te esperamos.<small>23:42</small></div>
-              </div>
-            </div>
-            <div class="fix-body">
-              <p class="kicker">Agente de IA para WhatsApp</p>
-              <h3>Un agente que responde, cotiza y agenda por ti.</h3>
-              <div class="ba">
-                <div class="before"><small>Hoy</small>Contestas al día siguiente.</div>
-                <svg class="to" aria-hidden="true"><use href="#i-arrow"/></svg>
-                <div class="after"><small>Con Riablo</small>Responde en segundos, las 24 horas.</div>
-              </div>
-              <a class="btn btn--light" href="https://wa.me/525586353618?text=Hola%2C%20Riablo%20Studio.%20Me%20escriben%20por%20WhatsApp%20y%20no%20alcanzo%20a%20contestar.%20Me%20interesa%20un%20agente%20de%20IA.%20Mi%20negocio%20es%3A%20" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-chat"/></svg>Quiero mi agente</a>
-            </div>
-          </article>
-          <article class="glow fix-panel" role="tabpanel" id="fix-1" aria-labelledby="tab-1" tabindex="0" data-live>
-<div class="fix-viz" aria-hidden="true">
-              <div class="flow">
-                <div class="flow-row">
-                  <span class="flow-line"></span><span class="flow-pulse"></span>
-                  <span class="node">Pedido</span><span class="node extra">Captura a mano</span><span class="node">Confirmación</span><span class="node">Entrega</span>
+        <div class="fix-item">
+          <button class="fix-tab" id="tab-0" aria-controls="fix-0" aria-expanded="true" type="button"><span class="n">01</span><span class="q">“Me escriben y no alcanzo a contestar.”</span><svg class="go" aria-hidden="true"><use href="#i-arrow"/></svg><span class="bar" aria-hidden="true"><span></span></span></button>
+    <article class="glow fix-panel is-active" role="region" id="fix-0" aria-labelledby="tab-0" data-live>
+  <div class="fix-viz" aria-hidden="true">
+                <div class="chat">
+                  <div class="chat-head"><span class="bot"><svg><use href="#i-bot"/></svg></span><b>Agente de IA</b><i>en línea</i></div>
+                  <div class="bubble b-in c1">Hola, ¿tienen cita hoy?<small>23:41</small></div>
+                  <div class="typing c2"><i></i><i></i><i></i></div>
+                  <div class="bubble b-out c3">Hola. Sí, elige tu horario:<small>23:41</small></div>
+                  <div class="slots c4"><span>10:00</span><span class="pick">12:30</span><span>17:00</span></div>
+                  <div class="bubble b-in c5">12:30, por favor<small>23:42</small></div>
+                  <div class="bubble b-out c6">Listo. Te esperamos.<small>23:42</small></div>
                 </div>
-                <div class="flow-bot"><span><svg><use href="#i-bot"/></svg></span>Lo hace un agente, sin errores</div>
               </div>
-            </div>
-            <div class="fix-body">
-              <p class="kicker">Automatización de procesos</p>
-              <h3>Lo que se repite, que se haga solo.</h3>
-              <div class="ba">
-                <div class="before"><small>Hoy</small>Capturas, copias y pegas a mano.</div>
-                <svg class="to" aria-hidden="true"><use href="#i-arrow"/></svg>
-                <div class="after"><small>Con Riablo</small>Se hace solo y tu equipo se enfoca en vender.</div>
-              </div>
-              <a class="btn btn--light" href="https://wa.me/525586353618?text=Hola%2C%20Riablo%20Studio.%20Hago%20las%20mismas%20tareas%20todos%20los%20d%C3%ADas%20y%20quiero%20automatizarlas.%20Mi%20negocio%20es%3A%20" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-chat"/></svg>Quiero automatizar esto</a>
-            </div>
-          </article>
-          <article class="glow fix-panel" role="tabpanel" id="fix-2" aria-labelledby="tab-2" tabindex="0" data-live>
-<div class="fix-viz" aria-hidden="true">
-              <div class="kanban">
-                <div class="col"><b>Nuevo</b><span class="k-card"><i></i><i></i></span><span class="k-card"><i></i><i></i></span></div>
-                <div class="col"><b>Cotizado</b><span class="k-card"><i></i><i></i></span></div>
-                <div class="col"><b>Cliente</b><span class="k-card"><i></i><i></i></span><span class="k-card"><i></i><i></i></span></div>
-                <span class="k-card k-move"><i></i><i></i></span>
-                <span class="k-alert"><i></i>Seguimiento enviado</span>
-              </div>
-            </div>
-            <div class="fix-body">
-              <p class="kicker">Seguimiento automático</p>
-              <h3>Ninguna cotización se queda en el aire.</h3>
-              <div class="ba">
-                <div class="before"><small>Hoy</small>Nadie da seguimiento.</div>
-                <svg class="to" aria-hidden="true"><use href="#i-arrow"/></svg>
-                <div class="after"><small>Con Riablo</small>El agente escribe, recuerda y te avisa.</div>
-              </div>
-              <a class="btn btn--light" href="https://wa.me/525586353618?text=Hola%2C%20Riablo%20Studio.%20Cotizo%20y%20mis%20clientes%20se%20enfr%C3%ADan.%20Quiero%20seguimiento%20autom%C3%A1tico.%20Mi%20negocio%20es%3A%20" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-chat"/></svg>Quiero automatizar esto</a>
-            </div>
-          </article>
-          <article class="glow fix-panel" role="tabpanel" id="fix-3" aria-labelledby="tab-3" tabindex="0" data-live>
-<div class="fix-viz" aria-hidden="true">
-              <div class="browser">
-                <div class="browser-bar"><span></span><span></span><span></span><div class="url">google.com</div></div>
-                <div class="search"><svg><use href="#i-search"/></svg><span class="typed">dentista cerca de mí</span><i class="caret"></i></div>
-                <ul class="results">
-                  <li class="res res-you"><span class="pin"><svg><use href="#i-pin"/></svg></span><span><b>Tu negocio</b><span>Abierto ahora · Cómo llegar · WhatsApp</span></span></li>
-                  <li class="res"><span class="pin"></span><span class="lines"><i></i><i></i></span></li>
-                  <li class="res"><span class="pin"></span><span class="lines"><i></i><i></i></span></li>
-                </ul>
-              </div>
-            </div>
-            <div class="fix-body">
-              <p class="kicker">Sitio web y Google</p>
-              <h3>Que te encuentren y te escriban.</h3>
-              <div class="ba">
-                <div class="before"><small>Hoy</small>Buscan tu giro y aparece otro.</div>
-                <svg class="to" aria-hidden="true"><use href="#i-arrow"/></svg>
-                <div class="after"><small>Con Riablo</small>Apareces y el agente atiende al instante.</div>
-              </div>
-              <a class="btn btn--light" href="https://wa.me/525586353618?text=Hola%2C%20Riablo%20Studio.%20No%20me%20encuentran%20en%20internet%20y%20quiero%20resolverlo.%20Mi%20negocio%20es%3A%20" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-chat"/></svg>Quiero resolver esto</a>
-            </div>
-          </article>
-          <article class="glow fix-panel" role="tabpanel" id="fix-4" aria-labelledby="tab-4" tabindex="0" data-live>
-<div class="fix-viz" aria-hidden="true">
-              <div class="viz-diag">
-                <div class="scan-head"><span>Tu negocio</span><b>Revisando</b></div>
-                <div class="radar">
-                  <span class="sweep"></span>
-                  <span class="ring r1"></span><span class="ring r2"></span><span class="ring r3"></span>
-                  <span class="axis ax"></span><span class="axis ay"></span>
-                  <span class="radar-center"></span>
-                  <span class="blip b1"></span><span class="blip b2"></span><span class="blip b3"></span>
+              <div class="fix-body">
+                <p class="kicker">Agente de IA para WhatsApp</p>
+                <h3>Un agente que responde, cotiza y agenda por ti.</h3>
+                <div class="ba">
+                  <div class="before"><small>Hoy</small>Contestas al día siguiente.</div>
+                  <svg class="to" aria-hidden="true"><use href="#i-arrow"/></svg>
+                  <div class="after"><small>Con Riablo</small>Responde en segundos, las 24 horas.</div>
                 </div>
-                <ul class="radar-legend"><li><i></i>Automatizar ya</li><li><i></i>Puede esperar</li></ul>
+                <a class="btn btn--light" href="https://wa.me/525586353618?text=Hola%2C%20Riablo%20Studio.%20Me%20escriben%20por%20WhatsApp%20y%20no%20alcanzo%20a%20contestar.%20Me%20interesa%20un%20agente%20de%20IA.%20Mi%20negocio%20es%3A%20" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-chat"/></svg>Quiero mi agente</a>
               </div>
-            </div>
-            <div class="fix-body">
-              <p class="kicker">Diagnóstico · sin costo</p>
-              <h3>Te decimos qué automatizar primero.</h3>
-              <div class="ba">
-                <div class="before"><small>Hoy</small>No sabes por dónde empezar.</div>
-                <svg class="to" aria-hidden="true"><use href="#i-arrow"/></svg>
-                <div class="after"><small>Con Riablo</small>Sabes qué automatizar y en qué orden.</div>
-              </div>
-              <a class="btn btn--light" href="https://wa.me/525586353618?text=Hola%2C%20Riablo%20Studio.%20Me%20gustar%C3%ADa%20agendar%20mi%20diagn%C3%B3stico%20sin%20costo.%20Mi%20negocio%20es%3A%20" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-chat"/></svg>Agenda tu diagnóstico</a>
-            </div>
-          </article>
+            </article>
         </div>
+        <div class="fix-item">
+          <button class="fix-tab" id="tab-1" aria-controls="fix-1" aria-expanded="false" type="button"><span class="n">02</span><span class="q">“Hago lo mismo todos los días.”</span><svg class="go" aria-hidden="true"><use href="#i-arrow"/></svg><span class="bar" aria-hidden="true"><span></span></span></button>
+    <article class="glow fix-panel" role="region" id="fix-1" aria-labelledby="tab-1" data-live>
+  <div class="fix-viz" aria-hidden="true">
+                <div class="flow">
+                  <div class="flow-row">
+                    <span class="flow-line"></span><span class="flow-pulse"></span>
+                    <span class="node">Pedido</span><span class="node extra">Captura a mano</span><span class="node">Confirmación</span><span class="node">Entrega</span>
+                  </div>
+                  <div class="flow-bot"><span><svg><use href="#i-bot"/></svg></span>Lo hace un agente, sin errores</div>
+                </div>
+              </div>
+              <div class="fix-body">
+                <p class="kicker">Automatización de procesos</p>
+                <h3>Lo que se repite, que se haga solo.</h3>
+                <div class="ba">
+                  <div class="before"><small>Hoy</small>Capturas, copias y pegas a mano.</div>
+                  <svg class="to" aria-hidden="true"><use href="#i-arrow"/></svg>
+                  <div class="after"><small>Con Riablo</small>Se hace solo y tu equipo se enfoca en vender.</div>
+                </div>
+                <a class="btn btn--light" href="https://wa.me/525586353618?text=Hola%2C%20Riablo%20Studio.%20Hago%20las%20mismas%20tareas%20todos%20los%20d%C3%ADas%20y%20quiero%20automatizarlas.%20Mi%20negocio%20es%3A%20" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-chat"/></svg>Quiero automatizar esto</a>
+              </div>
+            </article>
+        </div>
+        <div class="fix-item">
+          <button class="fix-tab" id="tab-2" aria-controls="fix-2" aria-expanded="false" type="button"><span class="n">03</span><span class="q">“Cotizo y el cliente se enfría.”</span><svg class="go" aria-hidden="true"><use href="#i-arrow"/></svg><span class="bar" aria-hidden="true"><span></span></span></button>
+    <article class="glow fix-panel" role="region" id="fix-2" aria-labelledby="tab-2" data-live>
+  <div class="fix-viz" aria-hidden="true">
+                <div class="kanban">
+                  <div class="col"><b>Nuevo</b><span class="k-card"><i></i><i></i></span><span class="k-card"><i></i><i></i></span></div>
+                  <div class="col"><b>Cotizado</b><span class="k-card"><i></i><i></i></span></div>
+                  <div class="col"><b>Cliente</b><span class="k-card"><i></i><i></i></span><span class="k-card"><i></i><i></i></span></div>
+                  <span class="k-card k-move"><i></i><i></i></span>
+                  <span class="k-alert"><i></i>Seguimiento enviado</span>
+                </div>
+              </div>
+              <div class="fix-body">
+                <p class="kicker">Seguimiento automático</p>
+                <h3>Ninguna cotización se queda en el aire.</h3>
+                <div class="ba">
+                  <div class="before"><small>Hoy</small>Nadie da seguimiento.</div>
+                  <svg class="to" aria-hidden="true"><use href="#i-arrow"/></svg>
+                  <div class="after"><small>Con Riablo</small>El agente escribe, recuerda y te avisa.</div>
+                </div>
+                <a class="btn btn--light" href="https://wa.me/525586353618?text=Hola%2C%20Riablo%20Studio.%20Cotizo%20y%20mis%20clientes%20se%20enfr%C3%ADan.%20Quiero%20seguimiento%20autom%C3%A1tico.%20Mi%20negocio%20es%3A%20" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-chat"/></svg>Quiero automatizar esto</a>
+              </div>
+            </article>
+        </div>
+        <div class="fix-item">
+          <button class="fix-tab" id="tab-3" aria-controls="fix-3" aria-expanded="false" type="button"><span class="n">04</span><span class="q">“No me encuentran en internet.”</span><svg class="go" aria-hidden="true"><use href="#i-arrow"/></svg><span class="bar" aria-hidden="true"><span></span></span></button>
+    <article class="glow fix-panel" role="region" id="fix-3" aria-labelledby="tab-3" data-live>
+  <div class="fix-viz" aria-hidden="true">
+                <div class="browser">
+                  <div class="browser-bar"><span></span><span></span><span></span><div class="url">google.com</div></div>
+                  <div class="search"><svg><use href="#i-search"/></svg><span class="typed">dentista cerca de mí</span><i class="caret"></i></div>
+                  <ul class="results">
+                    <li class="res res-you"><span class="pin"><svg><use href="#i-pin"/></svg></span><span><b>Tu negocio</b><span>Abierto ahora · Cómo llegar · WhatsApp</span></span></li>
+                    <li class="res"><span class="pin"></span><span class="lines"><i></i><i></i></span></li>
+                    <li class="res"><span class="pin"></span><span class="lines"><i></i><i></i></span></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="fix-body">
+                <p class="kicker">Sitio web y Google</p>
+                <h3>Que te encuentren y te escriban.</h3>
+                <div class="ba">
+                  <div class="before"><small>Hoy</small>Buscan tu giro y aparece otro.</div>
+                  <svg class="to" aria-hidden="true"><use href="#i-arrow"/></svg>
+                  <div class="after"><small>Con Riablo</small>Apareces y el agente atiende al instante.</div>
+                </div>
+                <a class="btn btn--light" href="https://wa.me/525586353618?text=Hola%2C%20Riablo%20Studio.%20No%20me%20encuentran%20en%20internet%20y%20quiero%20resolverlo.%20Mi%20negocio%20es%3A%20" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-chat"/></svg>Quiero resolver esto</a>
+              </div>
+            </article>
+        </div>
+        <div class="fix-item">
+          <button class="fix-tab" id="tab-4" aria-controls="fix-4" aria-expanded="false" type="button"><span class="n">05</span><span class="q">“No sé qué automatizar primero.”</span><svg class="go" aria-hidden="true"><use href="#i-arrow"/></svg><span class="bar" aria-hidden="true"><span></span></span></button>
+    <article class="glow fix-panel" role="region" id="fix-4" aria-labelledby="tab-4" data-live>
+  <div class="fix-viz" aria-hidden="true">
+                <div class="viz-diag">
+                  <div class="scan-head"><span>Tu negocio</span><b>Revisando</b></div>
+                  <div class="radar">
+                    <span class="sweep"></span>
+                    <span class="ring r1"></span><span class="ring r2"></span><span class="ring r3"></span>
+                    <span class="axis ax"></span><span class="axis ay"></span>
+                    <span class="radar-center"></span>
+                    <span class="blip b1"></span><span class="blip b2"></span><span class="blip b3"></span>
+                  </div>
+                  <ul class="radar-legend"><li><i></i>Automatizar ya</li><li><i></i>Puede esperar</li></ul>
+                </div>
+              </div>
+              <div class="fix-body">
+                <p class="kicker">Diagnóstico · sin costo</p>
+                <h3>Te decimos qué automatizar primero.</h3>
+                <div class="ba">
+                  <div class="before"><small>Hoy</small>No sabes por dónde empezar.</div>
+                  <svg class="to" aria-hidden="true"><use href="#i-arrow"/></svg>
+                  <div class="after"><small>Con Riablo</small>Sabes qué automatizar y en qué orden.</div>
+                </div>
+                <a class="btn btn--light" href="https://wa.me/525586353618?text=Hola%2C%20Riablo%20Studio.%20Me%20gustar%C3%ADa%20agendar%20mi%20diagn%C3%B3stico%20sin%20costo.%20Mi%20negocio%20es%3A%20" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-chat"/></svg>Agenda tu diagnóstico</a>
+              </div>
+            </article>
+        </div>
+        <p class="fix-hint"><i></i>Lo que nos dicen los dueños de negocio</p>
       </div>
     </div>
   </section>
@@ -972,10 +1032,7 @@ body.menu-open .mobile-cta { transform: translateY(140%); }
       <div class="reveal">
         <p class="label">03 · Por qué Riablo</p>
         <h2 class="h2" id="nosotros-title">Diseño y tecnología con <em>colmillo</em>.</h2>
-        <p class="lead">Colmillo es experiencia. Hemos diseñado productos digitales para</p>
-        <ul class="names reveal" aria-label="Marcas para las que hemos diseñado">
-          <li style="--i:0">Ibero</li><li style="--i:1">Aeroméxico</li><li style="--i:2">OCC</li><li style="--i:3">SEP</li>
-        </ul>
+        <p class="lead">Colmillo es experiencia: te decimos lo que vemos, sin rodeos.</p>
         <ul class="diffs">
           <li><span><svg aria-hidden="true"><use href="#i-bot"/></svg></span>Agentes de IA a la medida, no plantillas.</li>
           <li><span><svg aria-hidden="true"><use href="#i-target"/></svg></span>Una recomendación, no diez opciones.</li>
@@ -1127,50 +1184,61 @@ body.menu-open .mobile-cta { transform: translateY(140%); }
   }
   window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
 
-  /* 01 · Selector: lo que te pasa → cómo lo resolvemos.
-     Avanza solo cada 7 s mientras se ve; al tocar un caso se queda fijo. */
+  /* 01 · Lo que te pasa → cómo lo automatizamos.
+     Escritorio: lista + detalle que avanza sola cada 7 s mientras se ve (se detiene al tocar).
+     Celular: acordeón; abre el caso tocado justo debajo y no avanza solo. */
   var fix = document.querySelector('.fix');
-  var strip = fix.querySelector('.fix-tabs');
   var tabs = [].slice.call(fix.querySelectorAll('.fix-tab'));
   var panels = tabs.map(function (t) { return document.getElementById(t.getAttribute('aria-controls')); });
+  var wide = window.matchMedia('(min-width: 901px)');
   var current = 0;
-  function select(i, focus) {
+  function render(i) {
     current = i;
     tabs.forEach(function (t, k) {
       var on = k === i;
-      t.setAttribute('aria-selected', on ? 'true' : 'false');
-      t.tabIndex = on ? 0 : -1;
+      t.setAttribute('aria-expanded', on ? 'true' : 'false');
       panels[k].classList.toggle('is-active', on);
     });
-    if (strip.scrollWidth > strip.clientWidth + 2) {
-      var pad = parseFloat(getComputedStyle(strip).paddingLeft) || 0;
-      strip.scrollTo({ left: tabs[i].offsetLeft - pad, behavior: reduce ? 'auto' : 'smooth' });
+  }
+  /* En celular, mantiene el botón tocado en el mismo lugar aunque se cierre el caso de arriba */
+  function select(i, focus) {
+    var t = tabs[i], before = t.getBoundingClientRect().top;
+    if (!wide.matches && i === current) { render(-1); }
+    else { render(i); }
+    if (!wide.matches) {
+      var shift = t.getBoundingClientRect().top - before;
+      if (shift) window.scrollBy(0, shift);
     }
-    if (focus) tabs[i].focus();
+    if (focus) t.focus();
   }
   function manual() { fix.classList.add('is-manual'); }
-  if (reduce) manual();
+  if (reduce || !wide.matches) manual();
+  wide.addEventListener('change', function (e) { if (!e.matches) manual(); if (e.matches && current < 0) render(0); });
   tabs.forEach(function (t, i) {
     t.addEventListener('click', function () { manual(); select(i); });
     t.querySelector('.bar span').addEventListener('animationend', function () {
-      if (!fix.classList.contains('is-manual')) select((i + 1) % tabs.length);
+      if (!fix.classList.contains('is-manual') && wide.matches) render((i + 1) % tabs.length);
     });
   });
-  strip.addEventListener('keydown', function (e) {
-    var k = e.key, n = tabs.length, next = null;
-    if (k === 'ArrowDown' || k === 'ArrowRight') next = (current + 1) % n;
-    if (k === 'ArrowUp' || k === 'ArrowLeft') next = (current - 1 + n) % n;
-    if (k === 'Home') next = 0;
-    if (k === 'End') next = n - 1;
-    if (next !== null) { e.preventDefault(); manual(); select(next, true); }
+  fix.addEventListener('keydown', function (e) {
+    var k = e.key, n = tabs.length, idx = tabs.indexOf(document.activeElement), next = null;
+    if (idx < 0) return;
+    if (k === 'ArrowDown') next = (idx + 1) % n;
+    if (k === 'ArrowUp') next = (idx - 1 + n) % n;
+    if (next !== null) { e.preventDefault(); manual(); if (wide.matches) select(next, true); else tabs[next].focus(); }
   });
   fix.addEventListener('mouseenter', function () { fix.classList.add('is-paused'); });
   fix.addEventListener('mouseleave', function () { fix.classList.remove('is-paused'); });
   fix.addEventListener('focusin', function () { fix.classList.add('is-paused'); });
   fix.addEventListener('focusout', function () { fix.classList.remove('is-paused'); });
-  /* Los chips del hero abren su caso */
+  /* Los chips del hero abren su caso y llevan a él */
   document.querySelectorAll('[data-tab]').forEach(function (a) {
-    a.addEventListener('click', function () { manual(); select(parseInt(a.getAttribute('data-tab'), 10)); });
+    a.addEventListener('click', function (e) {
+      var i = parseInt(a.getAttribute('data-tab'), 10);
+      e.preventDefault(); manual(); render(i);
+      var target = wide.matches ? document.getElementById('resolvemos') : tabs[i];
+      target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+    });
   });
 
   /* Luz que sigue al cursor en las tarjetas oscuras (solo con mouse) */
